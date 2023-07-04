@@ -271,6 +271,7 @@ for (let i = 1; i <= testItems.length; i += 1) {
 
 const testsEl = document.querySelector(".tests");
 const btnEl = document.querySelector(".answer-container");
+const mainContainer = document.querySelector(".container");
 
 const markup = testItems
     .map(
@@ -278,20 +279,33 @@ const markup = testItems
             `<li class="test-item">
     <p class="test-item-text"> ${id}. ${question} </p>
   </li>`
-    );
-//   .join("");
-
+);
+    
+let firstCaseCounter = 0;
+const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`
+    
 //console.log(markup);
-testsEl.insertAdjacentHTML("afterbegin", markup[0]);
+let i =73;
+testsEl.insertAdjacentHTML("afterbegin", markup[i-1]);
+
+const firstCase = [74, 77];
 
 const clickItem = (evt) => {
-  //evt.preventDefault();
-  const { target } = evt;
+  const { target } = evt; 
   if (!target.classList.contains("answer-btn")) {
     return;
   }
-  testsEl.innerHTML = markup[1];
-  console.log("sss")
+  if (firstCase.includes(i) && evt.target.dataset.answer === "no") {
+  firstCaseCounter += 1;
+}
+  if (i < markup.length) {
+    testsEl.innerHTML = markup[i];
+    i += 1;
+  }
+  else {
+    const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`;
+    mainContainer.innerHTML = result;
+  }
 };
 
 btnEl.addEventListener("click", clickItem);
