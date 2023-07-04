@@ -270,6 +270,7 @@ for (let i = 1; i <= testItems.length; i += 1) {
 }
 
 const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
 
 const markup = testItems
     .map(
@@ -286,10 +287,11 @@ testsEl.insertAdjacentHTML("afterbegin", markup[0]);
 const clickItem = (evt) => {
   //evt.preventDefault();
   const { target } = evt;
-  if (!target.classList.contains("test-item-text")) {
+  if (!target.classList.contains("answer-btn")) {
     return;
-    }
-    console.log('ssssss')
+  }
+  testsEl.innerHTML = markup[1];
+  console.log("sss")
 };
 
-testsEl.addEventListener("click", clickItem);
+btnEl.addEventListener("click", clickItem);
