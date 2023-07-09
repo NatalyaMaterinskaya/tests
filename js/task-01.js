@@ -266,44 +266,86 @@ const testItems = [
 ];
 
 for (let i = 1; i <= testItems.length; i += 1) {
-  testItems[i-1].id = i;
+  testItems[i - 1].id = i;
 }
 
 const testsEl = document.querySelector(".tests");
 const btnEl = document.querySelector(".answer-container");
 const mainContainer = document.querySelector(".container");
 
-const markup = testItems
-    .map(
-        ({ id, question }) =>
-            `<li class="test-item">
+const markup = testItems.map(
+  ({ id, question }) =>
+    `<li class="test-item">
     <p class="test-item-text"> ${id}. ${question} </p>
   </li>`
 );
-    
-let firstCaseCounter = 0;
-const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`
-    
-//console.log(markup);
-let i =73;
-testsEl.insertAdjacentHTML("afterbegin", markup[i-1]);
 
-const firstCase = [74, 77];
+let firstCaseCounter = 0;
+let secondCaseCounter = 0;
+let thirdCaseCounter = 0;
+const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`;
+
+//console.log(markup);
+let i = 60;
+testsEl.insertAdjacentHTML("afterbegin", markup[i - 1]);
+
+const firstCaseYes = [
+  4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 27, 28, 29,
+  31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+  52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 63, 64, 65, 66, 68, 69, 70, 71, 72,
+  73, 74, 76, 77,
+];
+
+const firstCaseNo = [1, 2, 3, 11, 16, 21, 25, 26, 30, 38, 42, 62, 67, 75];
+
+const secondCaseYes = [
+  6, 7, 12, 13, 14, 18, 27, 31, 32, 33, 34, 37, 41, 43, 46, 48, 49, 51, 52, 53,
+  55, 57, 58, 59, 60, 61, 63, 64, 71, 72, 73, 74,
+];
+
+const secondCaseNo = [1, 2, 9, 11, 21, 25, 26, 30, 38, 42, 67];
+
+const thirdCaseYes = [
+  3, 4, 5, 8, 10, 15, 17, 19, 20, 22, 23, 24, 28, 29, 35, 36, 39, 40, 44, 45,
+  47, 50, 54, 56, 65, 66, 68, 69, 70, 76, 77,
+];
+
+const thirdCaseNo = [16, 62, 75];
 
 const clickItem = (evt) => {
-  const { target } = evt; 
+  const { target } = evt;
   if (!target.classList.contains("answer-btn")) {
     return;
   }
-  if (firstCase.includes(i) && evt.target.dataset.answer === "no") {
-  firstCaseCounter += 1;
-}
+  if (evt.target.dataset.answer === "yes") {
+    if (firstCaseYes.includes(i)) {
+      firstCaseCounter += 1;
+    }
+    if (secondCaseYes.includes(i)) {
+      secondCaseCounter += 1;
+    }
+    if (thirdCaseYes.includes(i)) {
+      thirdCaseCounter += 1;
+    }
+  }
+  if (evt.target.dataset.answer === "no") {
+    if (firstCaseNo.includes(i)) {
+      firstCaseCounter += 1;
+    }
+    if (secondCaseNo.includes(i)) {
+      secondCaseCounter += 1;
+    }
+    if (thirdCaseNo.includes(i)) {
+      thirdCaseCounter += 1;
+    }
+  }
   if (i < markup.length) {
     testsEl.innerHTML = markup[i];
     i += 1;
-  }
-  else {
-    const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`;
+  } else {
+    const result = `<p class="result"> Результат №1 = ${firstCaseCounter}. </p>
+    <p class="result"> Результат №2 = ${secondCaseCounter}. </p>
+    <p class="result"> Результат №3 = ${thirdCaseCounter}. </p>`;
     mainContainer.innerHTML = result;
   }
 };
