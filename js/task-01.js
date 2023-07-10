@@ -351,3 +351,34 @@ const clickItem = (evt) => {
 };
 
 btnEl.addEventListener("click", clickItem);
+
+//Input logic
+const formEl = document.querySelector(".feedback-form");
+//const dataFromStorage = localStorage.getItem("feedback-form-state");
+let userName = null;
+
+const handleInput = (event) => {
+  userName = event.target.value;
+  localStorage.setItem("feedback-form-state", JSON.stringify(userName));
+};
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const {
+    elements: { name },
+  } = event.currentTarget;
+
+  console.log(name);
+  if (name.value.trim() === "") {
+    alert("Please fill in all the fields!");
+  } else {
+    console.log(userName);
+    userName = null;
+    event.currentTarget.reset();
+  }
+};
+
+
+formEl.addEventListener("input", handleInput);
+formEl.addEventListener("submit", handleSubmit);
+//*Input logic
