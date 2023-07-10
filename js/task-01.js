@@ -1,3 +1,4 @@
+//questions
 const testItems = [
   {
     question: "Зазвичай вранці я прокидаюся свіжим і відпочилим.",
@@ -264,14 +265,16 @@ const testItems = [
       "Безглуздо засуджувати людей, які прагнуть отримати від життя все, що зможуть.",
   },
 ];
+//questions
 
 for (let i = 1; i <= testItems.length; i += 1) {
   testItems[i - 1].id = i;
 }
 
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
 const testsEl = document.querySelector(".tests");
 const btnEl = document.querySelector(".answer-container");
-const mainContainer = document.querySelector(".container");
 
 const markup = testItems.map(
   ({ id, question }) =>
@@ -279,15 +282,13 @@ const markup = testItems.map(
     <p class="test-item-text"> ${id}. ${question} </p>
   </li>`
 );
+const monthArr = ["січня", "лтого", "березня", "квітня",  "травня", "червня","липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
 
 let firstCaseCounter = 0;
 let secondCaseCounter = 0;
 let thirdCaseCounter = 0;
-const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`;
-
-//console.log(markup);
-let i = 1;
-testsEl.insertAdjacentHTML("afterbegin", markup[i - 1]);
+let i = 70;
+let userName = null;
 
 const firstCaseYes = [
   4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 27, 28, 29,
@@ -295,22 +296,23 @@ const firstCaseYes = [
   52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 63, 64, 65, 66, 68, 69, 70, 71, 72,
   73, 74, 76, 77,
 ];
-
 const firstCaseNo = [1, 2, 3, 11, 16, 21, 25, 26, 30, 38, 42, 62, 67, 75];
 
 const secondCaseYes = [
   6, 7, 12, 13, 14, 18, 27, 31, 32, 33, 34, 37, 41, 43, 46, 48, 49, 51, 52, 53,
   55, 57, 58, 59, 60, 61, 63, 64, 71, 72, 73, 74,
 ];
-
 const secondCaseNo = [1, 2, 9, 11, 21, 25, 26, 30, 38, 42, 67];
 
 const thirdCaseYes = [
   3, 4, 5, 8, 10, 15, 17, 19, 20, 22, 23, 24, 28, 29, 35, 36, 39, 40, 44, 45,
   47, 50, 54, 56, 65, 66, 68, 69, 70, 76, 77,
 ];
-
 const thirdCaseNo = [16, 62, 75];
+
+alert(
+  "Інструкція: „Зараз Вам буде запропоновано відповісти тільки „Так” (+) або „Ні”  (-) на ряд питань. Питання стосуються безпосередньо Вашого самопочуття, поведінки або характеру. „Правильних” або „неправильних” відповідей тут бути не може, тому не намагайтеся довго їх обдумувати або радитися з товаришами – давайте відповідь виходячи з того, що більше відповідає Вашому стану або уявленню про самого себе. "
+);
 
 const clickItem = (evt) => {
   const { target } = evt;
@@ -343,19 +345,29 @@ const clickItem = (evt) => {
     testsEl.innerHTML = markup[i];
     i += 1;
   } else {
-    const result = `<p class="result"> Результат №1 = ${firstCaseCounter}. </p>
-    <p class="result"> Результат №2 = ${secondCaseCounter}. </p>
-    <p class="result"> Результат №3 = ${thirdCaseCounter}. </p>`;
+    const userDataFromStorage = localStorage.getItem("feedback-form-state");
+    const parsedUserDataFromStorage = JSON.parse(userDataFromStorage);
+    
+    const currentDate = new Date();
+    const currentHours = currentDate.getHours().toString().padStart(2, "0");
+    const currentMinutes = currentDate.getMinutes().toString().padStart(2, "0");
+    const currentDays = currentDate.getDate().toString().padStart(2, "0");
+    const currentMonth = monthArr.find((_,index) => index === currentDate.getMonth());
+     const currentYear = currentDate.getFullYear();
+
+    const result = `<p class="user"> Тест пройшов/пройшла</p>
+    <p class="user">${parsedUserDataFromStorage}</p>
+    <p class="result"> Результат №1 = ${firstCaseCounter} </p>
+    <p class="result"> Результат №2 = ${secondCaseCounter} </p>
+    <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
+    <div class="date">
+        <span class="time">${currentHours}:${currentMinutes}</span>
+         <spanclass="time">${currentDays} ${currentMonth} ${currentYear} року</span>
+    </div>`;
+
     mainContainer.innerHTML = result;
   }
 };
-
-btnEl.addEventListener("click", clickItem);
-
-//Input logic
-const formEl = document.querySelector(".feedback-form");
-//const dataFromStorage = localStorage.getItem("feedback-form-state");
-let userName = null;
 
 const handleInput = (event) => {
   userName = event.target.value;
@@ -370,15 +382,17 @@ const handleSubmit = (event) => {
 
   console.log(name);
   if (name.value.trim() === "") {
-    alert("Please fill in all the fields!");
+    alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
   } else {
     console.log(userName);
     userName = null;
     event.currentTarget.reset();
+    formEl.style.display = "none";
+    testsEl.innerHTML = markup[i - 1];
+    btnEl.style.display = "flex";
   }
 };
 
-
+btnEl.addEventListener("click", clickItem);
 formEl.addEventListener("input", handleInput);
 formEl.addEventListener("submit", handleSubmit);
-//*Input logic
