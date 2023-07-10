@@ -286,7 +286,7 @@ let thirdCaseCounter = 0;
 const result = `<p class="result"> Result = ${firstCaseCounter}. </p>`;
 
 //console.log(markup);
-let i = 60;
+let i = 1;
 testsEl.insertAdjacentHTML("afterbegin", markup[i - 1]);
 
 const firstCaseYes = [
