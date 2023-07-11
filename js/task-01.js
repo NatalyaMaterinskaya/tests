@@ -282,12 +282,25 @@ const markup = testItems.map(
     <p class="test-item-text"> ${id}. ${question} </p>
   </li>`
 );
-const monthArr = ["січня", "лтого", "березня", "квітня",  "травня", "червня","липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
+const monthArr = [
+  "січня",
+  "лтого",
+  "березня",
+  "квітня",
+  "травня",
+  "червня",
+  "липня",
+  "серпня",
+  "вересня",
+  "жовтня",
+  "листопада",
+  "грудня",
+];
 
 let firstCaseCounter = 0;
 let secondCaseCounter = 0;
 let thirdCaseCounter = 0;
-let i = 70;
+let numQuestion = 1;
 let userName = null;
 
 const firstCaseYes = [
@@ -314,61 +327,6 @@ alert(
   "Інструкція: „Зараз Вам буде запропоновано відповісти тільки „Так” (+) або „Ні”  (-) на ряд питань. Питання стосуються безпосередньо Вашого самопочуття, поведінки або характеру. „Правильних” або „неправильних” відповідей тут бути не може, тому не намагайтеся довго їх обдумувати або радитися з товаришами – давайте відповідь виходячи з того, що більше відповідає Вашому стану або уявленню про самого себе. "
 );
 
-const clickItem = (evt) => {
-  const { target } = evt;
-  if (!target.classList.contains("answer-btn")) {
-    return;
-  }
-  if (evt.target.dataset.answer === "yes") {
-    if (firstCaseYes.includes(i)) {
-      firstCaseCounter += 1;
-    }
-    if (secondCaseYes.includes(i)) {
-      secondCaseCounter += 1;
-    }
-    if (thirdCaseYes.includes(i)) {
-      thirdCaseCounter += 1;
-    }
-  }
-  if (evt.target.dataset.answer === "no") {
-    if (firstCaseNo.includes(i)) {
-      firstCaseCounter += 1;
-    }
-    if (secondCaseNo.includes(i)) {
-      secondCaseCounter += 1;
-    }
-    if (thirdCaseNo.includes(i)) {
-      thirdCaseCounter += 1;
-    }
-  }
-  if (i < markup.length) {
-    testsEl.innerHTML = markup[i];
-    i += 1;
-  } else {
-    const userDataFromStorage = localStorage.getItem("feedback-form-state");
-    const parsedUserDataFromStorage = JSON.parse(userDataFromStorage);
-    
-    const currentDate = new Date();
-    const currentHours = currentDate.getHours().toString().padStart(2, "0");
-    const currentMinutes = currentDate.getMinutes().toString().padStart(2, "0");
-    const currentDays = currentDate.getDate().toString().padStart(2, "0");
-    const currentMonth = monthArr.find((_,index) => index === currentDate.getMonth());
-     const currentYear = currentDate.getFullYear();
-
-    const result = `<p class="user"> Тест пройшов/пройшла</p>
-    <p class="user">${parsedUserDataFromStorage}</p>
-    <p class="result"> Результат №1 = ${firstCaseCounter} </p>
-    <p class="result"> Результат №2 = ${secondCaseCounter} </p>
-    <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
-    <div class="date">
-        <span class="time">${currentHours}:${currentMinutes}</span>
-         <spanclass="time">${currentDays} ${currentMonth} ${currentYear} року</span>
-    </div>`;
-
-    mainContainer.innerHTML = result;
-  }
-};
-
 const handleInput = (event) => {
   userName = event.target.value;
   localStorage.setItem("feedback-form-state", JSON.stringify(userName));
@@ -388,11 +346,68 @@ const handleSubmit = (event) => {
     userName = null;
     event.currentTarget.reset();
     formEl.style.display = "none";
-    testsEl.innerHTML = markup[i - 1];
+    testsEl.innerHTML = markup[numQuestion - 1];
     btnEl.style.display = "flex";
   }
 };
 
-btnEl.addEventListener("click", clickItem);
+const clickItem = (evt) => {
+  const { target } = evt;
+  if (!target.classList.contains("answer-btn")) {
+    return;
+  }
+  if (evt.target.dataset.answer === "yes") {
+    if (firstCaseYes.includes(numQuestion)) {
+      firstCaseCounter += 1;
+    }
+    if (secondCaseYes.includes(numQuestion)) {
+      secondCaseCounter += 1;
+    }
+    if (thirdCaseYes.includes(numQuestion)) {
+      thirdCaseCounter += 1;
+    }
+  }
+  if (evt.target.dataset.answer === "no") {
+    if (firstCaseNo.includes(numQuestion)) {
+      firstCaseCounter += 1;
+    }
+    if (secondCaseNo.includes(numQuestion)) {
+      secondCaseCounter += 1;
+    }
+    if (thirdCaseNo.includes(numQuestion)) {
+      thirdCaseCounter += 1;
+    }
+  }
+  if (numQuestion < markup.length) {
+    testsEl.innerHTML = markup[numQuestion];
+    numQuestion += 1;
+  } else {
+    const userDataFromStorage = localStorage.getItem("feedback-form-state");
+    const parsedUserDataFromStorage = JSON.parse(userDataFromStorage);
+
+    const currentDate = new Date();
+    const currentHours = currentDate.getHours().toString().padStart(2, "0");
+    const currentMinutes = currentDate.getMinutes().toString().padStart(2, "0");
+    const currentDays = currentDate.getDate().toString().padStart(2, "0");
+    const currentMonth = monthArr.find(
+      (_, index) => index === currentDate.getMonth()
+    );
+    const currentYear = currentDate.getFullYear();
+
+    const result = `<p class="user"> Тест пройшов/пройшла</p>
+    <p class="user">${parsedUserDataFromStorage}</p>
+    <p class="result"> Результат №1 = ${firstCaseCounter} </p>
+    <p class="result"> Результат №2 = ${secondCaseCounter} </p>
+    <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
+    <div class="date">
+        <span class="time">${currentHours}:${currentMinutes}</span>
+         <spanclass="time">${currentDays} ${currentMonth} ${currentYear} року</span>
+    </div>`;
+
+    mainContainer.innerHTML = result;
+  }
+};
+
 formEl.addEventListener("input", handleInput);
 formEl.addEventListener("submit", handleSubmit);
+btnEl.addEventListener("click", clickItem);
