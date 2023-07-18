@@ -378,6 +378,7 @@ const clickItem = (evt) => {
       thirdCaseCounter += 1;
     }
   }
+  
   if (numQuestion < markup.length) {
     testsEl.innerHTML = markup[numQuestion];
     numQuestion += 1;
