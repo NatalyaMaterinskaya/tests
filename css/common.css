@@ -1,3 +1,7 @@
+:root{
+    --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,12 +17,32 @@ body {
   line-height: 1.5;
 }
 
-/* input {
-  padding: 8px;
-  font: inherit;
+li{
+  list-style-type: none;
 }
 
-button {
-  padding: 8px 12px;
-  cursor: pointer;
-} */
+.menu{
+max-width: 500px;
+margin-top: 100px;
+margin-left: auto;
+margin-right: auto;
+
+}
+.menu-item{
+  margin-top: 100px;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.menu-item a{
+  color:#000000;
+  text-decoration: none;
+  transition: background-color var(--transition-dur-and-func), color var(--transition-dur-and-func), border-color var(--transition-dur-and-func), box-shadow var(--transition-dur-and-func);
+}
+
+@media screen and (min-width: 1200px) {
+.menu-item a:hover{
+    color: #e22020;
+}
+}
