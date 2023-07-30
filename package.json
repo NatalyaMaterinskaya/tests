@@ -2,9 +2,10 @@
   "name": "tests",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/NatalyaMaterinskaya/tests",
+  "homepage": "https://NatalyaMaterinskaya.github.io/tests",
   "scripts": {
-    "start": "parcel src/*.html"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /tests/"
   },
   "keywords": [],
   "author": "",
