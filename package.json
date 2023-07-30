@@ -4,10 +4,10 @@
   "description": "",
   "homepage": "https://NatalyaMaterinskaya.github.io/tests",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /tests/",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build"
+    "start": "parcel src/*.html --no-cache",
+    "build": "parcel build src/*.html --public-url /tests/ --no-cache",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
