@@ -5,9 +5,20 @@
   "homepage": "https://NatalyaMaterinskaya.github.io/tests",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /tests/"
+    "build": "parcel build src/*.html --public-url /tests/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatalyaMaterinskaya/tests.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "postcss": "^8.4.27"
+  }
 }
