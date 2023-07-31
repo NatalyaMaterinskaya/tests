@@ -11,7 +11,7 @@ import { createMarkup } from "./js/helpers/create-markup";
 import { createButtonMarkup } from "./js/helpers/create-button-markup";
 import { getCurremtDate } from "./js/helpers/get-current-date";
 
-btnEl = document.querySelector(".answer-btn-container");
+const btnEl = document.querySelector(".answer-btn-container");
 
 const markupFirstBlockItems = createMarkup(firstBlockItems);
 const markupSecondBlockItems = createMarkup(secondBlockItems);
@@ -30,9 +30,9 @@ let sixthCaseCounter = 0;
 let numQuestion = 1;
 let userName = null;
 
-// alert(
-//   "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
-// );
+alert(
+  "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
+);
 
 const handleInput = (event) => {
   userName = event.target.value;
