@@ -45,12 +45,12 @@ h1 {
 }
 @media screen and (max-width: 479px) {
   h1 {
-   font-size: 20px;
-}
+    font-size: 20px;
+  }
   .test-item-text {
     font-size: 20px;
     font-weight: 600;
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 }
 .answer-container {
@@ -143,13 +143,13 @@ h1 {
 }
 
 @media screen and (max-width: 479px) {
-.answer-btn-container {
-  row-gap: 10px;
-  height: 60vh;
-}
-.answer-btn-container button {
-  min-width: 110px;
-  background-color: #4d5ae5;
-  color: #f4f4fd;
-}
+  .answer-btn-container {
+    row-gap: 30px;
+    height: 60vh;
+  }
+  .answer-btn-container button {
+    min-width: 110px;
+    background-color: #4d5ae5;
+    color: #f4f4fd;
+  }
 }
