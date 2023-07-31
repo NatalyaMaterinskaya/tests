@@ -579,7 +579,7 @@ var _common = require("./js/common");
 var _createMarkup = require("./js/helpers/create-markup");
 var _createButtonMarkup = require("./js/helpers/create-button-markup");
 var _getCurrentDate = require("./js/helpers/get-current-date");
-btnEl = document.querySelector(".answer-btn-container");
+const btnEl = document.querySelector(".answer-btn-container");
 const markupFirstBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.firstBlockItems));
 const markupSecondBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.secondBlockItems));
 const markupThirdBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.thirdBlockItems));
@@ -594,9 +594,7 @@ let fifthCaseCounter = 0;
 let sixthCaseCounter = 0;
 let numQuestion = 1;
 let userName = null;
-// alert(
-//   "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
-// );
+alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково.");
 const handleInput = (event)=>{
     userName = event.target.value;
 };
