@@ -785,15 +785,14 @@ const clickItem = (evt)=>{
         (0, _common.testsEl).innerHTML = markup[numQuestion];
         numQuestion += 1;
     } else {
-        const date = (0, _getCurrentDate.getCurremtDate)();
         const result = `<p class="user"> Тест пройшов/пройшла</p>
-     <p class="user">${userName}</p>
+    <p class="user">${parsedUserDataFromStorage}</p>
     <p class="result"> Результат №1 = ${firstCaseCounter} </p>
     <p class="result"> Результат №2 = ${secondCaseCounter} </p>
     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
     <div class="date">
-        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+        <span class="time">${currentHours}:${currentMinutes}</span>
+         <spanclass="time">${currentDays} ${currentMonth} ${currentYear} року</span>
     </div>`;
         (0, _common.mainContainer).innerHTML = result;
     }
@@ -802,91 +801,6 @@ const clickItem = (evt)=>{
 (0, _common.formEl).addEventListener("submit", handleSubmit);
 (0, _common.btnEl).addEventListener("click", clickItem);
 
-},{"./js/questions":"9rgTG","./js/helpers/create-question-id":"ipKyU","./js/common":"2ASYY","./js/helpers/create-markup":"eLGg5","./js/helpers/get-current-date":"gTe1R"}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"eLGg5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
-function createMarkup(arr) {
-    const markup = arr.map(({ id, question })=>`<li class="test-item">
-    <p class="test-item-text"> ${id}. ${question} </p>
-  </li>`);
-    return markup;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getCurremtDate", ()=>getCurremtDate);
-function getCurremtDate() {
-    const monthArr = [
-        "січня",
-        "лтого",
-        "березня",
-        "квітня",
-        "травня",
-        "червня",
-        "липня",
-        "серпня",
-        "вересня",
-        "жовтня",
-        "листопада",
-        "грудня"
-    ];
-    const currentDate = new Date();
-    const currentMonth = monthArr.find((_, index)=>index === currentDate.getMonth());
-    const date = {
-        currentHours: currentDate.getHours().toString().padStart(2, "0"),
-        currentMinutes: currentDate.getMinutes().toString().padStart(2, "0"),
-        currentDays: currentDate.getDate().toString().padStart(2, "0"),
-        currentMonth: currentMonth,
-        currentYear: currentDate.getFullYear()
-    };
-    console.log(date);
-    return date;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ipCJz","gcUKj"], "gcUKj", "parcelRequiree8da")
+},{"./js/questions":"9rgTG","./js/common":"2ASYY","./js/helpers/create-question-id":"ipKyU","./js/helpers/create-markup":"eLGg5","./js/helpers/get-current-date":"gTe1R"}]},["ipCJz","gcUKj"], "gcUKj", "parcelRequiree8da")
 
 //# sourceMappingURL=task-01.63222833.js.map

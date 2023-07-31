@@ -94,19 +94,23 @@ h1 {
   margin: auto;
 }
 
-@media screen and (width <= 479px) {
-  .test-item-text {
-    font-size: 20px;
-    font-weight: 600;
-  }
-}
-
 .test-item-text {
   text-align: center;
-  margin-top: 50px;
   margin-bottom: 50px;
   font-size: 24px;
   font-weight: 900;
+}
+
+@media screen and (width <= 479px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .test-item-text {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 .answer-container {
@@ -180,6 +184,32 @@ h1 {
 
 .time {
   margin-right: 15px;
+}
+
+.answer-btn-container {
+  flex-flow: column wrap;
+  row-gap: 30px;
+  height: 500px;
+  display: flex;
+}
+
+.answer-btn-container button {
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  min-width: 150px;
+}
+
+@media screen and (width <= 479px) {
+  .answer-btn-container {
+    row-gap: 10px;
+    height: 60vh;
+  }
+
+  .answer-btn-container button {
+    color: #f4f4fd;
+    background-color: #4d5ae5;
+    min-width: 110px;
+  }
 }
 
 
