@@ -37,20 +37,22 @@ h1 {
   max-width: 600px;
   text-align: center;
 }
-@media screen and (max-width: 479px) {
-  .test-item-text {
-    font-size: 20px;
-    font-weight: 600;
-  }
-}
 .test-item-text {
   font-size: 24px;
   font-weight: 900;
   text-align: center;
-  margin-top: 50px;
   margin-bottom: 50px;
 }
-
+@media screen and (max-width: 479px) {
+  h1 {
+   font-size: 20px;
+}
+  .test-item-text {
+    font-size: 20px;
+    font-weight: 600;
+      margin-bottom: 30px;
+  }
+}
 .answer-container {
   display: none;
   justify-content: space-around;
@@ -123,4 +125,31 @@ h1 {
 }
 .time {
   margin-right: 15px;
+}
+
+/* for third test */
+.answer-btn-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  height: 500px;
+}
+
+.answer-btn-container button {
+  min-width: 150px;
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+}
+
+@media screen and (max-width: 479px) {
+.answer-btn-container {
+  row-gap: 10px;
+  height: 60vh;
+}
+.answer-btn-container button {
+  min-width: 110px;
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+}
 }
