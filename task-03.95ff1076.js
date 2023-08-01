@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"4cb7Q":[function(require,module,exports) {
+})({"6luEy":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "1d72feee60dec058";
+module.bundle.HMR_BUNDLE_ID = "b6b3ee1195ff1076";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -1422,227 +1422,357 @@ const secondTestItems = [
 //questions for third test
 const thirdTestItems = [
     {
-        id: 1.1,
+        id: 1,
+        num: 1,
         question: "Рівень задоволеності цінностями (віра, любов, повага, довіра тощо) та їх вплив на цілі життєдіяльності, служби та засоби їх досягнення."
     },
     {
-        id: 1.2,
+        id: 1,
+        num: 2,
         question: "Дотримання моральних принципів і норм в умовах службової, навчальної (навчально-бойової), бойової діяльності."
     },
     {
-        id: 1.3,
+        id: 1,
+        num: 3,
         question: "Сформованість моральних якостей і національних переконань (гідність, патріотизм, відданість, доброта, обов’язковість тощо)."
     },
     {
-        id: 1.4,
+        id: 1,
+        num: 4,
         question: "Ступінь згуртованості, сумісності і злагодженості вашого підрозділу."
     },
     {
-        id: 1.5,
+        id: 1,
+        num: 5,
         question: "Задоволеність наявністю традицій, побратимства між різними категоріями військовослужбовців."
     },
     {
-        id: 1.6,
+        id: 1,
+        num: 6,
         question: "Рівень довіри до Міністерства оборони України."
     },
     {
-        id: 1.7,
+        id: 1,
+        num: 7,
         question: "Рівень довіри до Генерального штабу Збройних Сил України."
     },
     {
-        id: 1.8,
+        id: 1,
+        num: 8,
         question: "Рівень довіри до командування виду Збройних Сил України."
     },
     {
-        id: 1.9,
+        id: 1,
+        num: 9,
         question: "Рівень довіри до командування оперативного (повітряного) командування."
     },
     {
-        id: "1.10",
+        id: 1,
+        num: 10,
         question: "Рівень довіри до командування твоєї військової частини."
     },
     {
-        id: 2.1,
+        id: 2,
+        num: 1,
         question: "Ступінь прояву позитивних емоцій (інтерес, радість, довіра, любов, віра, ентузіазм тощо)."
     },
     {
-        id: 2.2,
+        id: 2,
+        num: 2,
         question: "Ступінь прояву нейтральних емоцій (байдужість, провина, сором, тривожність тощо)."
     },
     {
-        id: 2.3,
+        id: 2,
+        num: 3,
         question: "Ступінь прояву негативних емоцій (горе, зневага, злість, печаль, страх, паніка тощо)."
     },
     {
-        id: 2.4,
+        id: 2,
+        num: 4,
         question: "Ступінь відповідальності за прийняті рішення та результат своєї діяльності."
     },
     {
-        id: 2.5,
+        id: 2,
+        num: 5,
         question: "Сформованість вольових якостей (витримка, наполегливість, рішучість тощо)."
     },
     {
-        id: 2.6,
+        id: 2,
+        num: 6,
         question: "Рівень психологічної стійкості до впливу негативних чинників бойової (екстремальної) обстановки."
     },
     {
-        id: 2.7,
+        id: 2,
+        num: 7,
         question: "Оцінка свого вміння управляти діями, із яких складається виконання ваших професійних функцій та обов’язків."
     },
     {
-        id: 3.2,
+        id: 3,
+        num: 1,
         question: "Розуміння сенсу і мети службової (навчальної, навчально-бойової), бойової діяльності."
     },
     {
-        id: 3.3,
+        id: 3,
+        num: 2,
         question: "Рівень справедливості рішень безпосереднього командира."
     },
     {
-        id: 3.4,
+        id: 3,
+        num: 3,
         question: "Задоволеність станом військової дисципліни і правопорядку."
     },
     {
-        id: 3.5,
+        id: 3,
+        num: 4,
         question: "Рівень згуртованості, сумісності і злагодженості особового складу твого підрозділу."
     },
     {
-        id: 3.6,
+        id: 3,
+        num: 5,
         question: "Наявність традицій, рівень братерства між військовослужбовцями."
     },
     {
-        id: 4.1,
+        id: 4,
+        num: 1,
         question: "Самопочуття (комфортність) перебування у військовій частині (підрозділі)."
     },
     {
-        id: 4.2,
+        id: 4,
+        num: 2,
         question: "Власне фізичне самопочуття за останній місяць."
     },
     {
-        id: 4.3,
+        id: 4,
+        num: 3,
         question: "Власне психологічне самопочуття за останній місяць."
     },
     {
-        id: 4.4,
+        id: 4,
+        num: 4,
         question: "Задоволеність рівнем організації бойової підготовки у військовій частині (підрозділі)."
     },
     {
-        id: 4.5,
+        id: 4,
+        num: 5,
         question: "Задоволеність рівнем організації психологічної підготовки у військовій частині (підрозділі)."
     },
     {
-        id: 4.6,
+        id: 4,
+        num: 6,
         question: "Задоволеність рівнем організації національно-патріотичної підготовки у військовій частині (підрозділі)."
     },
     {
-        id: 4.7,
+        id: 4,
+        num: 7,
         question: "Здатність і можливість керувати своїми діями та станом у ситуаціях, а також здійснювати вплив на своїх співслужбовців (підлеглих)."
     },
     {
-        id: 4.8,
+        id: 4,
+        num: 8,
         question: "Рівень адекватного реагування тобою на обстановку, що різко змінюється."
     },
     {
-        id: 5.1,
+        id: 5,
+        num: 1,
         question: "Рівень твоїх знань і уявлень про особливості службової (навчальної, навчально-бойової), бойової діяльності та вимог до неї."
     },
     {
-        id: 5.2,
+        id: 5,
+        num: 2,
         question: "Рівень твоїх фахових знань, навичок та вмінь, необхідних для вирішення службових (навчальних, навчально-бойових), бойових проблем у межах визначених цілей і завдань."
     },
     {
-        id: 5.3,
+        id: 5,
+        num: 3,
         question: "Рівень твоєї фахової підготовленості виконувати службові (функціональні) обов’язки в бойових (екстремальних) умовах в межах військово-облікової спеціальності."
     },
     {
-        id: 5.4,
+        id: 5,
+        num: 4,
         question: "Оцінка рівня передачі бойового досвіду військовослужбовцями твого підрозділу."
     },
     {
-        id: 6.1,
+        id: 6,
+        num: 1,
         question: "Задоволеність укомплектованістю особовим складом."
     },
     {
-        id: 6.2,
+        id: 6,
+        num: 2,
         question: "Задоволеність станом озброєння і бойової техніки."
     },
     {
-        id: 6.3,
+        id: 6,
+        num: 3,
         question: "Рівень впливу тривалості виконання службових (навчальних, навчально-бойових) завдань і ведення бойових дій на психологічний стан військовослужбовців."
     },
     {
-        id: 6.4,
+        id: 6,
+        num: 4,
         question: "Рівень впливу випадків загибелі (поранення) військовослужбовців (бойових втрат), аварій, катастроф на твою подальшу повсякденну життєдіяльність."
     },
     {
-        id: 6.5,
+        id: 6,
+        num: 5,
         question: "Рівень забезпечення речовим майном (своєчасність видачі, наявність необхідних речей)."
     },
     {
-        id: 6.6,
+        id: 6,
+        num: 6,
         question: "Задоволеність харчуванням (кількість та якість їжі)."
     },
     {
-        id: 6.7,
+        id: 6,
+        num: 7,
         question: "Рівень медичного забезпечення виконання завдання за призначенням."
     },
     {
-        id: 6.8,
+        id: 6,
+        num: 8,
         question: "Задоволеність грошовим забезпеченням (своєчасністю виплат)."
     },
     {
-        id: 6.9,
+        id: 6,
+        num: 9,
         question: "Задоволеність побутовими умовами проживання. "
     },
     {
-        id: "6.10",
+        id: 6,
+        num: 10,
         question: "Задоволеність наданням відпусток, відпочинку і дозвілля."
     },
     {
-        id: 6.11,
+        id: 6,
+        num: 11,
         question: "Рівень авторитету, лідерства і професійної компетентності безпосереднього командира (начальника)."
     },
     {
-        id: 6.12,
+        id: 6,
+        num: 12,
         question: "Здатність командування (командирів, начальників) до негайного реагування на обстановку, що різко змінюється та ухвалення оптимальних рішень."
     },
     {
-        id: 6.13,
+        id: 6,
+        num: 13,
         question: "Підготовленість підрозділу до виконання завдань за призначенням."
     },
     {
-        id: 6.14,
+        id: 6,
+        num: 14,
         question: "Рівень впливу погодно-кліматичних умов на виконання завдань за призначенням."
     },
     {
-        id: 6.15,
+        id: 6,
+        num: 15,
         question: "Рівень психологічної готовності твоїх співслужбовців (підлеглих) до виконання службового (навчального, навчально-бойового), бойового завдання."
     },
     {
-        id: 6.16,
+        id: 6,
+        num: 16,
         question: "Рівень стійкості військовослужбовців до негативного інформаційно-психологічного впливу."
     },
     {
-        id: 6.17,
+        id: 6,
+        num: 17,
         question: "Своєчасність та актуальність інформації, яку надають командири (начальники)."
     },
     {
-        id: 6.18,
+        id: 6,
+        num: 18,
         question: "Задоволеність військовослужбовців рівнем соціального захисту."
     },
     {
-        id: 6.19,
+        id: 6,
+        num: 19,
         question: "Задоволеність прийнятими військово-політичними рішеннями керівництва держави щодо національної безпеки."
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ipKyU":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"2ASYY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createQuestionId", ()=>createQuestionId);
-function createQuestionId(arr) {
-    for(let i = 1; i <= arr.length; i += 1)arr[i - 1].id = i;
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLGg5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
+function createMarkup(arr) {
+    const markup = arr.map(({ id, question })=>`<li class="test-item">
+    <p class="test-item-text"> ${id}. ${question} </p>
+  </li>`);
+    return markup;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["4cb7Q"], null, "parcelRequiree8da")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getCurremtDate", ()=>getCurremtDate);
+function getCurremtDate() {
+    const monthArr = [
+        "січня",
+        "лтого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня"
+    ];
+    const currentDate = new Date();
+    const currentMonth = monthArr.find((_, index)=>index === currentDate.getMonth());
+    const date = {
+        currentHours: currentDate.getHours().toString().padStart(2, "0"),
+        currentMinutes: currentDate.getMinutes().toString().padStart(2, "0"),
+        currentDays: currentDate.getDate().toString().padStart(2, "0"),
+        currentMonth: currentMonth,
+        currentYear: currentDate.getFullYear()
+    };
+    console.log(date);
+    return date;
+}
 
-//# sourceMappingURL=task-02.60dec058.js.map
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["6luEy"], null, "parcelRequiree8da")
+
+//# sourceMappingURL=task-03.95ff1076.js.map

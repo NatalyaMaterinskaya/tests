@@ -574,409 +574,137 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"75YYd":[function(require,module,exports) {
-var _questionsForThirdTest = require("./js/questions-for-third-test");
+var _questions = require("./js/questions");
 var _common = require("./js/common");
-var _createMarkup = require("./js/helpers/create-markup");
+var _createMarkupForThirdTest = require("./js/create-markup-for-third-test");
 var _createButtonMarkup = require("./js/helpers/create-button-markup");
 var _getCurrentDate = require("./js/helpers/get-current-date");
 const btnEl = document.querySelector(".answer-btn-container");
-const markupFirstBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.firstBlockItems));
-const markupSecondBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.secondBlockItems));
-const markupThirdBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.thirdBlockItems));
-const markupFourthBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.fourthBlockItems));
-const markupFifthBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.fifthBlockItems));
-const markupSixthBlockItems = (0, _createMarkup.createMarkup)((0, _questionsForThirdTest.sixthBlockItems));
-let firstCaseCounter = 0;
-let secondCaseCounter = 0;
-let thirdCaseCounter = 0;
-let fourthCaseCounter = 0;
-let fifthCaseCounter = 0;
-let sixthCaseCounter = 0;
+const markup = (0, _createMarkupForThirdTest.createMarkupForThirdTest)((0, _questions.thirdTestItems));
+let firstCaseCounter = null;
+let secondCaseCounter = null;
+let thirdCaseCounter = null;
+let fourthCaseCounter = null;
+let fifthCaseCounter = null;
+let sixthCaseCounter = null;
+let firstCaseQuantity = null;
+let secondCaseQuantity = null;
+let thirdCaseQuantity = null;
+let fourthCaseQuantity = null;
+let fifthCaseQuantity = null;
+let sixthCaseQuantity = null;
 let numQuestion = 1;
-let userName = null;
-alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково.");
-const handleInput = (event)=>{
-    userName = event.target.value;
-};
-const handleSubmit = (event)=>{
-    event.preventDefault();
-    const { elements: { name } } = event.currentTarget;
-    if (name.value.trim() === "") alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
-    else {
-        console.log(userName);
-        event.currentTarget.reset();
-        (0, _common.formEl).style.display = "none";
-        (0, _common.testsEl).innerHTML = markupFirstBlockItems[numQuestion - 1];
-        const buttonMarkup = (0, _createButtonMarkup.createButtonMarkup)().join("");
-        console.log(buttonMarkup);
-        btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
+// alert(
+//   "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
+// );
+(0, _common.testsEl).innerHTML = markup[numQuestion - 1];
+const buttonMarkup = (0, _createButtonMarkup.createButtonMarkup)().join("");
+btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
+const clickItem = (evt)=>{
+    const { target } = evt;
+    if (!target.classList.contains("answer-btn")) return;
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 1) {
+        firstCaseCounter += Number(target.dataset.answer);
+        firstCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("firstCaseCounter " + firstCaseCounter);
+    }
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 2) {
+        secondCaseCounter += Number(target.dataset.answer);
+        secondCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("secondCaseCounter " + secondCaseCounter);
+    }
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 3) {
+        thirdCaseCounter += Number(target.dataset.answer);
+        thirdCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("thirdCaseCounter " + thirdCaseCounter);
+    }
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 4) {
+        fourthCaseCounter += Number(target.dataset.answer);
+        fourthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("fourtgaseCounter " + fourthCaseCounter);
+    }
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 5) {
+        fifthCaseCounter += Number(target.dataset.answer);
+        fifthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("fifthCaseCounter " + fifthCaseCounter);
+    }
+    if (Number((0, _common.testsEl).firstChild.dataset.id) === 6) {
+        sixthCaseCounter += Number(target.dataset.answer);
+        sixthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+        console.log(numQuestion);
+        console.log("sixthCaseCounter " + sixthCaseCounter);
+    }
+    if (numQuestion < markup.length) {
+        (0, _common.testsEl).innerHTML = markup[numQuestion];
+        numQuestion += 1;
+    } else {
+        const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
+        const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
+        const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
+        const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
+        const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
+        const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
+        console.log(typeof sixthCaseResult);
+        const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult + fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
+        const date = (0, _getCurrentDate.getCurremtDate)();
+        const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
+    <p class="result"> Результат №2 = ${secondCaseResult} </p>
+    <p class="result"> Результат №3 = ${thirdCaseResult} </p>
+    <p class="result"> Результат №4 = ${fourthCaseResult} </p>
+    <p class="result"> Результат №5 = ${fifthCaseResult} </p>
+    <p class="result"> Результат №6 = ${sixthCaseResult} </p>
+    <b class="result"> Основний результат = ${MPS}</b>
+    <div class="date">
+        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+    </div>`;
+        (0, _common.mainContainer).innerHTML = result;
     }
 };
-// const clickItem = (evt) => {
-//   const { target } = evt;
-//   if (!target.classList.contains("answer-btn")) {
-//     return;
-//   }
-//   if (evt.target.dataset.answer === "yes") {
-//     if (secondCaseYes.includes(numQuestion)) {
-//       secondCaseCounter += 1;
-//     }
-//     if (thirdCaseYes.includes(numQuestion)) {
-//       thirdCaseCounter += 1;
-//     }
-//     if (fourthCaseYes.includes(numQuestion)) {
-//       fourthCaseCounter += 1;
-//     }
-//     if (fifthCaseYes.includes(numQuestion)) {
-//       fifthCaseCounter += 1;
-//     }
-//     if (sixthCaseYes.includes(numQuestion)) {
-//       sixthCaseCounter += 1;
-//     }
-//     if (seventhCaseYes.includes(numQuestion)) {
-//       seventCaseCounter += 1;
-//     }
-//   }
-//   if (evt.target.dataset.answer === "no") {
-//     if (firstCaseNo.includes(numQuestion)) {
-//       firstCaseCounter += 1;
-//     }
-//     if (secondCaseNo.includes(numQuestion)) {
-//       secondCaseCounter += 1;
-//     }
-//     if (thirdCaseNo.includes(numQuestion)) {
-//       thirdCaseCounter += 1;
-//     }
-//     if (fourthCaseNo.includes(numQuestion)) {
-//       fourthCaseCounter += 1;
-//     }
-//     if (fifthCaseNo.includes(numQuestion)) {
-//       fifthCaseCounter += 1;
-//     }
-//     if (sixthCaseNo.includes(numQuestion)) {
-//       sixthCaseCounter += 1;
-//     }
-//     if (seventhCaseNo.includes(numQuestion)) {
-//       seventCaseCounter += 1;
-//     }
-//   }
-//   if (numQuestion < markup.length) {
-//     testsEl.innerHTML = markup[numQuestion];
-//     numQuestion += 1;
-//   } else {
-//     const OAP = secondCaseCounter + thirdCaseCounter + fourthCaseCounter;
-//     const date = getCurremtDate();
-//     const result = `<p class="user"> Тест пройшов/пройшла</p>
-//     <p class="user">${userName}</p>
-//     <b class="result"> Результат №1 = ${firstCaseCounter} </b>
-//     <p class="result"> Результат №2 = ${secondCaseCounter} </p>
-//     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
-//     <p class="result"> Результат №4 = ${fourthCaseCounter} </p>
-//     <p class="result"> Результат №5 = ${fifthCaseCounter} </p>
-//     <p class="result"> Результат №6 = ${sixthCaseCounter} </p>
-//     <p class="result"> Результат №7 = ${seventCaseCounter} </p>
-//     <b class="result"> Основний результат = ${OAP}</b>
-//     <div class="date">
-//         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-//          <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-//     </div>`;
-//     mainContainer.innerHTML = result;
-//   }
-// };
-(0, _common.formEl).addEventListener("input", handleInput);
-(0, _common.formEl).addEventListener("submit", handleSubmit); //btnEl.addEventListener("click", clickItem);
+btnEl.addEventListener("click", clickItem); // if (Number(testsEl.firstChild.dataset.id) === 7) {
+ //   btnEl.addEventListener("click", () => {
+ //     btnEl.removeEventListener("click", clickItem);
+ //     console.log("click event listener was removed from btn");
+ //   });
+ //   printSevenBlock();
+ //   mainContainer.innerHTML = " ";
+ //   let markupForSevenBlock = [
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Я – патріот. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Захищаю Український народ, свою національну культуру, мову, історію, традиції. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Захищаю свій дім, рідних та близьких. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Прагну помститися за своїх побратимів, рідних та близьких. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button">Високий рівень грошового забезпечення. </button>
+ //         </li>`,
+ //     `<li class="btn-item">
+ //         <button class="answer-btn" type="button"> Інше </button>
+ //         </li>`,
+ //   ];
+ // }
 
-},{"./js/questions-for-third-test":"bcnRV","./js/common":"2ASYY","./js/helpers/create-markup":"eLGg5","./js/helpers/create-button-markup":"jp67J","./js/helpers/get-current-date":"gTe1R"}],"bcnRV":[function(require,module,exports) {
+},{"./js/questions":"9rgTG","./js/common":"2ASYY","./js/create-markup-for-third-test":"fyc7l","./js/helpers/get-current-date":"gTe1R","./js/helpers/create-button-markup":"jp67J"}],"fyc7l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "firstBlockItems", ()=>firstBlockItems);
-parcelHelpers.export(exports, "secondBlockItems", ()=>secondBlockItems);
-parcelHelpers.export(exports, "thirdBlockItems", ()=>thirdBlockItems);
-parcelHelpers.export(exports, "fourthBlockItems", ()=>fourthBlockItems);
-parcelHelpers.export(exports, "fifthBlockItems", ()=>fifthBlockItems);
-parcelHelpers.export(exports, "sixthBlockItems", ()=>sixthBlockItems);
-const firstBlockItems = [
-    {
-        id: 1.1,
-        question: "Рівень задоволеності цінностями (віра, любов, повага, довіра тощо) та їх вплив на цілі життєдіяльності, служби та засоби їх досягнення."
-    },
-    {
-        id: 1.2,
-        question: "Дотримання моральних принципів і норм в умовах службової, навчальної (навчально-бойової), бойової діяльності."
-    },
-    {
-        id: 1.3,
-        question: "Сформованість моральних якостей і національних переконань (гідність, патріотизм, відданість, доброта, обов’язковість тощо)."
-    },
-    {
-        id: 1.4,
-        question: "Ступінь згуртованості, сумісності і злагодженості вашого підрозділу."
-    },
-    {
-        id: 1.5,
-        question: "Задоволеність наявністю традицій, побратимства між різними категоріями військовослужбовців."
-    },
-    {
-        id: 1.6,
-        question: "Рівень довіри до керівництва країни."
-    },
-    {
-        id: 1.7,
-        question: "Рівень довіри до Міністерства оборони України."
-    },
-    {
-        id: 1.8,
-        question: "Рівень довіри до Генерального штабу Збройних Сил України."
-    },
-    {
-        id: 1.9,
-        question: "Рівень довіри до командування виду Збройних Сил України."
-    },
-    {
-        id: 1.10,
-        question: "Рівень довіри до командування оперативного (повітряного) командування."
-    },
-    {
-        id: 1.11,
-        question: "Рівень довіри до командування твоєї військової частини."
-    },
-    {
-        id: 1.12,
-        question: "Рівень довіри і поваги до командира підрозділу."
-    }
-];
-const secondBlockItems = [
-    {
-        id: 2.1,
-        question: "Ступінь прояву позитивних емоцій (інтерес, радість, довіра, любов, віра, ентузіазм тощо)."
-    },
-    {
-        id: 2.2,
-        question: "Ступінь прояву нейтральних емоцій (байдужість, провина, сором, тривожність тощо)."
-    },
-    {
-        id: 2.3,
-        question: "Ступінь прояву негативних емоцій (горе, зневага, злість, печаль, страх, паніка тощо)."
-    },
-    {
-        id: 2.4,
-        question: "Ступінь відповідальності за прийняті рішення та результат своєї діяльності."
-    },
-    {
-        id: 2.5,
-        question: "Сформованість вольових якостей (витримка, наполегливість, рішучість тощо)."
-    },
-    {
-        id: 2.6,
-        question: "Рівень психологічної стійкості до впливу негативних чинників бойової (екстремальної) обстановки."
-    },
-    {
-        id: 2.7,
-        question: "Оцінка свого вміння управляти діями, із яких складається виконання ваших професійних функцій та обов’язків."
-    }
-];
-const thirdBlockItems = [
-    {
-        id: 3.2,
-        question: "Розуміння сенсу і мети службової (навчальної, навчально-бойової), бойової діяльності."
-    },
-    {
-        id: 3.3,
-        question: "Рівень справедливості рішень безпосереднього командира."
-    },
-    {
-        id: 3.4,
-        question: "Задоволеність станом військової дисципліни і правопорядку."
-    },
-    {
-        id: 3.5,
-        question: "Рівень згуртованості, сумісності і злагодженості особового складу твого підрозділу."
-    },
-    {
-        id: 3.6,
-        question: "Наявність традицій, рівень братерства між військовослужбовцями."
-    }
-];
-const fourthBlockItems = [
-    {
-        id: 4.1,
-        question: "Самопочуття (комфортність) перебування у військовій частині (підрозділі)."
-    },
-    {
-        id: 4.2,
-        question: "Власне фізичне самопочуття за останній місяць."
-    },
-    {
-        id: 4.3,
-        question: "Власне психологічне самопочуття за останній місяць."
-    },
-    {
-        id: 4.4,
-        question: "Задоволеність рівнем організації бойової підготовки у військовій частині (підрозділі)."
-    },
-    {
-        id: 4.5,
-        question: "Задоволеність рівнем організації психологічної підготовки у військовій частині (підрозділі)."
-    },
-    {
-        id: 4.6,
-        question: "Задоволеність рівнем організації національно-патріотичної підготовки у військовій частині (підрозділі)."
-    },
-    {
-        id: 4.7,
-        question: "Здатність і можливість керувати своїми діями та станом у ситуаціях, а також здійснювати вплив на своїх співслужбовців (підлеглих)."
-    },
-    {
-        id: 4.8,
-        question: "Рівень адекватного реагування тобою на обстановку, що різко змінюється."
-    }
-];
-const fifthBlockItems = [
-    {
-        id: 5.1,
-        question: "Рівень твоїх знань і уявлень про особливості службової (навчальної, навчально-бойової), бойової діяльності та вимог до неї."
-    },
-    {
-        id: 5.2,
-        question: "Рівень твоїх фахових знань, навичок та вмінь, необхідних для вирішення службових (навчальних, навчально-бойових), бойових проблем у межах визначених цілей і завдань."
-    },
-    {
-        id: 5.3,
-        question: "Рівень твоєї фахової підготовленості виконувати службові (функціональні) обов’язки в бойових (екстремальних) умовах в межах військово-облікової спеціальності."
-    },
-    {
-        id: 5.4,
-        question: "Оцінка рівня передачі бойового досвіду військовослужбовцями твого підрозділу."
-    }
-];
-const sixthBlockItems = [
-    {
-        id: 6.1,
-        question: "Задоволеність укомплектованістю особовим складом."
-    },
-    {
-        id: 6.2,
-        question: "Задоволеність станом озброєння і бойової техніки."
-    },
-    {
-        id: 6.3,
-        question: "Рівень впливу тривалості виконання службових (навчальних, навчально-бойових) завдань і ведення бойових дій на психологічний стан військовослужбовців."
-    },
-    {
-        id: 6.4,
-        question: "Рівень впливу випадків загибелі (поранення) військовослужбовців (бойових втрат), аварій, катастроф на твою подальшу повсякденну життєдіяльність."
-    },
-    {
-        id: 6.5,
-        question: "Рівень забезпечення речовим майном (своєчасність видачі, наявність необхідних речей)."
-    },
-    {
-        id: 6.6,
-        question: "Задоволеність харчуванням (кількість та якість їжі)."
-    },
-    {
-        id: 6.7,
-        question: "Рівень медичного забезпечення виконання завдання за призначенням."
-    },
-    {
-        id: 6.8,
-        question: "Задоволеність грошовим забезпеченням (своєчасністю виплат)."
-    },
-    {
-        id: 6.9,
-        question: "Задоволеність побутовими умовами проживання. "
-    },
-    {
-        id: 6.1,
-        question: "Задоволеність наданням відпусток, відпочинку і дозвілля."
-    },
-    {
-        id: 6.11,
-        question: "Рівень авторитету, лідерства і професійної компетентності безпосереднього командира (начальника)."
-    },
-    {
-        id: 6.12,
-        question: "Здатність командування (командирів, начальників) до негайного реагування на обстановку, що різко змінюється та ухвалення оптимальних рішень."
-    },
-    {
-        id: 6.13,
-        question: "Підготовленість підрозділу до виконання завдань за призначенням."
-    },
-    {
-        id: 6.14,
-        question: "Рівень впливу погодно-кліматичних умов на виконання завдань за призначенням."
-    },
-    {
-        id: 6.15,
-        question: "Рівень психологічної готовності твоїх співслужбовців (підлеглих) до виконання службового (навчального, навчально-бойового), бойового завдання."
-    },
-    {
-        id: 6.16,
-        question: "Рівень стійкості військовослужбовців до негативного інформаційно-психологічного впливу."
-    },
-    {
-        id: 6.17,
-        question: "Своєчасність та актуальність інформації, яку надають командири (начальники)."
-    },
-    {
-        id: 6.18,
-        question: "Задоволеність військовослужбовців рівнем соціального захисту."
-    },
-    {
-        id: 6.19,
-        question: "Задоволеність прийнятими військово-політичними рішеннями керівництва держави щодо національної безпеки."
-    }
-];
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLGg5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
-function createMarkup(arr) {
-    const markup = arr.map(({ id, question })=>`<li class="test-item">
-    <p class="test-item-text"> ${id}. ${question} </p>
+parcelHelpers.export(exports, "createMarkupForThirdTest", ()=>createMarkupForThirdTest);
+function createMarkupForThirdTest(arr) {
+    const markup = arr.map(({ id, num, question })=>`<li class="test-item" data-id=${id} data-num=${num}>
+    <p class="test-item-text">${id}.${num}. ${question} </p>
   </li>`);
     return markup;
 }
@@ -991,38 +719,6 @@ function createButtonMarkup() {
         <button class="answer-btn" data-answer="${i}" type="button">${i}</button>
         </li>`);
     return markup;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getCurremtDate", ()=>getCurremtDate);
-function getCurremtDate() {
-    const monthArr = [
-        "січня",
-        "лтого",
-        "березня",
-        "квітня",
-        "травня",
-        "червня",
-        "липня",
-        "серпня",
-        "вересня",
-        "жовтня",
-        "листопада",
-        "грудня"
-    ];
-    const currentDate = new Date();
-    const currentMonth = monthArr.find((_, index)=>index === currentDate.getMonth());
-    const date = {
-        currentHours: currentDate.getHours().toString().padStart(2, "0"),
-        currentMinutes: currentDate.getMinutes().toString().padStart(2, "0"),
-        currentDays: currentDate.getDate().toString().padStart(2, "0"),
-        currentMonth: currentMonth,
-        currentYear: currentDate.getFullYear()
-    };
-    console.log(date);
-    return date;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ABpdq","75YYd"], "75YYd", "parcelRequiree8da")

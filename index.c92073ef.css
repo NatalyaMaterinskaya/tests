@@ -73,7 +73,7 @@ h1 {
 }
 
 .return {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -103,12 +103,12 @@ h1 {
 
 @media screen and (width <= 479px) {
   h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .test-item-text {
-    margin-bottom: 30px;
-    font-size: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
     font-weight: 600;
   }
 }
@@ -201,8 +201,8 @@ h1 {
 
 @media screen and (width <= 479px) {
   .answer-btn-container {
-    row-gap: 10px;
-    height: 60vh;
+    row-gap: 30px;
+    height: 70vh;
   }
 
   .answer-btn-container button {
