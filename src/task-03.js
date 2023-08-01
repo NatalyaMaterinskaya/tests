@@ -1,138 +1,141 @@
-import {
-  firstBlockItems,
-  secondBlockItems,
-  thirdBlockItems,
-  fourthBlockItems,
-  fifthBlockItems,
-  sixthBlockItems,
-} from "./js/questions-for-third-test";
-import { formEl, mainContainer, testsEl } from "./js/common";
-import { createMarkup } from "./js/helpers/create-markup";
+import { thirdTestItems } from "./js/questions";
+import { mainContainer, testsEl } from "./js/common";
+import { createMarkupForThirdTest } from "./js/create-markup-for-third-test";
 import { createButtonMarkup } from "./js/helpers/create-button-markup";
 import { getCurremtDate } from "./js/helpers/get-current-date";
 
 const btnEl = document.querySelector(".answer-btn-container");
 
-const markupFirstBlockItems = createMarkup(firstBlockItems);
-const markupSecondBlockItems = createMarkup(secondBlockItems);
-const markupThirdBlockItems = createMarkup(thirdBlockItems);
-const markupFourthBlockItems = createMarkup(fourthBlockItems);
-const markupFifthBlockItems = createMarkup(fifthBlockItems);
-const markupSixthBlockItems = createMarkup(sixthBlockItems);
+const markup = createMarkupForThirdTest(thirdTestItems);
 
-let firstCaseCounter = 0;
-let secondCaseCounter = 0;
-let thirdCaseCounter = 0;
-let fourthCaseCounter = 0;
-let fifthCaseCounter = 0;
-let sixthCaseCounter = 0;
+let firstCaseCounter = null;
+let secondCaseCounter = null;
+let thirdCaseCounter = null;
+let fourthCaseCounter = null;
+let fifthCaseCounter = null;
+let sixthCaseCounter = null;
+
+let firstCaseQuantity = null;
+let secondCaseQuantity = null;
+let thirdCaseQuantity = null;
+let fourthCaseQuantity = null;
+let fifthCaseQuantity = null;
+let sixthCaseQuantity = null;
 
 let numQuestion = 1;
-let userName = null;
 
-alert(
-  "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
-);
+// alert(
+//   "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
+// );
 
-const handleInput = (event) => {
-  userName = event.target.value;
-};
+testsEl.innerHTML = markup[numQuestion - 1];
+const buttonMarkup = createButtonMarkup().join("");
+btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const {
-    elements: { name },
-  } = event.currentTarget;
-
-  if (name.value.trim() === "") {
-    alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
+const clickItem = (evt) => {
+  const { target } = evt;
+  if (!target.classList.contains("answer-btn")) {
+    return;
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 1) {
+    firstCaseCounter += Number(target.dataset.answer);
+    firstCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("firstCaseCounter " + firstCaseCounter);
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 2) {
+    secondCaseCounter += Number(target.dataset.answer);
+    secondCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("secondCaseCounter " + secondCaseCounter);
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 3) {
+    thirdCaseCounter += Number(target.dataset.answer);
+    thirdCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("thirdCaseCounter " + thirdCaseCounter);
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 4) {
+    fourthCaseCounter += Number(target.dataset.answer);
+    fourthCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("fourtgaseCounter " + fourthCaseCounter);
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 5) {
+    fifthCaseCounter += Number(target.dataset.answer);
+    fifthCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("fifthCaseCounter " + fifthCaseCounter);
+  }
+  if (Number(testsEl.firstChild.dataset.id) === 6) {
+    sixthCaseCounter += Number(target.dataset.answer);
+    sixthCaseQuantity = Number(testsEl.firstChild.dataset.num);
+    console.log(numQuestion);
+    console.log("sixthCaseCounter " + sixthCaseCounter);
+  }
+  if (numQuestion < markup.length) {
+    testsEl.innerHTML = markup[numQuestion];
+    numQuestion += 1;
   } else {
-    console.log(userName);
-    event.currentTarget.reset();
-    formEl.style.display = "none";
-    testsEl.innerHTML = markupFirstBlockItems[numQuestion - 1];
-    const buttonMarkup = createButtonMarkup().join('');
-    console.log(buttonMarkup);
-    btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
+    const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
+    const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
+    const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
+    const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
+    const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
+    const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
+
+    console.log(typeof sixthCaseResult);
+
+    const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult +fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
+
+    const date = getCurremtDate();
+
+    const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
+    <p class="result"> Результат №2 = ${secondCaseResult} </p>
+    <p class="result"> Результат №3 = ${thirdCaseResult} </p>
+    <p class="result"> Результат №4 = ${fourthCaseResult} </p>
+    <p class="result"> Результат №5 = ${fifthCaseResult} </p>
+    <p class="result"> Результат №6 = ${sixthCaseResult} </p>
+    <b class="result"> Основний результат = ${MPS}</b>
+    <div class="date">
+        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+    </div>`;
+
+    mainContainer.innerHTML = result;
   }
 };
 
-// const clickItem = (evt) => {
-//   const { target } = evt;
-//   if (!target.classList.contains("answer-btn")) {
-//     return;
-//   }
-//   if (evt.target.dataset.answer === "yes") {
-//     if (secondCaseYes.includes(numQuestion)) {
-//       secondCaseCounter += 1;
-//     }
-//     if (thirdCaseYes.includes(numQuestion)) {
-//       thirdCaseCounter += 1;
-//     }
-//     if (fourthCaseYes.includes(numQuestion)) {
-//       fourthCaseCounter += 1;
-//     }
-//     if (fifthCaseYes.includes(numQuestion)) {
-//       fifthCaseCounter += 1;
-//     }
-//     if (sixthCaseYes.includes(numQuestion)) {
-//       sixthCaseCounter += 1;
-//     }
-//     if (seventhCaseYes.includes(numQuestion)) {
-//       seventCaseCounter += 1;
-//     }
-//   }
-//   if (evt.target.dataset.answer === "no") {
-//     if (firstCaseNo.includes(numQuestion)) {
-//       firstCaseCounter += 1;
-//     }
-//     if (secondCaseNo.includes(numQuestion)) {
-//       secondCaseCounter += 1;
-//     }
-//     if (thirdCaseNo.includes(numQuestion)) {
-//       thirdCaseCounter += 1;
-//     }
-//     if (fourthCaseNo.includes(numQuestion)) {
-//       fourthCaseCounter += 1;
-//     }
-//     if (fifthCaseNo.includes(numQuestion)) {
-//       fifthCaseCounter += 1;
-//     }
-//     if (sixthCaseNo.includes(numQuestion)) {
-//       sixthCaseCounter += 1;
-//     }
-//     if (seventhCaseNo.includes(numQuestion)) {
-//       seventCaseCounter += 1;
-//     }
-//   }
+btnEl.addEventListener("click", clickItem);
 
-//   if (numQuestion < markup.length) {
-//     testsEl.innerHTML = markup[numQuestion];
-//     numQuestion += 1;
-//   } else {
-//     const OAP = secondCaseCounter + thirdCaseCounter + fourthCaseCounter;
-
-//     const date = getCurremtDate();
-
-//     const result = `<p class="user"> Тест пройшов/пройшла</p>
-//     <p class="user">${userName}</p>
-//     <b class="result"> Результат №1 = ${firstCaseCounter} </b>
-//     <p class="result"> Результат №2 = ${secondCaseCounter} </p>
-//     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
-//     <p class="result"> Результат №4 = ${fourthCaseCounter} </p>
-//     <p class="result"> Результат №5 = ${fifthCaseCounter} </p>
-//     <p class="result"> Результат №6 = ${sixthCaseCounter} </p>
-//     <p class="result"> Результат №7 = ${seventCaseCounter} </p>
-//     <b class="result"> Основний результат = ${OAP}</b>
-//     <div class="date">
-//         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-//          <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-//     </div>`;
-
-//     mainContainer.innerHTML = result;
-//   }
-// };
-
-formEl.addEventListener("input", handleInput);
-formEl.addEventListener("submit", handleSubmit);
-//btnEl.addEventListener("click", clickItem);
+// if (Number(testsEl.firstChild.dataset.id) === 7) {
+//   btnEl.addEventListener("click", () => {
+//     btnEl.removeEventListener("click", clickItem);
+//     console.log("click event listener was removed from btn");
+//   });
+//   printSevenBlock();
+//   mainContainer.innerHTML = " ";
+//   let markupForSevenBlock = [
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Я – патріот. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Захищаю Український народ, свою національну культуру, мову, історію, традиції. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Захищаю свій дім, рідних та близьких. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Прагну помститися за своїх побратимів, рідних та близьких. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button">Високий рівень грошового забезпечення. </button>
+//         </li>`,
+//     `<li class="btn-item">
+//         <button class="answer-btn" type="button"> Інше </button>
+//         </li>`,
+//   ];
+// }

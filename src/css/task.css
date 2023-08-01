@@ -20,7 +20,7 @@ h1 {
   text-align: center;
 }
 .return {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .return a {
@@ -45,12 +45,12 @@ h1 {
 }
 @media screen and (max-width: 479px) {
   h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .test-item-text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 .answer-container {
@@ -145,7 +145,7 @@ h1 {
 @media screen and (max-width: 479px) {
   .answer-btn-container {
     row-gap: 30px;
-    height: 60vh;
+    height: 70vh;
   }
   .answer-btn-container button {
     min-width: 110px;
