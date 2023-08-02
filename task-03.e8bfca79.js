@@ -581,6 +581,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "firstTestItems", ()=>firstTestItems);
 parcelHelpers.export(exports, "secondTestItems", ()=>secondTestItems);
 parcelHelpers.export(exports, "thirdTestItems", ()=>thirdTestItems);
+parcelHelpers.export(exports, "markupForSevenBlock", ()=>markupForSevenBlock);
 const firstTestItems = [
     {
         question: "Зазвичай вранці я прокидаюся свіжим і відпочилим."
@@ -1662,6 +1663,39 @@ const thirdTestItems = [
         question: "Задоволеність прийнятими військово-політичними рішеннями керівництва держави щодо національної безпеки."
     }
 ];
+let markupForSevenBlock = [
+    `<form class ="form-question">
+  <p>Познач, чим обумовлена твоя готовність захищати Україну (обери два найбільш значущі для тебе твердження):</p>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Я – патріот"  />
+  Я – патріот.
+  </label>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
+Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
+  </label>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
+    Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю свій дім, рідних та близьких." />
+    Захищаю свій дім, рідних та близьких.
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Прагну помститися за своїх побратимів, рідних та близьких." />
+    Прагну помститися за своїх побратимів, рідних та близьких.
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Високий рівень грошового забезпечення." />
+    Високий рівень грошового забезпечення. 
+  </label>
+    <label>
+    <input class ="answer-box" type="text" name="other" placeholder='Інше'/>
+  </label>
+  <button class ="answer-btn" type="submit">Підтвердити</button>
+</form>`
+];
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -1733,7 +1767,6 @@ function getCurremtDate() {
         currentMonth: currentMonth,
         currentYear: currentDate.getFullYear()
     };
-    console.log(date);
     return date;
 }
 
