@@ -25,7 +25,6 @@ function getCurremtDate() {
     currentMonth: currentMonth,
     currentYear: currentDate.getFullYear(),
   };
-  console.log(date);
   return date;
 }
 
