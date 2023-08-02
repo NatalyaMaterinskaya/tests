@@ -153,3 +153,20 @@ h1 {
     color: #f4f4fd;
   }
 }
+
+.form-question{
+display: flex;
+flex-direction: column;
+gap: 16px
+}
+
+.form-question p{
+  font-weight: 800;
+}
+
+.form-question button{
+    max-width: 250px;
+    background-color: #4d5ae5;
+    color: #f4f4fd;
+    margin: 0 auto;
+}

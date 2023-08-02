@@ -1247,13 +1247,7 @@ const thirdTestItems = [
     num: 19,
     question:
       "Задоволеність прийнятими військово-політичними рішеннями керівництва держави щодо національної безпеки.",
-  },
-  // {
-  //   id: 7,
-  //   num: 1,
-  //   question:
-  //     "Познач, чим обумовлена твоя готовність захищати Україну (обери два найбільш значущі для тебе твердження):",
-  // },
+  }
 ];
 //questions for third test
 export { firstTestItems, secondTestItems, thirdTestItems };

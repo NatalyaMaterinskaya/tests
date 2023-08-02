@@ -14,6 +14,8 @@ let thirdCaseCounter = null;
 let fourthCaseCounter = null;
 let fifthCaseCounter = null;
 let sixthCaseCounter = null;
+let sevenCaseCheckbox = [];
+let sevenCaseInput="";
 
 let firstCaseQuantity = null;
 let secondCaseQuantity = null;
@@ -22,7 +24,7 @@ let fourthCaseQuantity = null;
 let fifthCaseQuantity = null;
 let sixthCaseQuantity = null;
 
-let numQuestion = 1;
+let numQuestion = 47;
 
 // alert(
 //   "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково."
@@ -32,7 +34,9 @@ testsEl.innerHTML = markup[numQuestion - 1];
 const buttonMarkup = createButtonMarkup().join("");
 btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
 
-const clickItem = (evt) => {
+btnEl.addEventListener("click", clickItem);
+
+function clickItem(evt) {
   const { target } = evt;
   if (!target.classList.contains("answer-btn")) {
     return;
@@ -77,36 +81,131 @@ const clickItem = (evt) => {
     testsEl.innerHTML = markup[numQuestion];
     numQuestion += 1;
   } else {
-    const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
-    const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
-    const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
-    const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
-    const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
-    const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
+    btnEl.removeEventListener("click", clickItem);
+    let markupForSevenBlock = [
+      `<form class ="form-question">
+  <p>Познач, чим обумовлена твоя готовність захищати Україну (обери два найбільш значущі для тебе твердження):</p>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Я – патріот"  />
+  Я – патріот.
+  </label>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
+Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
+  </label>
+  <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
+    Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю свій дім, рідних та близьких." />
+    Захищаю свій дім, рідних та близьких.
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Прагну помститися за своїх побратимів, рідних та близьких." />
+    Прагну помститися за своїх побратимів, рідних та близьких.
+  </label>
+    <label>
+    <input class ="answer-box" type="checkbox" name="reason" value="Високий рівень грошового забезпечення." />
+    Високий рівень грошового забезпечення. 
+  </label>
+    <label>
+    <input class ="answer-box" type="text" name="other" placeholder='Інше'/>
+  </label>
+  <button class ="answer-btn" type="submit">Підтвердити</button>
+</form>`,
+    ];
 
-    console.log(typeof sixthCaseResult);
+    mainContainer.innerHTML = markupForSevenBlock;
 
-    const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult +fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
+    mainContainer.addEventListener("change", changeHandler);
+        mainContainer.addEventListener("input", inputHandler);
+    mainContainer.addEventListener("submit", submitHandler);
 
-    const date = getCurremtDate();
-
-    const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
-    <p class="result"> Результат №2 = ${secondCaseResult} </p>
-    <p class="result"> Результат №3 = ${thirdCaseResult} </p>
-    <p class="result"> Результат №4 = ${fourthCaseResult} </p>
-    <p class="result"> Результат №5 = ${fifthCaseResult} </p>
-    <p class="result"> Результат №6 = ${sixthCaseResult} </p>
-    <b class="result"> Основний результат = ${MPS}</b>
-    <div class="date">
-        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-    </div>`;
-
-    mainContainer.innerHTML = result;
+  
   }
-};
+}
+function submitHandler(evt) {
+  const { target } = evt;
+  if (!target.classList.contains("answer-btn")) {
+    return;
+  }
+  const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
+  const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
+  const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
+  const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
+  const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
+  const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
 
-btnEl.addEventListener("click", clickItem);
+  console.log(typeof sixthCaseResult);
+
+  const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult +fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
+
+  const date = getCurremtDate();
+
+  const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
+  <p class="result"> Результат №2 = ${secondCaseResult} </p>
+  <p class="result"> Результат №3 = ${thirdCaseResult} </p>
+  <p class="result"> Результат №4 = ${fourthCaseResult} </p>
+  <p class="result"> Результат №5 = ${fifthCaseResult} </p>
+  <p class="result"> Результат №6 = ${sixthCaseResult} </p>
+  <b class="result"> Основний результат = ${MPS}</b>
+  <div class="date">
+      <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+       <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+  </div>`;
+
+  mainContainer.innerHTML = result;
+}
+function changeHandler(evt) {
+  const { target } = evt;
+  if (target.name !== "reason") {
+    return;
+  }
+  if (target.checked === true) {
+    sevenCaseCheckbox.push(target.value);
+    console.log(sevenCaseCheckbox);
+  }
+  if (target.checked === false) {
+    let removeItem = sevenCaseCheckbox.indexOf(target.value);
+    sevenCaseCheckbox.splice(removeItem, 1);
+    console.log(sevenCaseCheckbox);
+  }
+}
+function inputHandler(evt) {
+   const { target } = evt;
+   if (target.name !== "other"){
+     return;
+   }
+  sevenCaseInput = target.value;
+    console.log(sevenCaseInput);
+}
+// const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
+// const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
+// const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
+// const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
+// const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
+// const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
+
+// console.log(typeof sixthCaseResult);
+
+// const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult +fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
+
+// const date = getCurremtDate();
+
+// const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
+// <p class="result"> Результат №2 = ${secondCaseResult} </p>
+// <p class="result"> Результат №3 = ${thirdCaseResult} </p>
+// <p class="result"> Результат №4 = ${fourthCaseResult} </p>
+// <p class="result"> Результат №5 = ${fifthCaseResult} </p>
+// <p class="result"> Результат №6 = ${sixthCaseResult} </p>
+// <b class="result"> Основний результат = ${MPS}</b>
+// <div class="date">
+//     <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+//      <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+// </div>`;
+
+// mainContainer.innerHTML = result;
 
 // if (Number(testsEl.firstChild.dataset.id) === 7) {
 //   btnEl.addEventListener("click", () => {
