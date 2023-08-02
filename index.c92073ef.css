@@ -212,6 +212,23 @@ h1 {
   }
 }
 
+.form-question {
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+}
+
+.form-question p {
+  font-weight: 800;
+}
+
+.form-question button {
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
 
 
 /*# sourceMappingURL=index.c92073ef.css.map */
