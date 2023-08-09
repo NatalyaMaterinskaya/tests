@@ -118,8 +118,15 @@ h1 {
   color: #f4f4fd;
 }
 
-.answer-wrapper{
-  margin-bottom: 50px;
+/* for fourth test */
+.btn-list {
+  flex-direction: column;
+  row-gap: 15px;
+}
+.btn-list button {
+  min-width: 410px;
+  font-size: 16px;
+  text-align: start;
 }
 
 @media screen and (max-width: 479px) {
@@ -131,7 +138,7 @@ h1 {
     font-weight: 600;
     margin-bottom: 20px;
   }
-    .answer-btn-container {
+  .answer-btn-container {
     row-gap: 30px;
     max-height: 70vh;
   }
@@ -164,8 +171,11 @@ h1 {
   .date {
     font-size: 14px;
   }
+  .btn-list button {
+    min-width: 250px;
+    font-size: 12px;
+  }
 }
-
 
 @media screen and (min-width: 1200px) {
   .return a:hover {
@@ -177,5 +187,9 @@ h1 {
     border-color: #404bbf;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+  .btn-list button {
+    min-width: 600px;
+    font-size: 20px;
   }
 }

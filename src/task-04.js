@@ -1,12 +1,14 @@
 import { fourthTestItems } from "./js/questions";
 import { createQuestionId } from "./js/helpers/create-question-id";
-import { createMarkupForForthTest } from "./js/helpers/create-markup-for-forth-test";
+import { createButtonMarkupForForthTest } from "./js/helpers/create-button-markup-for-forth-test";
 import { formEl, mainContainer, testsEl, btnEl } from "./js/common";
 import { getCurremtDate } from "./js/helpers/get-current-date";
+import { createMarkup } from "./js/helpers/create-markup";
 
 createQuestionId(fourthTestItems);
 
-const markup = createMarkupForForthTest(fourthTestItems);
+const markup = createMarkup(fourthTestItems);
+const btnMarkup = createButtonMarkupForForthTest(fourthTestItems);
 
 let firstCaseCounter = 0;
 let secondCaseCounter = 0;
@@ -35,6 +37,7 @@ const handleSubmit = (event) => {
     formEl.style.display = "none";
     testsEl.innerHTML = markup[numQuestion - 1];
     btnEl.style.display = "flex";
+    btnEl.innerHTML = btnMarkup[numQuestion - 1];
   }
 };
 
@@ -57,6 +60,7 @@ const clickItem = (evt) => {
     }
   if (numQuestion < markup.length) {
     testsEl.innerHTML = markup[numQuestion];
+     btnEl.innerHTML = btnMarkup[numQuestion];
     numQuestion += 1;
   } else {
 
