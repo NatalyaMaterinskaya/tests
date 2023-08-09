@@ -172,6 +172,10 @@ h1 {
   min-width: 150px;
 }
 
+.answer-wrapper {
+  margin-bottom: 50px;
+}
+
 @media screen and (width <= 479px) {
   h1 {
     font-size: 18px;
