@@ -576,11 +576,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"17bIP":[function(require,module,exports) {
 var _questions = require("./js/questions");
 var _createQuestionId = require("./js/helpers/create-question-id");
-var _createMarkupForForthTest = require("./js/helpers/create-markup-for-forth-test");
+var _createButtonMarkupForForthTest = require("./js/helpers/create-button-markup-for-forth-test");
 var _common = require("./js/common");
 var _getCurrentDate = require("./js/helpers/get-current-date");
+var _createMarkup = require("./js/helpers/create-markup");
 (0, _createQuestionId.createQuestionId)((0, _questions.fourthTestItems));
-const markup = (0, _createMarkupForForthTest.createMarkupForForthTest)((0, _questions.fourthTestItems));
+const markup = (0, _createMarkup.createMarkup)((0, _questions.fourthTestItems));
+const btnMarkup = (0, _createButtonMarkupForForthTest.createButtonMarkupForForthTest)((0, _questions.fourthTestItems));
 let firstCaseCounter = 0;
 let secondCaseCounter = 0;
 let thirdCaseCounter = 0;
@@ -600,6 +602,7 @@ const handleSubmit = (event)=>{
         (0, _common.formEl).style.display = "none";
         (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
         (0, _common.btnEl).style.display = "flex";
+        (0, _common.btnEl).innerHTML = btnMarkup[numQuestion - 1];
     }
 };
 const clickItem = (evt)=>{
@@ -619,6 +622,7 @@ const clickItem = (evt)=>{
     }
     if (numQuestion < markup.length) {
         (0, _common.testsEl).innerHTML = markup[numQuestion];
+        (0, _common.btnEl).innerHTML = btnMarkup[numQuestion];
         numQuestion += 1;
     } else {
         const date = (0, _getCurrentDate.getCurremtDate)();
@@ -648,7 +652,7 @@ const clickItem = (evt)=>{
 (0, _common.formEl).addEventListener("submit", handleSubmit);
 (0, _common.btnEl).addEventListener("click", clickItem);
 
-},{"./js/questions":"9rgTG","./js/common":"2ASYY","./js/helpers/get-current-date":"gTe1R","./js/helpers/create-question-id":"ipKyU","./js/helpers/create-markup-for-forth-test":"dw5ut"}],"ipKyU":[function(require,module,exports) {
+},{"./js/questions":"9rgTG","./js/helpers/create-question-id":"ipKyU","./js/helpers/create-button-markup-for-forth-test":"d3KAW","./js/common":"2ASYY","./js/helpers/get-current-date":"gTe1R","./js/helpers/create-markup":"eLGg5"}],"ipKyU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createQuestionId", ()=>createQuestionId);
@@ -656,18 +660,33 @@ function createQuestionId(arr) {
     for(let i = 1; i <= arr.length; i += 1)arr[i - 1].id = i;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dw5ut":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d3KAW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkupForForthTest", ()=>createMarkupForForthTest);
-function createMarkupForForthTest(arr, num = 1) {
-    const markup = arr.map(({ id, question, firstAnswer, secondAnswer, thirdAnswer })=>`<li class="test-item">
+parcelHelpers.export(exports, "createButtonMarkupForForthTest", ()=>createButtonMarkupForForthTest);
+function createButtonMarkupForForthTest(arr) {
+    const markup = arr.map(({ firstAnswer, secondAnswer, thirdAnswer })=>{
+        const arrOfAnswer = [
+            firstAnswer,
+            secondAnswer,
+            thirdAnswer
+        ];
+        let markupOfAnswer = [];
+        for(let i = 1; i <= 3; i += 1)markupOfAnswer.push(`<li class="btn-item">
+        <button class="answer-btn" data-answer="${i}" type="button">${i}. ${arrOfAnswer[i - 1]}</button>
+        </li>`);
+        return markupOfAnswer.join("");
+    });
+    return markup;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLGg5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
+function createMarkup(arr) {
+    const markup = arr.map(({ id, question })=>`<li class="test-item">
     <p class="test-item-text"> ${id}. ${question} </p>
-    <div class="answer-wrapper">
-      <p class="test-item-answer"> ${num}. ${firstAnswer} </p>
-      <p class="test-item-answer"> ${num + 1}. ${secondAnswer} </p>
-      <p class="test-item-answer"> ${num + 2}. ${thirdAnswer} </p>
-    </div>
   </li>`);
     return markup;
 }

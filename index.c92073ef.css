@@ -172,8 +172,15 @@ h1 {
   min-width: 150px;
 }
 
-.answer-wrapper {
-  margin-bottom: 50px;
+.btn-list {
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.btn-list button {
+  text-align: start;
+  min-width: 410px;
+  font-size: 16px;
 }
 
 @media screen and (width <= 479px) {
@@ -222,6 +229,11 @@ h1 {
   .date {
     font-size: 14px;
   }
+
+  .btn-list button {
+    min-width: 250px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (width >= 1200px) {
@@ -234,6 +246,11 @@ h1 {
     background-color: #404bbf;
     border-color: #404bbf;
     box-shadow: 0 3px 1px #0000001a, 0 2px 1px #00000014, 0 2px 2px #0000001f;
+  }
+
+  .btn-list button {
+    min-width: 600px;
+    font-size: 20px;
   }
 }
 
