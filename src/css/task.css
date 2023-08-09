@@ -118,6 +118,10 @@ h1 {
   color: #f4f4fd;
 }
 
+.answer-wrapper{
+  margin-bottom: 50px;
+}
+
 @media screen and (max-width: 479px) {
   h1 {
     font-size: 18px;
