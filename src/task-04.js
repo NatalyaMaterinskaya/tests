@@ -11,7 +11,6 @@ const markup = createMarkup(fourthTestItems);
 const btnMarkup = createButtonMarkupForForthTest(fourthTestItems);
 
 let firstCaseCounter = 0;
-let secondCaseCounter = 0;
 let thirdCaseCounter = 0;
 
 let resultOfAnswer = 0;
@@ -52,7 +51,6 @@ const clickItem = (evt) => {
     }
     if (target.dataset.answer === "2") {
       resultOfAnswer += Number(target.dataset.answer);
-      secondCaseCounter += 1;
     }
     if (target.dataset.answer === "3") {
       resultOfAnswer += Number(target.dataset.answer);
@@ -69,7 +67,6 @@ const clickItem = (evt) => {
     const result = `<p class="user"> Тест пройшов/пройшла</p>
     <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${firstCaseCounter} </p>
-    <p class="result"> Результат №2 = ${secondCaseCounter} </p>
     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
     <b class="result"> Основний результат = ${resultOfAnswer}</b>`;
 

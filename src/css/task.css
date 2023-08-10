@@ -104,6 +104,11 @@ h1 {
 .time {
   margin-right: 15px;
 }
+.btn-list button {
+  color: #000000;
+  background-color: #d3d3d3;
+  border: 1px solid #000000;
+}
 
 /* for third test */
 .answer-btn-container {
@@ -177,7 +182,7 @@ h1 {
   }
 }
 @media screen and (min-width: 480px) {
- .test-item-text {
+  .test-item-text {
     min-height: 150px;
   }
 }
@@ -194,7 +199,7 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
- .test-item-text {
+  .test-item-text {
     min-height: 100px;
   }
 }
