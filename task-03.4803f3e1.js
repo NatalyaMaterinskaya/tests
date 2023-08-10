@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"6a8dA":[function(require,module,exports) {
+})({"76swY":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "6876795667390883";
+module.bundle.HMR_BUNDLE_ID = "2cb51d2e4803f3e1";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -1762,7 +1762,7 @@ const fourthTestItems = [
     },
     {
         question: "Що Ви відчуваєте, якщо місце, яке Ви хотіли зайняти, дісталося іншому?",
-        firstAnswer: "\xabМожливо, мені це вдасться наступного разу\xbb?",
+        firstAnswer: "\xabМожливо, мені це вдасться наступного разу?\xbb",
         secondAnswer: "\xabІ навіщо я тільки витрачав на це нерви?\xbb.",
         thirdAnswer: "\xabВидно, його фізіономія шефу приємніша\xbb."
     },
@@ -1895,6 +1895,6 @@ function getCurremtDate() {
     return date;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["6a8dA"], null, "parcelRequiree8da")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["76swY"], null, "parcelRequiree8da")
 
-//# sourceMappingURL=task-04.67390883.js.map
+//# sourceMappingURL=task-03.4803f3e1.js.map

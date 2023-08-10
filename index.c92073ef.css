@@ -55,7 +55,7 @@ li {
 }
 
 ul {
-  padding: 0 20px;
+  padding: 0 10px;
   list-style-type: none;
 }
 
@@ -90,8 +90,9 @@ h1 {
 
 .test-item-text {
   text-align: center;
-  margin-bottom: 50px;
-  font-size: 24px;
+  min-height: 180px;
+  margin-bottom: 10px;
+  font-size: 20px;
   font-weight: 900;
 }
 
@@ -172,6 +173,12 @@ h1 {
   min-width: 150px;
 }
 
+.main-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 .btn-list {
   flex-direction: column;
   row-gap: 15px;
@@ -179,19 +186,16 @@ h1 {
 
 .btn-list button {
   text-align: start;
-  min-width: 410px;
-  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 @media screen and (width <= 479px) {
-  h1 {
-    font-size: 18px;
-  }
-
   .test-item-text {
     margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 600;
   }
 
   .answer-btn-container {
@@ -229,10 +233,31 @@ h1 {
   .date {
     font-size: 14px;
   }
+}
 
-  .btn-list button {
-    min-width: 250px;
-    font-size: 12px;
+@media screen and (width >= 480px) {
+  .test-item-text {
+    min-height: 150px;
+  }
+}
+
+@media screen and (width <= 767px) {
+  .feedback-form label {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .test-item-text {
+    font-weight: 600;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .test-item-text {
+    min-height: 100px;
   }
 }
 
@@ -246,6 +271,10 @@ h1 {
     background-color: #404bbf;
     border-color: #404bbf;
     box-shadow: 0 3px 1px #0000001a, 0 2px 1px #00000014, 0 2px 2px #0000001f;
+  }
+
+  .test-item-text {
+    min-height: 100px;
   }
 
   .btn-list button {
