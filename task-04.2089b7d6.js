@@ -584,7 +584,6 @@ var _createMarkup = require("./js/helpers/create-markup");
 const markup = (0, _createMarkup.createMarkup)((0, _questions.fourthTestItems));
 const btnMarkup = (0, _createButtonMarkupForForthTest.createButtonMarkupForForthTest)((0, _questions.fourthTestItems));
 let firstCaseCounter = 0;
-let secondCaseCounter = 0;
 let thirdCaseCounter = 0;
 let resultOfAnswer = 0;
 let numQuestion = 1;
@@ -612,10 +611,7 @@ const clickItem = (evt)=>{
         resultOfAnswer += Number(target.dataset.answer);
         firstCaseCounter += 1;
     }
-    if (target.dataset.answer === "2") {
-        resultOfAnswer += Number(target.dataset.answer);
-        secondCaseCounter += 1;
-    }
+    if (target.dataset.answer === "2") resultOfAnswer += Number(target.dataset.answer);
     if (target.dataset.answer === "3") {
         resultOfAnswer += Number(target.dataset.answer);
         thirdCaseCounter += 1;
@@ -629,7 +625,6 @@ const clickItem = (evt)=>{
         const result = `<p class="user"> Тест пройшов/пройшла</p>
     <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${firstCaseCounter} </p>
-    <p class="result"> Результат №2 = ${secondCaseCounter} </p>
     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
     <b class="result"> Основний результат = ${resultOfAnswer}</b>`;
         (0, _common.mainContainer).innerHTML = result;
