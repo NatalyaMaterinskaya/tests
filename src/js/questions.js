@@ -1417,11 +1417,261 @@ const fourthTestItems = [
     thirdAnswer: "Тигру чи леопарду.",
   },
 ];
-//questions for third test
+//questions for fourth test
+
+//questions for fifth test
+const fifthTestItemsLeftCharacteristics = [
+  {
+    question: "Самопочуття добре ",
+    state: "positive",
+  },
+  {
+    question: "Відчуваю себе сильним",
+    state: "positive",
+  },
+  {
+    question: "Пасивний",
+    state: "negative",
+  },
+  {
+    question: "Малорухливий",
+    state: "negative",
+  },
+  {
+    question: "Веселий",
+    state: "positive",
+  },
+  {
+    question: "Гарний настрій ",
+    state: "positive",
+  },
+  {
+    question: "Працездатний",
+    state: "positive",
+  },
+  {
+    question: "Повний сил ",
+    state: "positive",
+  },
+  {
+    question: "Повільний",
+    state: "negative",
+  },
+  {
+    question: "Бездіяльний",
+    state: "negative",
+  },
+  {
+    question: "Щасливий",
+    state: "positive",
+  },
+  {
+    question: "Життєрадісний",
+    state: "positive",
+  },
+  {
+    question: "Напружений",
+    state: "negative",
+  },
+  {
+    question: "Здоровий",
+    state: "positive",
+  },
+  {
+    question: "Безучасний",
+    state: "negative",
+  },
+  {
+    question: "Байдужий",
+    state: "negative",
+  },
+  {
+    question: "Захоплений",
+    state: "positive",
+  },
+  {
+    question: "Радісний",
+    state: "positive",
+  },
+  {
+    question: "Відпочилий",
+    state: "positive",
+  },
+  {
+    question: "Енергійний",
+    state: "positive",
+  },
+  {
+    question: "Сонливий",
+    state: "negative",
+  },
+  {
+    question: "Бажання відпочити",
+    state: "negative",
+  },
+  {
+    question: "Спокійний",
+    state: "positive",
+  },
+  {
+    question: "Оптимістичний",
+    state: "positive",
+  },
+  {
+    question: "Витривалий",
+    state: "positive",
+  },
+  {
+    question: "Бадьорий",
+    state: "positive",
+  },
+  {
+    question: "Міркувати важко",
+    state: "negative",
+  },
+  {
+    question: "Розсіяний",
+    state: "negative",
+  },
+  {
+    question: "Повний надій ",
+    state: "positive",
+  },
+  {
+    question: " Задоволений",
+    state: "positive",
+  },
+];
+
+const fifthTestItemsRightCharacteristics = [
+  {
+    question: "Самопочуття погане",
+    state: "negative",
+  },
+  {
+    question: "Відчуваю себе слабким",
+    state: "negative",
+  },
+  {
+    question: "Активний",
+    state: "positive",
+  },
+  {
+    question: "Рухливий",
+    state: "positive",
+  },
+  {
+    question: "Сумний",
+    state: "negative",
+  },
+  {
+    question: "Поганий настрій",
+    state: "negative",
+  },
+  {
+    question: "Розбитий",
+    state: "negative",
+  },
+  {
+    question: "Знесилений",
+    state: "negative",
+  },
+  {
+    question: "Швидкий",
+    state: "positive",
+  },
+  {
+    question: "Діяльний",
+    state: "positive",
+  },
+  {
+    question: "Нещасний",
+    state: "negative",
+  },
+  {
+    question: "Похмурий",
+    state: "negative",
+  },
+  {
+    question: "Розслаблений",
+    state: "positive",
+  },
+  {
+    question: "Хворий",
+    state: "negative",
+  },
+  {
+    question: "Захоплений",
+    state: "positive",
+  },
+  {
+    question: "Схвильований",
+    state: "positive",
+  },
+  {
+    question: "Похмурий",
+    state: "negative",
+  },
+  {
+    question: "Засмучений",
+    state: "negative",
+  },
+  {
+    question: "Втомлений",
+    state: "negative",
+  },
+  {
+    question: "Виснажений",
+    state: "negative",
+  },
+  {
+    question: "Збуджений",
+    state: "positive",
+  },
+  {
+    question: "Бажання працювати",
+    state: "positive",
+  },
+  {
+    question: "Стурбований",
+    state: "negative",
+  },
+  {
+    question: "Песимістичний",
+    state: "negative",
+  },
+  {
+    question: "Стомлений",
+    state: "negative",
+  },
+  {
+    question: "Млявий",
+    state: "negative",
+  },
+  {
+    question: "Міркувати легко",
+    state: "positive",
+  },
+  {
+    question: "Уважний",
+    state: "positive",
+  },
+  {
+    question: "Розчарований",
+    state: "negative",
+  },
+  {
+    question: "Незадоволений",
+    state: "negative",
+  },
+];
+  //questions for fifth test
 export {
   firstTestItems,
   secondTestItems,
   thirdTestItems,
   markupForSevenBlock,
   fourthTestItems,
+  fifthTestItemsLeftCharacteristics,
+  fifthTestItemsRightCharacteristics,
 };
