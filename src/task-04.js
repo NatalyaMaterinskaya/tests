@@ -2,7 +2,7 @@ import { fourthTestItems } from "./js/questions";
 import { createQuestionId } from "./js/helpers/create-question-id";
 import { createButtonMarkupForForthTest } from "./js/helpers/create-button-markup-for-forth-test";
 import { formEl, mainContainer, testsEl, btnEl } from "./js/common";
-import { getCurremtDate } from "./js/helpers/get-current-date";
+import { getCurrentDate } from "./js/helpers/get-current-date";
 import { createMarkup } from "./js/helpers/create-markup";
 
 createQuestionId(fourthTestItems);
@@ -62,7 +62,7 @@ const clickItem = (evt) => {
     numQuestion += 1;
   } else {
 
-    const date = getCurremtDate();
+    const date = getCurrentDate();
 
     const result = `<p class="user"> Тест пройшов/пройшла</p>
     <p class="user">${userName}</p>

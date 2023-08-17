@@ -2,7 +2,7 @@ import { secondTestItems } from "./js/questions";
 import { createQuestionId } from "./js/helpers/create-question-id";
 import { formEl, mainContainer, testsEl, btnEl } from "./js/common";
 import { createMarkup } from "./js/helpers/create-markup";
-import { getCurremtDate } from "./js/helpers/get-current-date";
+import { getCurrentDate } from "./js/helpers/get-current-date";
 
 createQuestionId(secondTestItems);
 
@@ -141,7 +141,7 @@ const clickItem = (evt) => {
   } else {
     const OAP = secondCaseCounter + thirdCaseCounter + fourthCaseCounter;
 
-    const date = getCurremtDate();
+    const date = getCurrentDate();
 
     const result = `<p class="user"> Тест пройшов/пройшла</p>
     <p class="user">${userName}</p>

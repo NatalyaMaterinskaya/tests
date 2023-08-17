@@ -1,4 +1,4 @@
-function getCurremtDate() {
+function getCurrentDate() {
   const monthArr = [
     "січня",
     "лтого",
@@ -28,4 +28,4 @@ function getCurremtDate() {
   return date;
 }
 
-export { getCurremtDate };
+export { getCurrentDate};

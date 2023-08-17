@@ -2,7 +2,7 @@ import { firstTestItems as firstTestItems } from "./js/questions";
 import { createQuestionId } from "./js/helpers/create-question-id";
 import { formEl, mainContainer, testsEl, btnEl } from "./js/common";
 import { createMarkup } from "./js/helpers/create-markup";
-import { getCurremtDate } from "./js/helpers/get-current-date";
+import { getCurrentDate } from "./js/helpers/get-current-date";
 
 createQuestionId(firstTestItems);
 
@@ -91,7 +91,7 @@ const clickItem = (evt) => {
     testsEl.innerHTML = markup[numQuestion];
     numQuestion += 1;
   } else {
-    const date = getCurremtDate();
+    const date = getCurrentDate();
 
     const result = `<p class="user"> Тест пройшов/пройшла</p>
      <p class="user">${userName}</p>

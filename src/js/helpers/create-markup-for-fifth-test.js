@@ -1,43 +1,34 @@
-function createButtonMarkupForFifthTest(arr1, arr2) { 
-  const markupBody = arr.map(
-      ({ question }) => {
-          for (let i = 0; i <= 30; i += 1) {
-              `    <tr>
-      <td>${i + 1}</td>
-      <td>${arr1[i]}</td>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <td>${arr2[i]}</td>
-    </tr>`;
-          }
-      }
+function createButtonMarkupForFifthTest(arr) {
+  const markup = arr.map(
+    ({ question, state }) =>
+      `<ul class="button-list">
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="left">3</button>
+      </li>
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="left">2</button>
+      </li>
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="left">1</button>
+      </li>
+      <li class="button-item">
+        <button class="btn" type="button">0</button>
+      </li>
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="right">1</button>
+      </li>
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="right">2</button>
+      </li>
+      <li class="button-item" data-state="${state}">
+        <button class="btn" type="button" data-side="right">3</button>
+      </li>
+    </ul>
+      <li class="test-item">
+    <p class="test-item-text"> ${question} </p>
+  </li>`
   );
-  return markupBody;
+  return markup;
 }
 
-const markupHeader =`<table class="transaction-history">
-  <thead>
-    <tr>
-      <th>№ п/п</th>
-      <th>Характеристики</th>
-      <th>Шкала індексів</th>
-      <th>Характеристики</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>`;
-
-console.log(markupHeader);
-export { markupHeader };
-
+export { createButtonMarkupForFifthTest };

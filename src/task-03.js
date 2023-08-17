@@ -2,7 +2,7 @@ import { thirdTestItems, markupForSevenBlock } from "./js/questions";
 import { mainContainer, testsEl } from "./js/common";
 import { createMarkupForThirdTest } from "./js/create-markup-for-third-test";
 import { createButtonMarkup } from "./js/helpers/create-button-markup";
-import { getCurremtDate } from "./js/helpers/get-current-date";
+import { getCurrentDate } from "./js/helpers/get-current-date";
 
 const btnEl = document.querySelector(".answer-btn-container");
 
@@ -112,7 +112,7 @@ function submitHandler(evt) {
     6
   ).toFixed(2);
 
-  const date = getCurremtDate();
+  const date = getCurrentDate();
 
   const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
   <p class="result"> Результат №2 = ${secondCaseResult} </p>
