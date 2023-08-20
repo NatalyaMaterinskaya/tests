@@ -649,7 +649,7 @@ function submitHandler(evt) {
     const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
     console.log(typeof sixthCaseResult);
     const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult + fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
-    const date = (0, _getCurrentDate.getCurremtDate)();
+    const date = (0, _getCurrentDate.getCurrentDate)();
     const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
   <p class="result"> Результат №2 = ${secondCaseResult} </p>
   <p class="result"> Результат №3 = ${thirdCaseResult} </p>

@@ -785,7 +785,7 @@ const clickItem = (evt)=>{
         (0, _common.testsEl).innerHTML = markup[numQuestion];
         numQuestion += 1;
     } else {
-        const date = (0, _getCurrentDate.getCurremtDate)();
+        const date = (0, _getCurrentDate.getCurrentDate)();
         const result = `<p class="user"> Тест пройшов/пройшла</p>
      <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${firstCaseCounter} </p>

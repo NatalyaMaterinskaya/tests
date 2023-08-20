@@ -199,6 +199,56 @@ h1 {
   line-height: 1.5;
 }
 
+.column-wrapper {
+  justify-content: center;
+  display: flex;
+}
+
+.title {
+  flex-direction: column;
+  gap: 188px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  display: none;
+}
+
+.test-container {
+  flex-direction: column;
+  width: 140px;
+  display: flex;
+}
+
+.test-container .test-item-text {
+  min-height: 42px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.left-wrapper {
+  min-width: 140px;
+  margin: 0;
+}
+
+.right-wrapper {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.button-list {
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 18px;
+  display: flex;
+}
+
+.button-list .btn {
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
 @media screen and (width <= 479px) {
   .test-item-text {
     margin-bottom: 20px;
@@ -242,8 +292,33 @@ h1 {
 }
 
 @media screen and (width >= 480px) {
+  .column-wrapper {
+    gap: 20px;
+  }
+
   .test-item-text {
     min-height: 150px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .test-container {
+    width: 220px;
+  }
+
+  .test-container .test-item-text {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+
+  .right-wrapper {
+    margin-top: 14px;
+  }
+
+  .button-list .btn {
+    font-size: 18px;
   }
 }
 
@@ -264,6 +339,53 @@ h1 {
 @media screen and (width >= 768px) {
   .test-item-text {
     min-height: 100px;
+  }
+
+  .column-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+  }
+
+  .title {
+    flex-direction: row;
+    justify-content: center;
+    gap: 144px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 900;
+    display: none;
+  }
+
+  .test-container .test-item-text {
+    min-width: 130px;
+    font-size: 16px;
+  }
+
+  .test-container {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    display: flex;
+  }
+
+  .right-wrapper {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 4px;
+    display: flex;
+  }
+
+  .button-list {
+    flex-direction: row;
+    gap: 16px;
+    display: flex;
+  }
+
+  .button-list .btn {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 900;
   }
 }
 
@@ -286,6 +408,23 @@ h1 {
   .btn-list button {
     min-width: 600px;
     font-size: 20px;
+  }
+
+  .title {
+    gap: 206px;
+  }
+
+  .test-container .test-item-text {
+    min-width: 150px;
+    font-size: 20px;
+  }
+
+  .test-container {
+    gap: 16px;
+  }
+
+  .right-wrapper {
+    gap: 36px;
   }
 }
 
