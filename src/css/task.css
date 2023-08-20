@@ -144,32 +144,47 @@ h1 {
 }
 
 /* for fifth test */
+.column-wrapper {
+  display: flex;
+  justify-content: center;
+}
 .title {
   display: none;
-  justify-content: center;
-  padding: 0 20px;
-  gap: 206px;
-  font-size: 20px;
-  font-weight: 900;
+  flex-direction: column;
+  padding: 0 10px;
+  gap: 188px;
+  font-size: 14px;
+  font-weight: 600;
 }
 .test-container {
   display: flex;
-  justify-content: center;
-  gap: 16px;
+  flex-direction: column;
+  width: 140px;
+}
+.test-container .test-item-text {
+  min-height: 42px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.left-wrapper {
+  margin: 0;
+  min-width: 140px;
 }
 .right-wrapper {
   display: flex;
-  align-items: baseline;
-  gap: 36px;
+  flex-direction: column;
+  align-items: center;
 }
 .button-list {
   display: flex;
+  flex-direction: column;
   gap: 16px;
+  margin-bottom: 18px;
 }
 
 .button-list .btn {
-  padding: 15px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 14px;
   font-weight: 900;
 }
 @media screen and (max-width: 479px) {
@@ -211,8 +226,28 @@ h1 {
   }
 }
 @media screen and (min-width: 480px) {
+  .column-wrapper {
+    gap: 20px;
+  }
   .test-item-text {
     min-height: 150px;
+  }
+  /* for fifth test */
+  .title {
+    font-size: 18px;
+  }
+  .test-container{
+    width: 220px;
+  }
+  .test-container .test-item-text {
+    font-size: 18px;
+    margin-bottom: 0px;
+  }
+  .right-wrapper {
+    margin-top: 14px;
+  }
+  .button-list .btn {
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -230,6 +265,48 @@ h1 {
 @media screen and (min-width: 768px) {
   .test-item-text {
     min-height: 100px;
+  }
+  /* for fifth test */
+  .column-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .title {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 144px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .test-container .test-item-text {
+    font-size: 16px;
+    min-width: 130px;
+  }
+  .test-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+  }
+  .right-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .button-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .button-list .btn {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 900;
   }
 }
 
@@ -250,5 +327,19 @@ h1 {
   .btn-list button {
     min-width: 600px;
     font-size: 20px;
+  }
+  /* for fifth test */
+  .title {
+    gap: 206px;
+  }
+  .test-container .test-item-text {
+    font-size: 20px;
+    min-width: 150px;
+  }
+  .test-container {
+    gap: 16px;
+  }
+  .right-wrapper {
+    gap: 36px;
   }
 }

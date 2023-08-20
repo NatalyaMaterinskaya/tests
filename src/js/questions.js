@@ -1423,246 +1423,216 @@ const fourthTestItems = [
 const fifthTestItemsLeftCharacteristics = [
   {
     question: "Самопочуття добре ",
-    state: "positive",
   },
   {
     question: "Відчуваю себе сильним",
-    state: "positive",
   },
   {
     question: "Пасивний",
-    state: "negative",
   },
   {
     question: "Малорухливий",
-    state: "negative",
   },
   {
     question: "Веселий",
-    state: "positive",
   },
   {
     question: "Гарний настрій ",
-    state: "positive",
   },
   {
     question: "Працездатний",
-    state: "positive",
   },
   {
     question: "Повний сил ",
-    state: "positive",
   },
   {
     question: "Повільний",
-    state: "negative",
   },
   {
     question: "Бездіяльний",
-    state: "negative",
   },
   {
     question: "Щасливий",
-    state: "positive",
   },
   {
     question: "Життєрадісний",
-    state: "positive",
   },
   {
     question: "Напружений",
-    state: "negative",
   },
   {
     question: "Здоровий",
-    state: "positive",
   },
   {
     question: "Безучасний",
-    state: "negative",
   },
   {
     question: "Байдужий",
-    state: "negative",
   },
   {
     question: "Захоплений",
-    state: "positive",
   },
   {
     question: "Радісний",
-    state: "positive",
   },
   {
     question: "Відпочилий",
-    state: "positive",
   },
   {
     question: "Енергійний",
-    state: "positive",
   },
   {
     question: "Сонливий",
-    state: "negative",
   },
   {
     question: "Бажання відпочити",
-    state: "negative",
   },
   {
     question: "Спокійний",
-    state: "positive",
   },
   {
     question: "Оптимістичний",
-    state: "positive",
   },
   {
     question: "Витривалий",
-    state: "positive",
   },
   {
     question: "Бадьорий",
-    state: "positive",
   },
   {
     question: "Міркувати важко",
-    state: "negative",
   },
   {
     question: "Розсіяний",
-    state: "negative",
   },
   {
     question: "Повний надій ",
-    state: "positive",
   },
   {
     question: " Задоволений",
-    state: "positive",
   },
 ];
 
 const fifthTestItemsRightCharacteristics = [
   {
     question: "Самопочуття погане",
-    state: "negative",
+    state: false,
   },
   {
     question: "Відчуваю себе слабким",
-    state: "negative",
+    state: false,
   },
   {
     question: "Активний",
-    state: "positive",
+    state: true,
   },
   {
     question: "Рухливий",
-    state: "positive",
+    state: true,
   },
   {
     question: "Сумний",
-    state: "negative",
+    state: false,
   },
   {
     question: "Поганий настрій",
-    state: "negative",
+    state: false,
   },
   {
     question: "Розбитий",
-    state: "negative",
+    state: false,
   },
   {
     question: "Знесилений",
-    state: "negative",
+    state: false,
   },
   {
     question: "Швидкий",
-    state: "positive",
+    state: true,
   },
   {
     question: "Діяльний",
-    state: "positive",
+    state: true,
   },
   {
     question: "Нещасний",
-    state: "negative",
+    state: false,
   },
   {
     question: "Похмурий",
-    state: "negative",
+    state: false,
   },
   {
     question: "Розслаблений",
-    state: "positive",
+    state: true,
   },
   {
     question: "Хворий",
-    state: "negative",
+    state: false,
   },
   {
     question: "Захоплений",
-    state: "positive",
+    state: true,
   },
   {
     question: "Схвильований",
-    state: "positive",
+    state: true,
   },
   {
     question: "Похмурий",
-    state: "negative",
+    state: false,
   },
   {
     question: "Засмучений",
-    state: "negative",
+    state: false,
   },
   {
     question: "Втомлений",
-    state: "negative",
+    state: false,
   },
   {
     question: "Виснажений",
-    state: "negative",
+    state: false,
   },
   {
     question: "Збуджений",
-    state: "positive",
+    state: true,
   },
   {
     question: "Бажання працювати",
-    state: "positive",
+    state: true,
   },
   {
     question: "Стурбований",
-    state: "negative",
+    state: false,
   },
   {
     question: "Песимістичний",
-    state: "negative",
+    state: false,
   },
   {
     question: "Стомлений",
-    state: "negative",
+    state: false,
   },
   {
     question: "Млявий",
-    state: "negative",
+    state: false,
   },
   {
     question: "Міркувати легко",
-    state: "positive",
+    state: true,
   },
   {
     question: "Уважний",
-    state: "positive",
+    state: true,
   },
   {
     question: "Розчарований",
-    state: "negative",
+    state: false,
   },
   {
     question: "Незадоволений",
-    state: "negative",
+    state: false,
   },
 ];
   //questions for fifth test

@@ -6,25 +6,24 @@ import { createQuestionId } from "./js/helpers/create-question-id";
 import { createMarkup } from "./js/helpers/create-markup";
 import { formEl } from "./js/common";
 import { getCurrentDate } from "./js/helpers/get-current-date";
-import { createButtonMarkupForFifthTest } from "./js/helpers/create-markup-for-fifth-test";
+import { createMarkupForFifthTest } from "./js/helpers/create-markup-for-fifth-test";
 
-const mainContainer = document.querySelector(".test-container");
+const mainContainer = document.querySelector(".container");
 const titleEl = document.querySelector(".title");
 const leftWrapper = document.querySelector(".left-wrapper");
 const rightWrapper = document.querySelector(".right-wrapper");
-const btnEl = document.querySelector(".button-list");
 
 createQuestionId(fifthTestItemsLeftCharacteristics);
 createQuestionId(fifthTestItemsRightCharacteristics);
 
 const leftMarkup = createMarkup(fifthTestItemsLeftCharacteristics);
-const rightMarkup = createButtonMarkupForFifthTest(
+const rightMarkup = createMarkupForFifthTest(
   fifthTestItemsRightCharacteristics
 );
 
-let feelingOfWellBeingCaseCounter = null;
-let activityCaseCounter = null;
-let moodCaseCounter = null;
+let feelingOfWellBeingCaseCounter = 0;
+let activityCaseCounter = 0;
+let moodCaseCounter = 0;
 
 let numQuestion = 1;
 let userName = null;
@@ -46,63 +45,76 @@ const handleSubmit = (event) => {
   if (name.value.trim() === "") {
     alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
   } else {
-    console.log(userName);
     event.currentTarget.reset();
     formEl.style.display = "none";
     titleEl.style.display = "flex";
     leftWrapper.innerHTML = leftMarkup[numQuestion - 1];
     rightWrapper.insertAdjacentHTML("afterbegin", rightMarkup[numQuestion - 1]);
+    const btnEl = rightWrapper.firstElementChild;
+    btnEl.addEventListener("click", clickItem);
   }
 };
 
-// const clickItem = (evt) => {
-//   const { target } = evt;
-//   if (!target.classList.contains("answer-btn")) {
-//     return;
-//   }
-//   if (target.dataset.answer === "1") {
-//     resultOfAnswer += Number(target.dataset.answer);
-//     firstCaseCounter += 1;
-//   }
-//   if (target.dataset.answer === "2") {
-//     resultOfAnswer += Number(target.dataset.answer);
-//   }
-//   if (target.dataset.answer === "3") {
-//     resultOfAnswer += Number(target.dataset.answer);
-//     thirdCaseCounter += 1;
-//   }
-//   if (numQuestion < markup.length) {
-//     testsEl.innerHTML = markup[numQuestion];
-//     btnEl.innerHTML = btnMarkup[numQuestion];
-//     numQuestion += 1;
-//   } else {
-//     const date = getCurrentDate();
+const clickItem = (evt) => {
+  const { target } = evt;
+  if (!target.classList.contains("btn")) {
+    return;
+  }
+  if (numQuestion < leftMarkup.length) {
+    switch (target.dataset.state) {
+      case "true":
+        if (feelingOfWellBeingCase.includes(numQuestion)) {
+          feelingOfWellBeingCaseCounter += 4 + Number(target.textContent);
+        }
+        if (activityCase.includes(numQuestion)) {
+          activityCaseCounter += 4 + Number(target.textContent);
+        }
+        if (moodCase.includes(numQuestion)) {
+          moodCaseCounter += 4 + Number(target.textContent);
+        }
+        break;
 
-//     const result = `<p class="user"> Тест пройшов/пройшла</p>
-//     <p class="user">${userName}</p>
-//     <p class="result"> Результат №1 = ${firstCaseCounter} </p>
-//     <p class="result"> Результат №3 = ${thirdCaseCounter} </p>
-//     <b class="result"> Основний результат = ${resultOfAnswer}</b>`;
+      case "false":
+        if (feelingOfWellBeingCase.includes(numQuestion)) {
+          feelingOfWellBeingCaseCounter += 4 - Number(target.textContent);
+        }
+        if (activityCase.includes(numQuestion)) {
+          activityCaseCounter += 4 - Number(target.textContent);
+        }
+        if (moodCase.includes(numQuestion)) {
+          moodCaseCounter += 4 - Number(target.textContent);
+        }
+        break;
 
-//     mainContainer.innerHTML = result;
+      default:
+        console.log("Полюс питання відсутній!");
+    }
 
-//     if (firstCaseCounter < 7 && thirdCaseCounter >= 7) {
-//       const firstCase = ` <p class="result"> Випадок №1</p>`;
-//       mainContainer.insertAdjacentHTML("beforeend", firstCase);
-//     }
-//     if (thirdCaseCounter < 7 && firstCaseCounter >= 7) {
-//       const firstCase = ` <p class="result"> Випадок №2</p>`;
-//       mainContainer.insertAdjacentHTML("beforeend", firstCase);
-//     }
+    leftWrapper.innerHTML = leftMarkup[numQuestion];
+    rightWrapper.innerHTML = rightMarkup[numQuestion];
+    numQuestion += 1;
+    const btnEl = rightWrapper.firstElementChild;
+    btnEl.addEventListener("click", clickItem);
+  } else {
+    const date = getCurrentDate();
 
-//     const dateEl = `<div class="date">
-//         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-//          <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-//     </div>`;
-//     mainContainer.insertAdjacentHTML("beforeend", dateEl);
-//   }
-// };
+    mainContainer.classList.remove('column-wrapper');
+    
+    const result = `<p class="user"> Тест пройшов/пройшла</p>
+    <p class="user">${userName}</p>
+    <p class="result"> Результат №1 = ${(feelingOfWellBeingCaseCounter /= 10)} </p>
+    <p class="result"> Результат №2 = ${(activityCaseCounter /= 10)} </p>
+    <p class="result"> Результат №3 = ${(moodCaseCounter /= 10)} </p>`;
+
+    mainContainer.innerHTML = result;
+
+    const dateEl = `<div class="date">
+        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+    </div>`;
+    mainContainer.insertAdjacentHTML("beforeend", dateEl);
+  }
+};
 
 formEl.addEventListener("input", handleInput);
 formEl.addEventListener("submit", handleSubmit);
-// btnEl.addEventListener("click", clickItem);
