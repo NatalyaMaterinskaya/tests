@@ -32,6 +32,10 @@ const feelingOfWellBeingCase = [1, 2, 7, 8, 13, 14, 19, 20, 25, 26];
 const activityCase = [3, 4, 9, 10, 15, 16, 21, 22, 27, 28];
 const moodCase = [5, 6, 11, 12, 17, 18, 23, 24, 29, 30];
 
+alert(
+  "Інструкція: Вам необхідно співвіднести свій стан із рядом ознак за багатоступінчастою шкалою. Шкала складається з індексів (3 2 1 0 1 2 3) і розташована між тридцятьма парами слів протилежного значення, які відображають рухливість, швидкість і темп перебігу функцій (активність), силу, здоров’я, стомленість (самопочуття), а також характеристики емоційного стану (настрій). Ви маєте вибрати і позначити цифру, яка найточніше відображає Ваш стан у момент обстеження. !!!При цьому потрібно враховувати, що полюси шкал (негативний і позитивний) постійно змінюються!!!"
+);
+
 const handleInput = (event) => {
   userName = event.target.value;
 };
@@ -54,13 +58,13 @@ const handleSubmit = (event) => {
     btnEl.addEventListener("click", clickItem);
   }
 };
-
 const clickItem = (evt) => {
   const { target } = evt;
   if (!target.classList.contains("btn")) {
     return;
   }
-  if (numQuestion < leftMarkup.length) {
+
+  if (numQuestion <= leftMarkup.length) {
     switch (target.dataset.state) {
       case "true":
         if (feelingOfWellBeingCase.includes(numQuestion)) {
@@ -89,18 +93,19 @@ const clickItem = (evt) => {
       default:
         console.log("Полюс питання відсутній!");
     }
-
+  }
+  if (numQuestion < leftMarkup.length) {
     leftWrapper.innerHTML = leftMarkup[numQuestion];
     rightWrapper.innerHTML = rightMarkup[numQuestion];
-    numQuestion += 1;
     const btnEl = rightWrapper.firstElementChild;
     btnEl.addEventListener("click", clickItem);
+    numQuestion += 1;
   } else {
     const date = getCurrentDate();
 
-    mainContainer.classList.remove('column-wrapper');
-    
-    const result = `<p class="user"> Тест пройшов/пройшла</p>
+    mainContainer.classList.remove("column-wrapper");
+
+    const result = `<p class="user"> Тест пройшов</p>
     <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${(feelingOfWellBeingCaseCounter /= 10)} </p>
     <p class="result"> Результат №2 = ${(activityCaseCounter /= 10)} </p>

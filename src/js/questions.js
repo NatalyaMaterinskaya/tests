@@ -1576,7 +1576,7 @@ const fifthTestItemsRightCharacteristics = [
   },
   {
     question: "Схвильований",
-    state: true,
+    state: false,
   },
   {
     question: "Похмурий",

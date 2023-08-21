@@ -180,6 +180,7 @@ h1 {
   flex-direction: column;
   gap: 16px;
   margin-bottom: 18px;
+  min-height: 364px;
 }
 
 .button-list .btn {
@@ -236,15 +237,19 @@ h1 {
   .title {
     font-size: 18px;
   }
-  .test-container{
+  .test-container {
     width: 220px;
   }
   .test-container .test-item-text {
+    min-height: 54px;
     font-size: 18px;
     margin-bottom: 0px;
   }
   .right-wrapper {
     margin-top: 14px;
+  }
+  .button-list {
+    min-height: 410px;
   }
   .button-list .btn {
     font-size: 18px;
