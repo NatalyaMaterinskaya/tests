@@ -239,6 +239,7 @@ h1 {
 .button-list {
   flex-direction: column;
   gap: 16px;
+  min-height: 364px;
   margin-bottom: 18px;
   display: flex;
 }
@@ -309,12 +310,17 @@ h1 {
   }
 
   .test-container .test-item-text {
+    min-height: 54px;
     margin-bottom: 0;
     font-size: 18px;
   }
 
   .right-wrapper {
     margin-top: 14px;
+  }
+
+  .button-list {
+    min-height: 410px;
   }
 
   .button-list .btn {

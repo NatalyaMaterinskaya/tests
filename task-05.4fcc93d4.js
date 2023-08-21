@@ -629,6 +629,7 @@ const moodCase = [
     29,
     30
 ];
+alert("Інструкція: Вам необхідно співвіднести свій стан із рядом ознак за багатоступінчастою шкалою. Шкала складається з індексів (3 2 1 0 1 2 3) і розташована між тридцятьма парами слів протилежного значення, які відображають рухливість, швидкість і темп перебігу функцій (активність), силу, здоров’я, стомленість (самопочуття), а також характеристики емоційного стану (настрій). Ви маєте вибрати і позначити цифру, яка найточніше відображає Ваш стан у момент обстеження. !!!При цьому потрібно враховувати, що полюси шкал (негативний і позитивний) постійно змінюються!!!");
 const handleInput = (event)=>{
     userName = event.target.value;
 };
@@ -649,30 +650,30 @@ const handleSubmit = (event)=>{
 const clickItem = (evt)=>{
     const { target } = evt;
     if (!target.classList.contains("btn")) return;
+    if (numQuestion <= leftMarkup.length) switch(target.dataset.state){
+        case "true":
+            if (feelingOfWellBeingCase.includes(numQuestion)) feelingOfWellBeingCaseCounter += 4 + Number(target.textContent);
+            if (activityCase.includes(numQuestion)) activityCaseCounter += 4 + Number(target.textContent);
+            if (moodCase.includes(numQuestion)) moodCaseCounter += 4 + Number(target.textContent);
+            break;
+        case "false":
+            if (feelingOfWellBeingCase.includes(numQuestion)) feelingOfWellBeingCaseCounter += 4 - Number(target.textContent);
+            if (activityCase.includes(numQuestion)) activityCaseCounter += 4 - Number(target.textContent);
+            if (moodCase.includes(numQuestion)) moodCaseCounter += 4 - Number(target.textContent);
+            break;
+        default:
+            console.log("Полюс питання відсутній!");
+    }
     if (numQuestion < leftMarkup.length) {
-        switch(target.dataset.state){
-            case "true":
-                if (feelingOfWellBeingCase.includes(numQuestion)) feelingOfWellBeingCaseCounter += 4 + Number(target.textContent);
-                if (activityCase.includes(numQuestion)) activityCaseCounter += 4 + Number(target.textContent);
-                if (moodCase.includes(numQuestion)) moodCaseCounter += 4 + Number(target.textContent);
-                break;
-            case "false":
-                if (feelingOfWellBeingCase.includes(numQuestion)) feelingOfWellBeingCaseCounter += 4 - Number(target.textContent);
-                if (activityCase.includes(numQuestion)) activityCaseCounter += 4 - Number(target.textContent);
-                if (moodCase.includes(numQuestion)) moodCaseCounter += 4 - Number(target.textContent);
-                break;
-            default:
-                console.log("Полюс питання відсутній!");
-        }
         leftWrapper.innerHTML = leftMarkup[numQuestion];
         rightWrapper.innerHTML = rightMarkup[numQuestion];
-        numQuestion += 1;
         const btnEl = rightWrapper.firstElementChild;
         btnEl.addEventListener("click", clickItem);
+        numQuestion += 1;
     } else {
         const date = (0, _getCurrentDate.getCurrentDate)();
         mainContainer.classList.remove("column-wrapper");
-        const result = `<p class="user"> Тест пройшов/пройшла</p>
+        const result = `<p class="user"> Тест пройшов</p>
     <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${feelingOfWellBeingCaseCounter /= 10} </p>
     <p class="result"> Результат №2 = ${activityCaseCounter /= 10} </p>
