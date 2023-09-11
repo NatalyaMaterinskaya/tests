@@ -4,7 +4,7 @@ import { formEl } from "./js/common";
 import { getCurrentDate } from "./js/helpers/get-current-date";
 
 const mainContainerEl = document.querySelector(".container");
-const titleEl = document.querySelector(".title");
+const titleEl = document.querySelector(".title-wrapper");
 const testWrapperEl = document.querySelector(".test-wrapper");
 
 const markup = createMarkupForSixthTest(sixthTestItemsRightCharacteristics);
@@ -36,7 +36,8 @@ const handleSubmit = (event) => {
     formEl.style.display = "none";
     titleEl.style.display = "flex";
     testWrapperEl.innerHTML = markup[numQuestion - 1];
-    const btnEl = testWrapperEl.firstElementChild;
+    const btnEl = testWrapperEl.lastElementChild;
+    console.dir( markup.length);
     btnEl.addEventListener("click", clickItem);
   }
 };
@@ -52,7 +53,7 @@ const clickItem = (evt) => {
         trueCaseCounter += Number(target.textContent);
         break;
       case "false":
-        falseCaseCounter += target.dataset.value;
+        falseCaseCounter += Number(target.dataset.value);
         break;
       default:
         console.log("Щось пішло не так...");
@@ -60,7 +61,7 @@ const clickItem = (evt) => {
   }
   if (numQuestion < markup.length) {
     testWrapperEl.innerHTML = markup[numQuestion];
-    const btnEl = testWrapperEl.firstElementChild;
+    const btnEl = testWrapperEl.lastElementChild;
     btnEl.addEventListener("click", clickItem);
     numQuestion += 1;
   } else {
