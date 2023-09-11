@@ -1635,7 +1635,112 @@ const fifthTestItemsRightCharacteristics = [
     state: false,
   },
 ];
-  //questions for fifth test
+//questions for fifth test
+ 
+//questions for sixth test
+const sixthTestItemsRightCharacteristics = [
+  {
+    id: 1,
+    question: 'Я відчуваю пригніченість, сум',
+    state: true,
+  },
+    {
+    id: 2,
+    question: 'Вранці я почуваюся найкраще ',
+    state: false,
+  },
+      {
+    id: 3,
+    question: 'У мене бувають періоди, коли я плачу або на очі навертаються сльози',
+    state: true,
+  },
+        {
+    id: 4,
+    question: 'У мене поганий нічний сон',
+    state: true,
+  },
+          {
+    id: 5,
+    question: 'Апетит у мене не гірше, ніж зазвичай',
+    state: false,
+  },
+           {
+    id: 6,
+    question: 'Мені приємно дивитись на привабливих жінок/чоловіків, спілкуватися з ними, бути поруч',
+    state: false,
+  },
+    {
+    id: 7,
+    question: 'Я помічаю, що втрачаю вагу',
+    state: true,
+  },
+      {
+    id: 8,
+    question: 'Мене турбують закрепи',
+    state: true,
+  },
+        {
+    id: 9,
+    question: 'Серце б’ється швидше, ніж зазвичай',
+    state: true,
+  },
+          {
+    id: 10,
+    question: 'Я втомлююся без будь-яких причин',
+    state: true,
+  },
+            {
+    id: 11,
+    question: 'Я мислю так само ясно, як завжди',
+    state: false,
+  },
+    {
+    id: 12,
+    question: 'Мені легко виконувати те, що я вмію',
+    state: false,
+  },
+      {
+    id: 13,
+    question: 'Відчуваю неспокій і не можу всидіти на місці',
+    state: true,
+  },
+        {
+    id: 14,
+    question: 'У мене є надії на майбутнє',
+    state: false,
+  },
+          {
+    id: 15,
+    question: 'Я більш дратівливий, ніж раніше',
+    state: true,
+  },
+           {
+    id: 16,
+    question: 'Мені легко приймати рішення',
+    state: false,
+  },
+    {
+    id: 17,
+    question: 'Я відчуваю, що корисний і потрібний людям ',
+    state: false,
+  },
+      {
+    id: 18,
+    question: 'Я живу досить повним життям',
+    state: false,
+  },
+        {
+    id: 19,
+    question: 'Я відчуваю, що іншим людям стане краще, якщо я помру',
+    state: true,
+  },
+          {
+    id: 20,
+    question: 'Я і досі радію від того, від чого радів завжди ',
+    state: false,
+  },
+]
+//questions for sixth test
 export {
   firstTestItems,
   secondTestItems,
@@ -1644,4 +1749,5 @@ export {
   fourthTestItems,
   fifthTestItemsLeftCharacteristics,
   fifthTestItemsRightCharacteristics,
+  sixthTestItemsRightCharacteristics,
 };

@@ -1,6 +1,6 @@
 import { thirdTestItems, markupForSevenBlock } from "./js/questions";
 import { mainContainer, testsEl } from "./js/common";
-import { createMarkupForThirdTest } from "./js/create-markup-for-third-test";
+import { createMarkupForThirdTest } from "./js/helpers/create-markup-for-third-test";
 import { createButtonMarkup } from "./js/helpers/create-button-markup";
 import { getCurrentDate } from "./js/helpers/get-current-date";
 
