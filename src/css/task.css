@@ -290,6 +290,9 @@ h1 {
   .button-list .btn {
     font-size: 18px;
   }
+  .test-wrapper {
+    width: 330px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -349,6 +352,25 @@ h1 {
     padding: 15px;
     font-size: 20px;
     font-weight: 900;
+  }
+  .title-wrapper {
+    flex-direction: row;
+    padding: 0 20px;
+    gap: 50px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .test-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 50px;
+  }
+  .test-wrapper .test-item-text {
+    min-width: 126px;
+  }
+  .test-wrapper .button-list {
+    align-items: center;
   }
 }
 
