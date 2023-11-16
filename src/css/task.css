@@ -61,6 +61,10 @@ h1 {
     box-shadow var(--transition-dur-and-func);
 }
 
+.answer-btn.disabled{
+   background-color: #c7bcba;
+     color: #d0d0d4;;
+}
 .user {
   margin: 10px;
   font-size: 24px;

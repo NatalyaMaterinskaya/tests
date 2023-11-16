@@ -1252,7 +1252,7 @@ const thirdTestItems = [
 
     let markupForSevenBlock = [
       `<form class ="form-question">
-  <p>Познач, чим обумовлена твоя готовність захищати Україну (обери два найбільш значущі для тебе твердження):</p>
+  <p>Познач, чим обумовлена твоя готовність захищати Україну (обери ДВА найбільш значущі для тебе твердження):</p>
   <label>
     <input class ="answer-box" type="checkbox" name="reason" value="Я – патріот"  />
   Я – патріот.
