@@ -72,6 +72,18 @@ h1 {
   text-align: center;
 }
 
+.menu-item {
+  text-align: center;
+  transition: background-color var(--transition-dur-and-func), color var(--transition-dur-and-func), border-color var(--transition-dur-and-func), box-shadow var(--transition-dur-and-func);
+  background-color: #ddbd8d;
+  border: 1px solid #e7e9fc;
+  border-radius: 4px;
+  max-width: 500px;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .return {
   font-size: 16px;
   font-weight: 600;

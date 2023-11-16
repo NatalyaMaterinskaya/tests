@@ -1,0 +1,1 @@
+{"mappings":"AAAA","sources":["src/task-07/task-07.css"],"sourcesContent":[".test-item-text {\r\n  font-size: 20px;\r\nmin-height: 120px;\r\n  text-align: center;\r\n  margin-bottom: 10px;\r\n}"],"names":[],"version":3,"file":"task-07.2c2845f6.css.map","sourceRoot":"/__parcel_source_root/"}
