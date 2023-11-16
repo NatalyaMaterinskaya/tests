@@ -112,6 +112,11 @@ h1 {
   font-weight: 700;
 }
 
+.answer-btn.disabled {
+  color: #d0d0d4;
+  background-color: #c7bcba;
+}
+
 .user {
   margin: 10px;
   font-size: 24px;
