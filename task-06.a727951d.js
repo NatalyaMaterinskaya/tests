@@ -1670,30 +1670,42 @@ const thirdTestItems = [
 let markupForSevenBlock = [
     `<form class ="form-question">
   <p>Познач, чим обумовлена твоя готовність захищати Україну (обери ДВА найбільш значущі для тебе твердження):</p>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Я – патріот"  />
-  Я – патріот.
-  </label>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
-Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
-  </label>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
-    Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю свій дім, рідних та близьких." />
-    Захищаю свій дім, рідних та близьких.
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Прагну помститися за своїх побратимів, рідних та близьких." />
-    Прагну помститися за своїх побратимів, рідних та близьких.
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Високий рівень грошового забезпечення." />
-    Високий рівень грошового забезпечення. 
-  </label>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason"  data-id=1 value="Я – патріот"  />
+      1. Я – патріот.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=2 value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
+      2. Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=3 value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
+      3. Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=4 value="Захищаю свій дім, рідних та близьких." />
+      4. Захищаю свій дім, рідних та близьких.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=5 value="Прагну помститися за своїх побратимів, рідних та близьких." />
+      5. Прагну помститися за своїх побратимів, рідних та близьких.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=6 value="Високий рівень грошового забезпечення." />
+      6. Високий рівень грошового забезпечення. 
+   </label>
+  </div> 
     <label>
     <input class ="answer-box" type="text" name="other" placeholder='Інше'/>
   </label>
