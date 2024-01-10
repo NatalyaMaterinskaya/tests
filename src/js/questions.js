@@ -969,7 +969,6 @@ const secondTestItems = [
 ];
 //questions for second test
 
-
 //questions for third test
 const thirdTestItems = [
   {
@@ -1247,42 +1246,54 @@ const thirdTestItems = [
     num: 19,
     question:
       "Задоволеність прийнятими військово-політичними рішеннями керівництва держави щодо національної безпеки.",
-  }
+  },
 ];
 
-    let markupForSevenBlock = [
-      `<form class ="form-question">
+let markupForSevenBlock = [
+  `<form class ="form-question">
   <p>Познач, чим обумовлена твоя готовність захищати Україну (обери ДВА найбільш значущі для тебе твердження):</p>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Я – патріот"  />
-  Я – патріот.
-  </label>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
-Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
-  </label>
-  <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
-    Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Захищаю свій дім, рідних та близьких." />
-    Захищаю свій дім, рідних та близьких.
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Прагну помститися за своїх побратимів, рідних та близьких." />
-    Прагну помститися за своїх побратимів, рідних та близьких.
-  </label>
-    <label>
-    <input class ="answer-box" type="checkbox" name="reason" value="Високий рівень грошового забезпечення." />
-    Високий рівень грошового забезпечення. 
-  </label>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason"  data-id=1 value="Я – патріот"  />
+      1. Я – патріот.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=2 value="Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок." />
+      2. Захищати незалежність, територіальну цілісність і суверенітет України – це мій громадянський обов’язок.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=3 value="Захищаю Український народ, свою національну культуру, мову, історію, традиції." />
+      3. Захищаю Український народ, свою національну культуру, мову, історію, традиції. 
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=4 value="Захищаю свій дім, рідних та близьких." />
+      4. Захищаю свій дім, рідних та близьких.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=5 value="Прагну помститися за своїх побратимів, рідних та близьких." />
+      5. Прагну помститися за своїх побратимів, рідних та близьких.
+   </label>
+  </div>
+  <div>
+   <label>
+    <input class ="answer-box" type="checkbox" name="reason" data-id=6 value="Високий рівень грошового забезпечення." />
+      6. Високий рівень грошового забезпечення. 
+   </label>
+  </div> 
     <label>
     <input class ="answer-box" type="text" name="other" placeholder='Інше'/>
   </label>
   <button class ="answer-btn" type="submit">Підтвердити</button>
 </form>`,
-    ];
+];
 //questions for third test
 
 //questions for fourth test
@@ -1636,110 +1647,112 @@ const fifthTestItemsRightCharacteristics = [
   },
 ];
 //questions for fifth test
- 
+
 //questions for sixth test
 const sixthTestItemsRightCharacteristics = [
   {
     id: 1,
-    question: 'Я відчуваю пригніченість, сум',
+    question: "Я відчуваю пригніченість, сум",
     state: true,
   },
-    {
+  {
     id: 2,
-    question: 'Вранці я почуваюся найкраще ',
+    question: "Вранці я почуваюся найкраще ",
     state: false,
   },
-      {
+  {
     id: 3,
-    question: 'У мене бувають періоди, коли я плачу або на очі навертаються сльози',
+    question:
+      "У мене бувають періоди, коли я плачу або на очі навертаються сльози",
     state: true,
   },
-        {
+  {
     id: 4,
-    question: 'У мене поганий нічний сон',
+    question: "У мене поганий нічний сон",
     state: true,
   },
-          {
+  {
     id: 5,
-    question: 'Апетит у мене не гірше, ніж зазвичай',
+    question: "Апетит у мене не гірше, ніж зазвичай",
     state: false,
   },
-           {
+  {
     id: 6,
-    question: 'Мені приємно дивитись на привабливих жінок/чоловіків, спілкуватися з ними, бути поруч',
+    question:
+      "Мені приємно дивитись на привабливих жінок/чоловіків, спілкуватися з ними, бути поруч",
     state: false,
   },
-    {
+  {
     id: 7,
-    question: 'Я помічаю, що втрачаю вагу',
+    question: "Я помічаю, що втрачаю вагу",
     state: true,
   },
-      {
+  {
     id: 8,
-    question: 'Мене турбують закрепи',
+    question: "Мене турбують закрепи",
     state: true,
   },
-        {
+  {
     id: 9,
-    question: 'Серце б’ється швидше, ніж зазвичай',
+    question: "Серце б’ється швидше, ніж зазвичай",
     state: true,
   },
-          {
+  {
     id: 10,
-    question: 'Я втомлююся без будь-яких причин',
+    question: "Я втомлююся без будь-яких причин",
     state: true,
   },
-            {
+  {
     id: 11,
-    question: 'Я мислю так само ясно, як завжди',
+    question: "Я мислю так само ясно, як завжди",
     state: false,
   },
-    {
+  {
     id: 12,
-    question: 'Мені легко виконувати те, що я вмію',
+    question: "Мені легко виконувати те, що я вмію",
     state: false,
   },
-      {
+  {
     id: 13,
-    question: 'Відчуваю неспокій і не можу всидіти на місці',
+    question: "Відчуваю неспокій і не можу всидіти на місці",
     state: true,
   },
-        {
+  {
     id: 14,
-    question: 'У мене є надії на майбутнє',
+    question: "У мене є надії на майбутнє",
     state: false,
   },
-          {
+  {
     id: 15,
-    question: 'Я більш дратівливий, ніж раніше',
+    question: "Я більш дратівливий, ніж раніше",
     state: true,
   },
-           {
+  {
     id: 16,
-    question: 'Мені легко приймати рішення',
+    question: "Мені легко приймати рішення",
     state: false,
   },
-    {
+  {
     id: 17,
-    question: 'Я відчуваю, що корисний і потрібний людям ',
+    question: "Я відчуваю, що корисний і потрібний людям ",
     state: false,
   },
-      {
+  {
     id: 18,
-    question: 'Я живу досить повним життям',
+    question: "Я живу досить повним життям",
     state: false,
   },
-        {
+  {
     id: 19,
-    question: 'Я відчуваю, що іншим людям стане краще, якщо я помру',
+    question: "Я відчуваю, що іншим людям стане краще, якщо я помру",
     state: true,
   },
-          {
+  {
     id: 20,
-    question: 'Я і досі радію від того, від чого радів завжди ',
+    question: "Я і досі радію від того, від чого радів завжди ",
     state: false,
   },
-]
+];
 //questions for sixth test
 export {
   firstTestItems,

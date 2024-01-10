@@ -128,7 +128,7 @@ function submitHandler(evt) {
   <b class="result"> Основний результат = ${MPS}</b>
   <div class="date">
       <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-       <span class="time">${date.currentDays} ${date.currentMonth} ${
+      <span class="time">${date.currentDays} ${date.currentMonth} ${
     date.currentYear
   } року</span>
   </div>`;
@@ -147,7 +147,7 @@ function changeHandler(evt) {
   //Якщо обираємо
   if (target.checked === true) {
     checkboxCounter += 1;
-    sevenCaseCheckbox.push(target.value);
+    sevenCaseCheckbox.push(target.dataset.id);
   }
 
   //Якщо обрано 2 чекбокси, то робимо неактвиними інші + other
