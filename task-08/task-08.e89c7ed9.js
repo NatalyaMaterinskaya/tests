@@ -637,7 +637,7 @@ const rigidityScale = [
     36,
     40
 ];
-alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ!  Під кожним твердженням ставте оцінку за таким принципом: якщо твердження вам підходить - то 2, якщо не зовсім підходить - 1, якщо зовсім не підходить — 0.");
+alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ!  Під кожним твердженням ставте оцінку за таким принципом: якщо твердження Вам підходить - то 2, якщо не зовсім підходить - 1, якщо зовсім не підходить — 0.");
 (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
 const buttonMarkup = (0, _createButtonMarkup08.createButtonMarkup)().join("");
 btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
