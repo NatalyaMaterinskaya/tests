@@ -24,10 +24,6 @@ const frustrationScale = [2, 6, 10, 14, 18, 22, 26, 30, 34, 38];
 const scaleOfAggression = [3, 7, 11, 15, 19, 23, 27, 31, 35, 39];
 const rigidityScale = [4, 8, 12, 16, 20, 24, 28, 32, 36, 40];
 
-alert(
-  "ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ!  Під кожним твердженням ставте оцінку за таким принципом: якщо твердження Вам підходить - то 2, якщо не зовсім підходить - 1, якщо зовсім не підходить — 0."
-);
-
 testsEl.innerHTML = markup[numQuestion - 1];
 const buttonMarkup = createButtonMarkup().join("");
 btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
