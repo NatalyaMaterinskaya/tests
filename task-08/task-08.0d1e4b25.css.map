@@ -1,0 +1,1 @@
+{"mappings":"ACAA","sources":["task-08/task-08.0d1e4b25.css","src/task-08/task-08.css"],"sourcesContent":[".answer-btn-container button {\n  max-width: 358px;\n}\n\n/*# sourceMappingURL=task-08.0d1e4b25.css.map */\n",".answer-btn-container button {\r\n    max-width: 358px;\r\n}"],"names":[],"version":3,"file":"task-08.0d1e4b25.css.map"}

@@ -637,7 +637,6 @@ const rigidityScale = [
     36,
     40
 ];
-alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ!  Під кожним твердженням ставте оцінку за таким принципом: якщо твердження Вам підходить - то 2, якщо не зовсім підходить - 1, якщо зовсім не підходить — 0.");
 (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
 const buttonMarkup = (0, _createButtonMarkup08.createButtonMarkup)().join("");
 btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
@@ -851,10 +850,15 @@ function createMarkup(arr) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createButtonMarkup", ()=>createButtonMarkup);
+const btnTextArr = [
+    "Це твердження мені зовсім НЕ підходить",
+    "Це твердження мені НЕ ЗОВСІМ підходить",
+    "Це твердження мені ПІДХОДИТЬ"
+];
 function createButtonMarkup() {
     let markup = [];
     for(let i = 0; i <= 2; i += 1)markup.push(`<li class="btn-item">
-        <button class="answer-btn" data-answer="${i}" type="button">${i}</button>
+        <button class="answer-btn" data-answer="${i}" type="button">${btnTextArr[i]}</button>
         </li>`);
     return markup;
 }
