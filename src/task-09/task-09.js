@@ -26,9 +26,6 @@ const suspiciousnessCoefficient = 11;
 const insultCoefficient = 13;
 const autoAggressionCoefficient = 11;
 
-let ІА = null;
-let ІH = null;
-
 let numQuestion = 1;
 let userName = null;
 
@@ -145,17 +142,6 @@ const clickItem = (evt) => {
     insultCounter *= insultCoefficient;
     autoAggressionCounter *= autoAggressionCoefficient;
 
-    ІА = Math.round(
-      (physicalAggressionCounter +
-        verbalAggressionCounter +
-        indirectAggressionCounter) /
-        3
-    );
-
-    ІH = Math.round((suspiciousnessCounter + insultCounter) / 2);
-
-    console.log("ІА", ІА);
-    console.log("ІH", ІH);
     const result = `<p class="user"> Тест пройшов/пройшла</p>
      <p class="user">${userName}</p>
     <p class="result"> Результат №1 = ${physicalAggressionCounter} </p>
@@ -166,14 +152,10 @@ const clickItem = (evt) => {
     <p class="result"> Результат №6 = ${suspiciousnessCounter} </p>
     <p class="result"> Результат №7 = ${insultCounter} </p>
     <p class="result"> Результат №8 = ${autoAggressionCounter} </p>
-    <b class="result"> Сумарні показники:</b>
-    <b class="result"> ${ІА}; </b>
-    <b class="result"> ${ІH} </b>
     <div class="date">
         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
          <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
     </div>`;
-
     mainContainer.innerHTML = result;
   }
 };
