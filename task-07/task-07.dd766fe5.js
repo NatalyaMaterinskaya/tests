@@ -836,7 +836,7 @@ parcelHelpers.export(exports, "getCurrentDate", ()=>getCurrentDate);
 function getCurrentDate() {
     const monthArr = [
         "січня",
-        "лтого",
+        "лютого",
         "березня",
         "квітня",
         "травня",

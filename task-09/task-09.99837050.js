@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"ABpdq":[function(require,module,exports) {
+})({"fWZBw":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "49ea8a13500b0e26";
+module.bundle.HMR_BUNDLE_ID = "ea5ca96e99837050";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,177 +573,437 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"75YYd":[function(require,module,exports) {
-var _questions = require("./js/questions");
-var _common = require("./js/common");
-var _createMarkupForThirdTest = require("./js/helpers/create-markup-for-third-test");
-var _createButtonMarkup = require("./js/helpers/create-button-markup");
-var _getCurrentDate = require("./js/helpers/get-current-date");
-const btnEl = document.querySelector(".answer-btn-container");
-const markup = (0, _createMarkupForThirdTest.createMarkupForThirdTest)((0, _questions.thirdTestItems));
-let firstCaseCounter = null;
-let secondCaseCounter = null;
-let thirdCaseCounter = null;
-let fourthCaseCounter = null;
-let fifthCaseCounter = null;
-let sixthCaseCounter = null;
-let checkboxCounter = 0;
-let sevenCaseCheckbox = [];
-let sevenCaseInput = "";
-let firstCaseQuantity = null;
-let secondCaseQuantity = null;
-let thirdCaseQuantity = null;
-let fourthCaseQuantity = null;
-let fifthCaseQuantity = null;
-let sixthCaseQuantity = null;
+},{}],"8WqgX":[function(require,module,exports) {
+var _questionsTask09 = require("./questions-task-09");
+var _createQuestionId = require("../js/helpers/create-question-id");
+var _common = require("../js/common");
+var _createMarkup = require("../js/helpers/create-markup");
+var _getCurrentDate = require("../js/helpers/get-current-date");
+(0, _createQuestionId.createQuestionId)((0, _questionsTask09.testItems));
+const markup = (0, _createMarkup.createMarkup)((0, _questionsTask09.testItems));
+let physicalAggressionCounter = 0;
+let verbalAggressionCounter = 0;
+let indirectAggressionCounter = 0;
+let negativismCounter = 0;
+let irritationCounter = 0;
+let suspiciousnessCounter = 0;
+let insultCounter = 0;
+let autoAggressionCounter = 0;
+const physicalAggressionCoefficient = 11;
+const verbalAggressionCoefficient = 8;
+const indirectAggressionCoefficient = 13;
+const negativismCoefficient = 20;
+const irritationCoefficient = 9;
+const suspiciousnessCoefficient = 11;
+const insultCoefficient = 13;
+const autoAggressionCoefficient = 11;
 let numQuestion = 1;
-alert("ШАНОВНИЙ ВІЙСЬКОВОСЛУЖБОВЦЮ! Твоє завдання: оцінити твердження за 10-ти бальною шкалою, де 0 – найнижча оцінка (рівень), 10 – найвища оцінка (рівень). Питання стосуються оцінки твого власного стану і сприйняття дійсності. Пам’ятай, що твої відповіді не є поганими чи хорошими. Будь-яка відповідь – правильна. Опитування анонімне, прізвище вказувати не обов’язково.");
-(0, _common.testsEl).innerHTML = markup[numQuestion - 1];
-const buttonMarkup = (0, _createButtonMarkup.createButtonMarkup)().join("");
-btnEl.insertAdjacentHTML("afterbegin", buttonMarkup);
-btnEl.addEventListener("click", clickItem);
-function clickItem(evt) {
+let userName = null;
+const physicalAggressionCaseYes = [
+    1,
+    25,
+    33,
+    41,
+    48,
+    55,
+    62,
+    68
+];
+const physicalAggressionCaseNo = [
+    9,
+    17
+];
+const verbalAggressionCaseYes = [
+    7,
+    15,
+    23,
+    31,
+    46,
+    53,
+    60,
+    71,
+    73
+];
+const verbalAggressionCaseNo = [
+    39,
+    66,
+    74,
+    75
+];
+const indirectAggressionCaseYes = [
+    2,
+    10,
+    18,
+    34,
+    42,
+    56,
+    63
+];
+const indirectAggressionCaseNo = [
+    26,
+    49
+];
+const negativismCaseYes = [
+    4,
+    12,
+    20,
+    28
+];
+const negativismCaseNo = [
+    36
+];
+const irritationCaseYes = [
+    3,
+    19,
+    27,
+    43,
+    50,
+    57,
+    64,
+    72
+];
+const irritationCaseNo = [
+    11,
+    35,
+    69
+];
+const suspiciousnessCaseYes = [
+    6,
+    14,
+    22,
+    30,
+    38,
+    45,
+    52,
+    59
+];
+const suspiciousnessCaseNo = [
+    65,
+    70
+];
+const insultCaseYes = [
+    5,
+    13,
+    21,
+    29,
+    37,
+    44,
+    51,
+    58
+];
+const autoAggressionCaseYes = [
+    8,
+    16,
+    24,
+    32,
+    40,
+    47,
+    54,
+    61,
+    67
+];
+alert("Інструкція: „Зараз Вам буде запропоновано відповісти тільки „Так” (+) або „Ні”  (-) на ряд питань. Питання стосуються безпосередньо Вашого самопочуття, поведінки або характеру. „Правильних” або „неправильних” відповідей тут бути не може, тому не намагайтеся довго їх обдумувати або радитися з товаришами – давайте відповідь виходячи з того, що більше відповідає Вашому стану або уявленню про самого себе. ");
+const handleInput = (event)=>{
+    userName = event.target.value;
+};
+const handleSubmit = (event)=>{
+    event.preventDefault();
+    const { elements: { name } } = event.currentTarget;
+    if (name.value.trim() === "") alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
+    else {
+        console.log(userName);
+        event.currentTarget.reset();
+        (0, _common.formEl).style.display = "none";
+        (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
+        (0, _common.btnEl).style.display = "flex";
+    }
+};
+const clickItem = (evt)=>{
     const { target } = evt;
     if (!target.classList.contains("answer-btn")) return;
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 1) {
-        firstCaseCounter += Number(target.dataset.answer);
-        firstCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+    if (evt.target.dataset.answer === "yes") {
+        if (physicalAggressionCaseYes.includes(numQuestion)) physicalAggressionCounter += 1;
+        if (verbalAggressionCaseYes.includes(numQuestion)) verbalAggressionCounter += 1;
+        if (indirectAggressionCaseYes.includes(numQuestion)) indirectAggressionCounter += 1;
+        if (negativismCaseYes.includes(numQuestion)) negativismCounter += 1;
+        if (irritationCaseYes.includes(numQuestion)) irritationCounter += 1;
+        if (suspiciousnessCaseYes.includes(numQuestion)) suspiciousnessCounter += 1;
+        if (insultCaseYes.includes(numQuestion)) insultCounter += 1;
+        if (autoAggressionCaseYes.includes(numQuestion)) autoAggressionCounter += 1;
     }
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 2) {
-        secondCaseCounter += Number(target.dataset.answer);
-        secondCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
-    }
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 3) {
-        thirdCaseCounter += Number(target.dataset.answer);
-        thirdCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
-    }
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 4) {
-        fourthCaseCounter += Number(target.dataset.answer);
-        fourthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
-    }
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 5) {
-        fifthCaseCounter += Number(target.dataset.answer);
-        fifthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
-    }
-    if (Number((0, _common.testsEl).firstChild.dataset.id) === 6) {
-        sixthCaseCounter += Number(target.dataset.answer);
-        sixthCaseQuantity = Number((0, _common.testsEl).firstChild.dataset.num);
+    if (evt.target.dataset.answer === "no") {
+        if (physicalAggressionCaseNo.includes(numQuestion)) physicalAggressionCounter += 1;
+        if (verbalAggressionCaseNo.includes(numQuestion)) verbalAggressionCounter += 1;
+        if (indirectAggressionCaseNo.includes(numQuestion)) indirectAggressionCounter += 1;
+        if (negativismCaseNo.includes(numQuestion)) negativismCounter += 1;
+        if (irritationCaseNo.includes(numQuestion)) irritationCounter += 1;
+        if (suspiciousnessCaseNo.includes(numQuestion)) suspiciousnessCounter += 1;
     }
     if (numQuestion < markup.length) {
         (0, _common.testsEl).innerHTML = markup[numQuestion];
         numQuestion += 1;
     } else {
-        btnEl.removeEventListener("click", clickItem);
-        (0, _common.mainContainer).innerHTML = (0, _questions.markupForSevenBlock);
-        const submitBtnSevenBlock = document.querySelector(".answer-btn");
-        submitBtnSevenBlock.disabled = true;
-        submitBtnSevenBlock.classList.add("disabled");
-        (0, _common.mainContainer).addEventListener("change", changeHandler);
-        (0, _common.mainContainer).addEventListener("input", inputHandler);
-        (0, _common.mainContainer).addEventListener("submit", submitHandler);
+        const date = (0, _getCurrentDate.getCurrentDate)();
+        physicalAggressionCounter *= physicalAggressionCoefficient;
+        verbalAggressionCounter *= verbalAggressionCoefficient;
+        indirectAggressionCounter *= indirectAggressionCoefficient;
+        negativismCounter *= negativismCoefficient;
+        irritationCounter *= irritationCoefficient;
+        suspiciousnessCounter *= suspiciousnessCoefficient;
+        insultCounter *= insultCoefficient;
+        autoAggressionCounter *= autoAggressionCoefficient;
+        const result = `<p class="user"> Тест пройшов/пройшла</p>
+     <p class="user">${userName}</p>
+    <p class="result"> Результат №1 = ${physicalAggressionCounter} </p>
+    <p class="result"> Результат №2 = ${verbalAggressionCounter} </p>
+    <p class="result"> Результат №3 = ${indirectAggressionCounter} </p>
+    <p class="result"> Результат №4 = ${negativismCounter} </p>
+    <p class="result"> Результат №5 = ${irritationCounter} </p>
+    <p class="result"> Результат №6 = ${suspiciousnessCounter} </p>
+    <p class="result"> Результат №7 = ${insultCounter} </p>
+    <p class="result"> Результат №8 = ${autoAggressionCounter} </p>
+    <div class="date">
+        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+    </div>`;
+        (0, _common.mainContainer).innerHTML = result;
     }
-}
-function submitHandler(evt) {
-    evt.preventDefault();
-    const firstCaseResult = Number((firstCaseCounter / firstCaseQuantity).toFixed(2));
-    const secondCaseResult = Number((secondCaseCounter / secondCaseQuantity).toFixed(2));
-    const thirdCaseResult = Number((thirdCaseCounter / thirdCaseQuantity).toFixed(2));
-    const fourthCaseResult = Number((fourthCaseCounter / fourthCaseQuantity).toFixed(2));
-    const fifthCaseResult = Number((fifthCaseCounter / fifthCaseQuantity).toFixed(2));
-    const sixthCaseResult = Number((sixthCaseCounter / sixthCaseQuantity).toFixed(2));
-    const MPS = ((firstCaseResult + secondCaseResult + thirdCaseResult + fourthCaseResult + fifthCaseResult + sixthCaseResult) / 6).toFixed(2);
-    const date = (0, _getCurrentDate.getCurrentDate)();
-    const result = `<p class="result"> Результат №1 = ${firstCaseResult} </p>
-  <p class="result"> Результат №2 = ${secondCaseResult} </p>
-  <p class="result"> Результат №3 = ${thirdCaseResult} </p>
-  <p class="result"> Результат №4 = ${fourthCaseResult} </p>
-  <p class="result"> Результат №5 = ${fifthCaseResult} </p>
-  <p class="result"> Результат №6 = ${sixthCaseResult} </p>
-  <p class="result"> Результат №7:</p>
-      <p class="result">${sevenCaseCheckbox.join("; ")}</p>
-      <p class="result">${sevenCaseInput}</p>
-  <b class="result"> Основний результат = ${MPS}</b>
-  <div class="date">
-      <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-      <span class="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-  </div>`;
-    (0, _common.mainContainer).innerHTML = result;
-}
-function changeHandler(evt) {
-    const checkboxForm = document.querySelector(".form-question");
-    const { target } = evt;
-    if (target.name !== "reason") return;
-    //Якщо обираємо
-    if (target.checked === true) {
-        checkboxCounter += 1;
-        sevenCaseCheckbox.push(target.dataset.id);
-    }
-    //Якщо обрано 2 чекбокси, то робимо неактвиними інші + other
-    if (checkboxCounter >= 2) {
-        checkboxForm.elements.reason.forEach((element)=>{
-            if (element.checked === false) element.disabled = true;
-        });
-        checkboxForm.elements.other.disabled = true;
-        checkboxForm.elements.other.value = "";
-        sevenCaseInput = "";
-    }
-    //Якщо відміняємо
-    if (target.checked === false) {
-        checkboxCounter -= 1;
-        let removeItem = sevenCaseCheckbox.indexOf(target.value);
-        sevenCaseCheckbox.splice(removeItem, 1);
-        //Якщо відмінили чекбокс, то робимо актвиними інші + other
-        if (checkboxCounter < 2) {
-            checkboxForm.elements.reason.forEach((element)=>{
-                if (element.checked === false) element.disabled = false;
-            });
-            checkboxForm.elements.other.disabled = false;
-        }
-    }
-    //Якщо обрано 2 чекбокси, то робимо кнопку активною
-    if (checkboxCounter === 2) {
-        checkboxForm.lastElementChild.disabled = false;
-        checkboxForm.lastElementChild.classList.remove("disabled");
-    }
-    //Якщо обрано 1 чекбокс, a other пустий, то робимо кнопку неактивною
-    if (checkboxCounter === 1 && sevenCaseInput === "") {
-        checkboxForm.lastElementChild.disabled = true;
-        checkboxForm.lastElementChild.classList.add("disabled");
-    }
-    //Якщо спочатку обрано 1 чекбокс, a other не пустий,то робимо кнопку активною
-    checkboxForm.elements.other.addEventListener("blur", ()=>{
-        if (checkboxCounter === 1 && sevenCaseInput !== "") {
-            checkboxForm.lastElementChild.disabled = false;
-            checkboxForm.lastElementChild.classList.remove("disabled");
-        }
-    });
-    //Якщо спочатку заповнено other, а потім обрано 1 чекбокс, то робимо кнопку активною
-    if (checkboxCounter === 1 && sevenCaseInput !== "") {
-        checkboxForm.lastElementChild.disabled = false;
-        checkboxForm.lastElementChild.classList.remove("disabled");
-    }
-    if (checkboxCounter === 0 && sevenCaseInput !== "") {
-        checkboxForm.lastElementChild.disabled = true;
-        checkboxForm.lastElementChild.classList.add("disabled");
-    }
-}
-function inputHandler(evt) {
-    const { target } = evt;
-    if (target.name !== "other") return;
-    sevenCaseInput = target.value;
-}
+};
+(0, _common.formEl).addEventListener("input", handleInput);
+(0, _common.formEl).addEventListener("submit", handleSubmit);
+(0, _common.btnEl).addEventListener("click", clickItem);
 
-},{"./js/questions":"9rgTG","./js/common":"2ASYY","./js/helpers/create-markup-for-third-test":"kMZTE","./js/helpers/create-button-markup":"jp67J","./js/helpers/get-current-date":"gTe1R"}],"2ASYY":[function(require,module,exports) {
+},{"./questions-task-09":"01TfT","../js/helpers/create-question-id":"ipKyU","../js/common":"2ASYY","../js/helpers/create-markup":"eLGg5","../js/helpers/get-current-date":"gTe1R"}],"01TfT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
+parcelHelpers.export(exports, "testItems", ()=>testItems);
+const testItems = [
+    {
+        question: "Часом я не здатен перебороти бажання заподіяти іншим шкоду."
+    },
+    {
+        question: "Іноді пліткую про людей, яких не люблю."
+    },
+    {
+        question: "Я легко дратуюсь, але швидко заспокоююсь"
+    },
+    {
+        question: "Якщо мене ласкаво не попросять, я не виконаю прохання."
+    },
+    {
+        question: "Я не завжди отримую те, що мені належить."
+    },
+    {
+        question: "Я знаю, що люди говорять про мене за моєю спиною."
+    },
+    {
+        question: "Якщо я не схвалюю поведінку друзів, я даю їм це відчути."
+    },
+    {
+        question: "Коли мені доводилося обдурювати кого-небудь, я відчував нестерпні докори сумління."
+    },
+    {
+        question: "Мені здається, що я не здатен вдарити людину."
+    },
+    {
+        question: "Я ніколи не дратуюся настільки, щоб розкидуватися речами."
+    },
+    {
+        question: "Я завжди поблажливий до чужих недоліків."
+    },
+    {
+        question: "Якщо мені не подобається встановлене правило, у мене виникає бажання порушити його."
+    },
+    {
+        question: "Інші вміють майже завжди користуватися сприятливими обставинами."
+    },
+    {
+        question: "Я тримаюся насторожі з людьми, які ставляться до мене дещо ліпше, ніж я очікував."
+    },
+    {
+        question: "Я часто не погоджуюся з людьми."
+    },
+    {
+        question: "Іноді мене обтяжують думки, яких я соромлюсь."
+    },
+    {
+        question: "Якщо хтось першим ударить мене, я не відповім йому."
+    },
+    {
+        question: "Коли я дратуюся, я грюкаю дверима."
+    },
+    {
+        question: "Я куди дратівливіший, ніж здається оточуючим."
+    },
+    {
+        question: "Якщо хтось вдає із себе начальника, я завжди роблю йому наперекір."
+    },
+    {
+        question: "Мене трохи засмучує моя доля."
+    },
+    {
+        question: "Я гадаю, що багато людей мене не люблять."
+    },
+    {
+        question: "Я не зможу втриматися від суперечки, якщо люди не згодні зі мною."
+    },
+    {
+        question: "Люди, що ухиляються від роботи, мусять почувати провину."
+    },
+    {
+        question: "Той, хто ображає мене і мою сім’ю, напрошується на бійку."
+    },
+    {
+        question: "Я не здатний на брутальні жарти."
+    },
+    {
+        question: "Розлютовуюся, коли з мене насміхаються."
+    },
+    {
+        question: "Коли люди вдають із себе начальників, я роблю все, щоб вони не зазнавалися."
+    },
+    {
+        question: "Майже кожен тиждень я бачу когось, хто мені не до вподоби."
+    },
+    {
+        question: "Досить багато людей заздрять мені."
+    },
+    {
+        question: "Я вимагаю, щоб люди поважали мене."
+    },
+    {
+        question: "Мене пригнічує те, що я мало роблю для своїх батьків."
+    },
+    {
+        question: "Люди, які постійно знущаються з нас, варті того, щоб їх ставили на місце."
+    },
+    {
+        question: "Я ніколи не буваю похмурим від злості."
+    },
+    {
+        question: "Якщо до мене ставляться гірше, ніж я на те заслуговую, я не засмучуюсь."
+    },
+    {
+        question: "Якщо хтось дратує мене, я не звертаю уваги."
+    },
+    {
+        question: "Хоч я ніколи не показую цього, але мене іноді гризе заздрість."
+    },
+    {
+        question: " Іноді мені здається, що з мене насміхаються."
+    },
+    {
+        question: "Навіть якщо я гніваюся, то не вдаюся до лайки."
+    },
+    {
+        question: "Мені хочеться, щоб мої гріхи пробачили."
+    },
+    {
+        question: "Я рідко даю здачі, навіть якщо хтось і вдарить мене."
+    },
+    {
+        question: "Коли виходить не по-моєму, я іноді ображаюсь."
+    },
+    {
+        question: "Іноді люди дратують мене однією своєю присутністю."
+    },
+    {
+        question: "Немає людей, яких би я по-справжньому ненавидів."
+    },
+    {
+        question: "Мій принцип: \xabНіколи не довіряти чужакам\xbb."
+    },
+    {
+        question: "Якщо хтось дратує мене, я готовий висловити все, що я про нього думаю."
+    },
+    {
+        question: "Я роблю багато такого, про що потім шкодую."
+    },
+    {
+        question: "Якщо я роздратуюсь, я можу вдарити когось."
+    },
+    {
+        question: "Із дитинства я ніколи не виявляв спалахів гніву."
+    },
+    {
+        question: " Часто почуваю себе, мов діжка з порохом, що ось-ось вибухне."
+    },
+    {
+        question: "Якби всі знали, що я відчуваю, мене б вважали людиною, з якою нелегко ладнати."
+    },
+    {
+        question: "Я завжди розмірковую про те, які потаємні причини змушують людей робити приємне мені."
+    },
+    {
+        question: "Коли на мене кричать, відповідаю тим самим."
+    },
+    {
+        question: "Невдачі засмучують мене."
+    },
+    {
+        question: "Я відчуваю страх не рідше й не частіше за інших."
+    },
+    {
+        question: "Я можу пригадати випадки, коли я був настільки злий, що хапав першу-ліпшу річ."
+    },
+    {
+        question: "Іноді я відчуваю, що готовий першим кинутись у бійку."
+    },
+    {
+        question: "Іноді я відчуваю, що життя поводиться зі мною несправедливо."
+    },
+    {
+        question: "Раніше я думав, що більшість людей говорить правду, але зараз я не вірю в це."
+    },
+    {
+        question: "Я лаюся тільки через злість."
+    },
+    {
+        question: "Коли я роблю щось неправильно, то відчуваю докори сумління."
+    },
+    {
+        question: "Якщо для захисту своїх прав мені слід використати фізичну силу, я вдаюся до неї."
+    },
+    {
+        question: " Іноді я виражаю свій гнів тим, що грюкаю кулаком по столу."
+    },
+    {
+        question: "Я буваю грубий з людьми, які мені не подобаються."
+    },
+    {
+        question: "У мене немає ворогів, що хотіли б мені нашкодити."
+    },
+    {
+        question: "Я не вмію поставити людину на місце, навіть якщо вона на це заслуговує."
+    },
+    {
+        question: "Я часто думаю, що жив неправильно."
+    },
+    {
+        question: "Я знаю людей, які здатні довести мене до бійки."
+    },
+    {
+        question: "Я не засмучуюсь через дрібниці."
+    },
+    {
+        question: "Мені рідко спадає на думку, що люди намагаються розлютити чи скривдити мене."
+    },
+    {
+        question: "Я часто тільки вдаюся до погроз, але не збираюся їх реалізовувати."
+    },
+    {
+        question: "Останнім часом я став занудою."
+    },
+    {
+        question: "Під час суперечки я часто підвищую голос."
+    },
+    {
+        question: "Здебільшого я намагаюся приховувати своє негативне ставлення до людей."
+    },
+    {
+        question: "Я ліпше поступлюся своїми принципами, ніж сперечатимусь."
+    }
+];
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -775,26 +1035,34 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"kMZTE":[function(require,module,exports) {
+},{}],"ipKyU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkupForThirdTest", ()=>createMarkupForThirdTest);
-function createMarkupForThirdTest(arr) {
-    const markup = arr.map(({ id, num, question })=>`<li class="test-item" data-id=${id} data-num=${num}>
-    <p class="test-item-text">${id}.${num}. ${question} </p>
-  </li>`);
-    return markup;
+parcelHelpers.export(exports, "createQuestionId", ()=>createQuestionId);
+function createQuestionId(arr) {
+    for(let i = 1; i <= arr.length; i += 1)arr[i - 1].id = i;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jp67J":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createButtonMarkup", ()=>createButtonMarkup);
-function createButtonMarkup() {
-    let markup = [];
-    for(let i = 0; i <= 10; i += 1)markup.push(`<li class="btn-item">
-        <button class="answer-btn" data-answer="${i}" type="button">${i}</button>
-        </li>`);
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLGg5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
+function createMarkup(arr) {
+    const markup = arr.map(({ id, question })=>`<li class="test-item">
+    <p class="test-item-text"> ${id}. ${question} </p>
+  </li>`);
     return markup;
 }
 
@@ -829,6 +1097,6 @@ function getCurrentDate() {
     return date;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ABpdq","75YYd"], "75YYd", "parcelRequiree8da")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fWZBw","8WqgX"], "8WqgX", "parcelRequiree8da")
 
-//# sourceMappingURL=task-03.500b0e26.js.map
+//# sourceMappingURL=task-09.99837050.js.map
