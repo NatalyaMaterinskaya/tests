@@ -16,8 +16,7 @@ let numQuestion = 1;
 
 mainContainer.innerHTML = markup[numQuestion - 1];
 
-const btnEl = document.querySelector(".button-list");
-
+const btnEl = mainContainer.lastElementChild;
 btnEl.addEventListener("click", clickItem);
 
 function clickItem(evt) {
@@ -26,19 +25,19 @@ function clickItem(evt) {
     return;
   }
   if (numQuestion <= 20) {
-    console.log("1");
     authorityLevel += Number(target.textContent);
   }
   if (numQuestion > 20) {
-    console.log("2");
     leadershipLevel += Number(target.textContent);
   }
   if (numQuestion < markup.length) {
     mainContainer.innerHTML = markup[numQuestion];
     numQuestion += 1;
+    const btnEl = mainContainer.lastElementChild;
+    btnEl.addEventListener("click", clickItem);
   } else {
     // const date = getCurrentDate();
-
+    console.log("4");
     const result = `<p class="result"> Результат №I = ${authorityLevel} </p>
   <p class="result"> Результат №II = ${leadershipLevel} </p>`;
 
