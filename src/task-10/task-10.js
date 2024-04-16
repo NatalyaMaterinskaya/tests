@@ -1,7 +1,7 @@
 import { testItems } from "./questions-task-10";
 import { createQuestionId } from "../js/helpers/create-question-id";
 import { getCurrentDate } from "../js/helpers/get-current-date";
-import { createMarkupForTenthTest } from "../js/helpers/create-markup-for-tenth-test";
+import { createMarkupForTenthTest } from "./create-markup-for-tenth-test";
 import { mainContainer } from "../js/common";
 
 createQuestionId(testItems);
@@ -40,15 +40,13 @@ function clickItem(evt) {
     const btnEl = mainContainer.lastElementChild;
     btnEl.addEventListener("click", clickItem);
   } else {
-    aggregateLevel = (authorityLevel / 20 + leadershipLevel / 20) / 2;
+    aggregateLevel = ((authorityLevel / 20 + leadershipLevel / 20) / 2).toFixed(
+      2
+    );
     const date = getCurrentDate();
 
-    const result = `<p class="result"> Результат №I = ${
-      authorityLevel / 20
-    } </p>
-                    <p class="result"> Результат №II = ${
-                      leadershipLevel / 20
-                    } </p>
+    const result = `<p class="result"> Результат №I = ${(authorityLevel / 20).toFixed(2)} </p>
+                    <p class="result"> Результат №II = ${(leadershipLevel / 20).toFixed(2)} </p>
                       <b class="result"> Основний результат = ${aggregateLevel}</b>
                       <div class="date">
                         <span class="time">${date.currentHours}:${
