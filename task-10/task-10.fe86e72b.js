@@ -577,7 +577,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var _questionsTask10 = require("./questions-task-10");
 var _createQuestionId = require("../js/helpers/create-question-id");
 var _getCurrentDate = require("../js/helpers/get-current-date");
-var _createMarkupForTenthTest = require("../js/helpers/create-markup-for-tenth-test");
+var _createMarkupForTenthTest = require("./create-markup-for-tenth-test");
 var _common = require("../js/common");
 (0, _createQuestionId.createQuestionId)((0, _questionsTask10.testItems));
 const markup = (0, _createMarkupForTenthTest.createMarkupForTenthTest)((0, _questionsTask10.testItems));
@@ -600,10 +600,10 @@ function clickItem(evt) {
         const btnEl = (0, _common.mainContainer).lastElementChild;
         btnEl.addEventListener("click", clickItem);
     } else {
-        aggregateLevel = (authorityLevel / 20 + leadershipLevel / 20) / 2;
+        aggregateLevel = ((authorityLevel / 20 + leadershipLevel / 20) / 2).toFixed(2);
         const date = (0, _getCurrentDate.getCurrentDate)();
-        const result = `<p class="result"> Результат №I = ${authorityLevel / 20} </p>
-                    <p class="result"> Результат №II = ${leadershipLevel / 20} </p>
+        const result = `<p class="result"> Результат №I = ${(authorityLevel / 20).toFixed(2)} </p>
+                    <p class="result"> Результат №II = ${(leadershipLevel / 20).toFixed(2)} </p>
                       <b class="result"> Основний результат = ${aggregateLevel}</b>
                       <div class="date">
                         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
@@ -614,7 +614,7 @@ function clickItem(evt) {
     }
 }
 
-},{"./questions-task-10":"bkWkM","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","../js/helpers/create-markup-for-tenth-test":"9crf7","../js/common":"2ASYY"}],"bkWkM":[function(require,module,exports) {
+},{"./questions-task-10":"bkWkM","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","../js/common":"2ASYY","./create-markup-for-tenth-test":"78iMr"}],"bkWkM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "testItems", ()=>testItems);
@@ -810,7 +810,19 @@ function getCurrentDate() {
     return date;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9crf7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"78iMr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createMarkupForTenthTest", ()=>createMarkupForTenthTest);
@@ -838,18 +850,6 @@ function createMarkupForTenthTest(arr) {
     </ul>`);
     return markup;
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cQObT","aw7uW"], "aw7uW", "parcelRequiree8da")
 
