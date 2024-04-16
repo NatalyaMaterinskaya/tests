@@ -585,32 +585,36 @@ let authorityLevel = null;
 let leadershipLevel = null;
 let aggregateLevel = null;
 let numQuestion = 1;
+alert("Інструкція: Шановний експерте! Вам потрібно оцінити запропоновані твердження за 5-бальною шкалою, де 0 – найнижча оцінка (рівень), 5 – найвища оцінка (рівень). Питання стосуються оцінювання рівня авторитету визначеного командира (начальника). Опитування анонімне.");
 (0, _common.mainContainer).innerHTML = markup[numQuestion - 1];
-const btnEl = document.querySelector(".button-list");
+const btnEl = (0, _common.mainContainer).lastElementChild;
 btnEl.addEventListener("click", clickItem);
 function clickItem(evt) {
     const { target } = evt;
     if (!target.classList.contains("btn")) return;
-    if (numQuestion <= 20) {
-        console.log("1");
-        authorityLevel += Number(target.textContent);
-    }
-    if (numQuestion > 20) {
-        console.log("2");
-        leadershipLevel += Number(target.textContent);
-    }
+    if (numQuestion <= 20) authorityLevel += Number(target.textContent);
+    if (numQuestion > 20) leadershipLevel += Number(target.textContent);
     if (numQuestion < markup.length) {
         (0, _common.mainContainer).innerHTML = markup[numQuestion];
         numQuestion += 1;
+        const btnEl = (0, _common.mainContainer).lastElementChild;
+        btnEl.addEventListener("click", clickItem);
     } else {
-        // const date = getCurrentDate();
-        const result = `<p class="result"> Результат №I = ${authorityLevel} </p>
-  <p class="result"> Результат №II = ${leadershipLevel} </p>`;
+        aggregateLevel = (authorityLevel / 20 + leadershipLevel / 20) / 2;
+        const date = (0, _getCurrentDate.getCurrentDate)();
+        const result = `<p class="result"> Результат №I = ${authorityLevel / 20} </p>
+                    <p class="result"> Результат №II = ${leadershipLevel / 20} </p>
+                      <b class="result"> Основний результат = ${aggregateLevel}</b>
+                      <div class="date">
+                        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+                        <span class="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+                        </div>
+                    `;
         (0, _common.mainContainer).innerHTML = result;
     }
 }
 
-},{"./questions-task-10":"bkWkM","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","../js/common":"2ASYY","../js/helpers/create-markup-for-tenth-test":"9crf7"}],"bkWkM":[function(require,module,exports) {
+},{"./questions-task-10":"bkWkM","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","../js/helpers/create-markup-for-tenth-test":"9crf7","../js/common":"2ASYY"}],"bkWkM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "testItems", ()=>testItems);
@@ -806,18 +810,6 @@ function getCurrentDate() {
     return date;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
-
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9crf7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -846,6 +838,18 @@ function createMarkupForTenthTest(arr) {
     </ul>`);
     return markup;
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cQObT","aw7uW"], "aw7uW", "parcelRequiree8da")
 

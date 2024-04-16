@@ -255,6 +255,7 @@ h1, h6 {
 
 .button-list {
   flex-direction: column;
+  justify-content: center;
   gap: 16px;
   min-height: 364px;
   margin-bottom: 18px;
