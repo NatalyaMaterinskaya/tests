@@ -14,6 +14,10 @@ let aggregateLevel = null;
 
 let numQuestion = 1;
 
+alert(
+  "Інструкція: Шановний експерте! Вам потрібно оцінити запропоновані твердження за 5-бальною шкалою, де 0 – найнижча оцінка (рівень), 5 – найвища оцінка (рівень). Питання стосуються оцінювання рівня авторитету визначеного командира (начальника). Опитування анонімне."
+);
+
 mainContainer.innerHTML = markup[numQuestion - 1];
 
 const btnEl = mainContainer.lastElementChild;
@@ -36,10 +40,25 @@ function clickItem(evt) {
     const btnEl = mainContainer.lastElementChild;
     btnEl.addEventListener("click", clickItem);
   } else {
-    // const date = getCurrentDate();
-    console.log("4");
-    const result = `<p class="result"> Результат №I = ${authorityLevel} </p>
-  <p class="result"> Результат №II = ${leadershipLevel} </p>`;
+    aggregateLevel = (authorityLevel / 20 + leadershipLevel / 20) / 2;
+    const date = getCurrentDate();
+
+    const result = `<p class="result"> Результат №I = ${
+      authorityLevel / 20
+    } </p>
+                    <p class="result"> Результат №II = ${
+                      leadershipLevel / 20
+                    } </p>
+                      <b class="result"> Основний результат = ${aggregateLevel}</b>
+                      <div class="date">
+                        <span class="time">${date.currentHours}:${
+      date.currentMinutes
+    }</span>
+                        <span class="time">${date.currentDays} ${
+      date.currentMonth
+    } ${date.currentYear} року</span>
+                        </div>
+                    `;
 
     mainContainer.innerHTML = result;
   }
