@@ -75,13 +75,26 @@ const clickItem = (evt) => {
   } else {
     const date = getCurrentDate();
 
+    const LCaseLowerLimit = (LCaseCounter / 10 - (0.16)).toFixed(2);
+    const LCaseUpperLimit = (LCaseCounter / 10 + (0.16)).toFixed(2);
+
+    const SrCaseLowerLimit = (SrCaseCounter / 35 - 0.07).toFixed(2);
+    const SrCaseUpperLimit = (SrCaseCounter / 35 + 0.07).toFixed(2);
+    
+
     const result = `<p class="user"> Тест пройшов/пройшла</p>
      <p class="user">${userName}</p>
-    <p class="result"> Результат №1 = ${LCaseCounter} </p>
-    <p class="result"> Результат №2 = ${SrCaseCounter} </p>
+    <p class="result"> Результат №1 = ${LCaseLowerLimit} </p>
+        <p class="result"> Результат №1 = ${LCaseCounter / 10} </p>
+    <p class="result"> Результат №1 = ${LCaseUpperLimit} </p>
+    <p  class="result"> Результат №2 = ${SrCaseLowerLimit} </p>
+    <p class="result"> Результат №2 = ${(SrCaseCounter / 35).toFixed(2)} </p>
+    <p  class="result"> Результат №2 = ${SrCaseUpperLimit} </p>
     <div class="date">
         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${
+      date.currentYear
+    } року</span>
     </div>`;
 
     mainContainer.innerHTML = result;
