@@ -14,6 +14,9 @@ let SrCaseCounter = 0;
 let numQuestion = 1;
 let userName = null;
 
+let L = null;
+let Sr = null;
+
 const LCaseYes = [11, 12, 18, 21, 23, 25, 29, 34, 39];
 const LCaseNo = [42];
 
@@ -24,7 +27,7 @@ const SrCaseYes = [
 const SrCaseNo = [4, 6, 8, 10, 17, 20, 26, 27, 30, 32, 45];
 
 alert(
-  "Інструкція: „Вам будуть запропоновані твердження, які стосуються Вашого здоров’я та характеру. Якщо Ви згодні з твердженням, натисніть “Так”, якщо ні – натисніть “Ні”. Над відповідями намагайтеся довго не замислюватися, правильних або неправильних відповідей немає."
+  "Інструкція: Вам будуть запропоновані твердження, які стосуються Вашого здоров’я та характеру. Якщо Ви згодні з твердженням, натисніть “Так”, якщо ні – натисніть “Ні”. Над відповідями намагайтеся довго не замислюватися, правильних або неправильних відповідей немає."
 );
 
 const handleInput = (event) => {
@@ -75,26 +78,32 @@ const clickItem = (evt) => {
   } else {
     const date = getCurrentDate();
 
-    const LCaseLowerLimit = (LCaseCounter / 10 - (0.16)).toFixed(2);
-    const LCaseUpperLimit = (LCaseCounter / 10 + (0.16)).toFixed(2);
+    LCaseCounter = (LCaseCounter / 10).toFixed(2);
+    SrCaseCounter = (SrCaseCounter / 35).toFixed(2);
 
-    const SrCaseLowerLimit = (SrCaseCounter / 35 - 0.07).toFixed(2);
-    const SrCaseUpperLimit = (SrCaseCounter / 35 + 0.07).toFixed(2);
-    
+    L = LCaseCounter < 0.6 ? "OK" : "-";
+
+    if (0.01 <= SrCaseCounter && SrCaseCounter <= 0.23) {
+      Sr = 5;
+    } else if (0.24 <= SrCaseCounter && SrCaseCounter <= 0.38) {
+      Sr = 4;
+    } else if (0.39 <= SrCaseCounter && SrCaseCounter <= 0.59) {
+      Sr = 3;
+    } else if (0.6 <= SrCaseCounter && SrCaseCounter <= 0.74) {
+      Sr = 2;
+    } else if (0.75 <= SrCaseCounter && SrCaseCounter <= 1) {
+      Sr = 1;
+    }
 
     const result = `<p class="user"> Тест пройшов/пройшла</p>
      <p class="user">${userName}</p>
-    <p class="result"> Результат №1 = ${LCaseLowerLimit} </p>
-        <p class="result"> Результат №1 = ${LCaseCounter / 10} </p>
-    <p class="result"> Результат №1 = ${LCaseUpperLimit} </p>
-    <p  class="result"> Результат №2 = ${SrCaseLowerLimit} </p>
-    <p class="result"> Результат №2 = ${(SrCaseCounter / 35).toFixed(2)} </p>
-    <p  class="result"> Результат №2 = ${SrCaseUpperLimit} </p>
+     <p class="result"> Результат №1 = ${LCaseCounter} </p>
+     <b class="result"> ${L} </b>
+     <p class="result"> Результат №2 = ${SrCaseCounter} </p>
+     <b class="result"> ${Sr}</b>
     <div class="date">
         <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-         <spanclass="time">${date.currentDays} ${date.currentMonth} ${
-      date.currentYear
-    } року</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
     </div>`;
 
     mainContainer.innerHTML = result;
