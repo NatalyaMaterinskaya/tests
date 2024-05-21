@@ -81,7 +81,7 @@ const clickItem = (evt) => {
     LCaseCounter = (LCaseCounter / 10).toFixed(2);
     SrCaseCounter = (SrCaseCounter / 35).toFixed(2);
 
-    L = LCaseCounter < 0.6 ? "OK" : "-";
+    L = LCaseCounter < 0.6 ? "+" : "-";
 
     if (0.01 <= SrCaseCounter && SrCaseCounter <= 0.23) {
       Sr = 5;
