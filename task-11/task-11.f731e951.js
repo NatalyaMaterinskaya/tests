@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"cQObT":[function(require,module,exports) {
+})({"81ixZ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "e440e107fe86e72b";
+module.bundle.HMR_BUNDLE_ID = "03ea0f92f731e951";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -573,171 +573,269 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"aw7uW":[function(require,module,exports) {
-var _questionsTask10 = require("./questions-task-10");
+},{}],"3qbEs":[function(require,module,exports) {
+var _questionsTask11 = require("./questions-task-11");
 var _createQuestionId = require("../js/helpers/create-question-id");
-var _getCurrentDate = require("../js/helpers/get-current-date");
-var _createMarkupForTenthTest = require("./create-markup-for-tenth-test");
 var _common = require("../js/common");
-(0, _createQuestionId.createQuestionId)((0, _questionsTask10.testItems));
-const markup = (0, _createMarkupForTenthTest.createMarkupForTenthTest)((0, _questionsTask10.testItems));
-let authorityLevel = null;
-let leadershipLevel = null;
-let aggregateLevel = null;
+var _createMarkup = require("../js/helpers/create-markup");
+var _getCurrentDate = require("../js/helpers/get-current-date");
+(0, _createQuestionId.createQuestionId)((0, _questionsTask11.testItems));
+const markup = (0, _createMarkup.createMarkup)((0, _questionsTask11.testItems));
+let LCaseCounter = 0;
+let SrCaseCounter = 0;
 let numQuestion = 1;
-alert("Інструкція: Шановний експерте! Вам потрібно оцінити запропоновані твердження за 5-бальною шкалою, де 0 – найнижча оцінка (рівень), 5 – найвища оцінка (рівень). Питання стосуються оцінювання рівня авторитету визначеного командира (начальника). Опитування анонімне.");
-(0, _common.mainContainer).innerHTML = markup[numQuestion - 1];
-const btnEl = (0, _common.mainContainer).lastElementChild;
-btnEl.addEventListener("click", clickItem);
-function clickItem(evt) {
+let userName = null;
+let L = null;
+let Sr = null;
+const LCaseYes = [
+    11,
+    12,
+    18,
+    21,
+    23,
+    25,
+    29,
+    34,
+    39
+];
+const LCaseNo = [
+    42
+];
+const SrCaseYes = [
+    1,
+    2,
+    3,
+    5,
+    7,
+    9,
+    13,
+    14,
+    15,
+    16,
+    19,
+    22,
+    24,
+    28,
+    31,
+    33,
+    35,
+    36,
+    37,
+    38,
+    40,
+    41,
+    43,
+    44
+];
+const SrCaseNo = [
+    4,
+    6,
+    8,
+    10,
+    17,
+    20,
+    26,
+    27,
+    30,
+    32,
+    45
+];
+alert("Інструкція: Вам будуть запропоновані твердження, які стосуються Вашого здоров’я та характеру. Якщо Ви згодні з твердженням, натисніть “Так”, якщо ні – натисніть “Ні”. Над відповідями намагайтеся довго не замислюватися, правильних або неправильних відповідей немає.");
+const handleInput = (event)=>{
+    userName = event.target.value;
+};
+const handleSubmit = (event)=>{
+    event.preventDefault();
+    const { elements: { name } } = event.currentTarget;
+    if (name.value.trim() === "") alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
+    else {
+        console.log(userName);
+        event.currentTarget.reset();
+        (0, _common.formEl).style.display = "none";
+        (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
+        (0, _common.btnEl).style.display = "flex";
+    }
+};
+const clickItem = (evt)=>{
     const { target } = evt;
-    if (!target.classList.contains("btn")) return;
-    if (numQuestion <= 20) authorityLevel += Number(target.textContent);
-    if (numQuestion > 20) leadershipLevel += Number(target.textContent);
+    if (!target.classList.contains("answer-btn")) return;
+    if (evt.target.dataset.answer === "yes") {
+        if (LCaseYes.includes(numQuestion)) LCaseCounter += 1;
+        if (SrCaseYes.includes(numQuestion)) SrCaseCounter += 1;
+    }
+    if (evt.target.dataset.answer === "no") {
+        if (LCaseNo.includes(numQuestion)) LCaseCounter += 1;
+        if (SrCaseNo.includes(numQuestion)) SrCaseCounter += 1;
+    }
     if (numQuestion < markup.length) {
-        (0, _common.mainContainer).innerHTML = markup[numQuestion];
+        (0, _common.testsEl).innerHTML = markup[numQuestion];
         numQuestion += 1;
-        const btnEl = (0, _common.mainContainer).lastElementChild;
-        btnEl.addEventListener("click", clickItem);
     } else {
-        aggregateLevel = ((authorityLevel / 20 + leadershipLevel / 20) / 2).toFixed(2);
         const date = (0, _getCurrentDate.getCurrentDate)();
-        const result = `<p class="result"> Результат №I = ${(authorityLevel / 20).toFixed(2)} </p>
-                    <p class="result"> Результат №II = ${(leadershipLevel / 20).toFixed(2)} </p>
-                      <b class="result"> Основний результат = ${aggregateLevel}</b>
-                      <div class="date">
-                        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-                        <span class="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
-                        </div>
-                    `;
+        LCaseCounter = (LCaseCounter / 10).toFixed(2);
+        SrCaseCounter = (SrCaseCounter / 35).toFixed(2);
+        L = LCaseCounter < 0.6 ? "+" : "-";
+        if (0.01 <= SrCaseCounter && SrCaseCounter <= 0.23) Sr = 5;
+        else if (0.24 <= SrCaseCounter && SrCaseCounter <= 0.38) Sr = 4;
+        else if (0.39 <= SrCaseCounter && SrCaseCounter <= 0.59) Sr = 3;
+        else if (0.6 <= SrCaseCounter && SrCaseCounter <= 0.74) Sr = 2;
+        else if (0.75 <= SrCaseCounter && SrCaseCounter <= 1) Sr = 1;
+        const result = `<p class="user"> Тест пройшов/пройшла</p>
+     <p class="user">${userName}</p>
+     <p class="result"> Результат №1 = ${LCaseCounter} </p>
+     <b class="result"> ${L} </b>
+     <p class="result"> Результат №2 = ${SrCaseCounter} </p>
+     <b class="result"> ${Sr}</b>
+    <div class="date">
+        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
+         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+    </div>`;
         (0, _common.mainContainer).innerHTML = result;
     }
-}
+};
+(0, _common.formEl).addEventListener("input", handleInput);
+(0, _common.formEl).addEventListener("submit", handleSubmit);
+(0, _common.btnEl).addEventListener("click", clickItem);
 
-},{"./questions-task-10":"bkWkM","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","./create-markup-for-tenth-test":"78iMr","../js/common":"2ASYY"}],"bkWkM":[function(require,module,exports) {
+},{"./questions-task-11":"72U5m","../js/helpers/create-question-id":"ipKyU","../js/common":"2ASYY","../js/helpers/create-markup":"eLGg5","../js/helpers/get-current-date":"gTe1R"}],"72U5m":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "testItems", ()=>testItems);
 const testItems = [
     {
-        question: "Відданість Україні, патріотизм"
+        question: "Як Ви вважаєте, чи може життя втратити цінність для людини в певній ситуації?"
     },
     {
-        question: "Рівень поваги підлеглих до командира (начальника)"
+        question: "Життя іноді гірше смерті."
     },
     {
-        question: "Рівень довіри підлеглих до командира (начальника)"
+        question: "У минулому в мене була спроба піти з життя."
     },
     {
-        question: "Чесність і порядність"
+        question: "Мене багато хто любить, розуміє та цінує."
     },
     {
-        question: "Справедливість"
+        question: "Можна виправдати безнадійно хворих, що обрали добровільну смерть."
     },
     {
-        question: "Вимогливість "
+        question: "Я не думаю, що сам можу опинитися в безнадійному становищі."
     },
     {
-        question: "Надійність, обов’язковість "
+        question: "Сенс життя не завжди буває ясний, його можна іноді втратити або не знайти."
     },
     {
-        question: "Самовладання, стійкість"
+        question: "Як Ви вважаєте, опинившись у ситуації, коли Вас зрадили близькі та рідні, Ви зможете жити далі?"
     },
     {
-        question: "Бере на себе відповідальність"
+        question: "Я іноді думаю про свою добровільну смерть."
     },
     {
-        question: "Рішучість"
+        question: "У будь-якій ситуації я буду боротися за своє життя, чого б мені це не коштувало."
     },
     {
-        question: "Сміливість"
+        question: "Завжди і скрізь намагаюся бути абсолютно чесною людиною."
     },
     {
-        question: "Старанність і добросовісність"
+        question: "У мене, в принципі, немає недоліків."
     },
     {
-        question: "Принциповість, вміння відстоювати власну думку"
+        question: "Можливо, далі я жити не зможу."
     },
     {
-        question: "Знання техніки й озброєння"
+        question: "Дивно, що деякі люди, опинившись у безвихідному становищі, не хочуть покінчити з життям."
     },
     {
-        question: "Вміння управляти підлеглими "
+        question: "Почуття приреченості в підсумку призводить до добровільного позбавлення себе життя."
     },
     {
-        question: "Знання своїх підлеглих"
+        question: "Якщо буде потрібно, то можна виправдати позбавлення себе життя."
     },
     {
-        question: "Зразковість і приклад у поведінці, дисциплінованість"
+        question: "Мені не подобається грати зі смертю наодинці"
     },
     {
-        question: "Уважне ставлення до потреб підлеглих, турбота про них"
+        question: "Часто перше враження про людину є визначальним."
     },
     {
-        question: "Прагнення досягти результату, наполегливість. Втілення рішень у реальність"
+        question: "Я пробував різні способи позбавлення себе життя."
     },
     {
-        question: "Вміння спілкуватися, товариськість"
+        question: "У критичний момент я завжди можу впоратися з собою."
     },
     {
-        question: "Інтелект, ерудованість"
+        question: "У школі я завжди відрізнявся (відрізнялася) тільки гарною поведінкою."
     },
     {
-        question: "Рівень фізичного стану"
+        question: "Можу обманювати оточуючих, щоб погіршити своє становище."
     },
     {
-        question: "Володіння емоціями і волею"
+        question: "Навколо мене досить багато нечесних людей."
     },
     {
-        question: "Рівень культури й етики "
+        question: "Одного разу я обирав декілька способів покінчити з життям."
     },
     {
-        question: "Вміння вести за собою"
+        question: "Досить часто мене намагаються обдурити або ввести в оману."
     },
     {
-        question: "Вміння визначати мету"
+        question: "Я б не хотів моментальної смерті після важких переживань."
     },
     {
-        question: "Прагнення вдосконалювати процеси, діяти нешаблонно"
+        question: "Я продовжив би жити далі, якби трапилася світова ядерна війна."
     },
     {
-        question: "Впровадження нових підходів, прагнення змін на краще"
+        question: "Людина вільна чинити зі своїм життям так, як їй хочеться, навіть якщо вона обирає смерть."
     },
     {
-        question: "Вміння слухати і чути"
+        question: "Якщо людина не вміє подати себе у вигідному ракурсі перед керівництвом, то вона багато чого втрачає."
     },
     {
-        question: "Вміння згуртовувати людей"
+        question: "Нікому й ніколи не писав передсмертну записку."
     },
     {
-        question: "Забезпечення відпочинку людей"
+        question: "Одного разу намагався накласти на себе руки."
     },
     {
-        question: "Ініціативність, активність"
+        question: "Ніколи не буває безвихідних ситуацій."
     },
     {
-        question: "Доступність і щирість"
+        question: "Пробував покінчити з життям таким чином, щоб не відчувати сильного болю."
     },
     {
-        question: "Дотримання моральних цінностей"
+        question: "Треба вміти приховувати свої думки від інших, навіть якщо вони до мене байдужі."
     },
     {
-        question: "Розвиток і навчання підлеглих"
+        question: "Душа людини напевно відчуває полегшення, якщо сама залишає цей світ."
     },
     {
-        question: "Показує приклад дій"
+        question: "Можу виправдати будь-який свій вчинок."
     },
     {
-        question: "Опирається на довіру до людей "
+        question: "Якщо я щось роблю, а мені починають заважати, то я все одно буду робити те, що задумав."
     },
     {
-        question: "Заохочує і мотивує підлеглих "
+        question: "Щоб людині позбутися від невиліковної хвороби та перестати мучитися, вона, напевно, повинна сама припинити свої страждання та піти з цього життя добровільно."
     },
     {
-        question: "Надає допомогу "
+        question: "Буває, сумніваюся в психічному здоров’ї деяких моїх знайомих."
     },
     {
-        question: "Дотримання даного слова й обіцянок"
+        question: "Одного разу наважувався покінчити з життям."
+    },
+    {
+        question: "Мене турбує відсутність відчуття щастя."
+    },
+    {
+        question: "Я ніколи не йду на порушення закону, навіть у дрібницях."
+    },
+    {
+        question: "Іноді мені хочеться заснути й не прокинутися."
+    },
+    {
+        question: "Одного разу мені було дуже соромно через те, що хотілося піти з життя."
+    },
+    {
+        question: "Навіть у найважчій ситуації я буду боротися за своє життя, чого б мені це не коштувало."
     }
 ];
 
@@ -779,6 +877,29 @@ function createQuestionId(arr) {
     for(let i = 1; i <= arr.length; i += 1)arr[i - 1].id = i;
 }
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLGg5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
+function createMarkup(arr) {
+    const markup = arr.map(({ id, question })=>`<li class="test-item">
+    <p class="test-item-text"> ${id}. ${question} </p>
+  </li>`);
+    return markup;
+}
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -810,47 +931,6 @@ function getCurrentDate() {
     return date;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"78iMr":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkupForTenthTest", ()=>createMarkupForTenthTest);
-function createMarkupForTenthTest(arr) {
-    const markup = arr.map(({ id, question })=>`<p class="test-item-text">${id}. ${question} </p>
-      <ul class="button-list">
-      <li class="button-item">
-        <button class="btn" type="button">0</button>
-      </li>
-      <li class="button-item">
-        <button class="btn" type="button">1</button>
-      </li>
-      <li class="button-item">
-        <button class="btn" type="button">2</button>
-      </li>
-      <li class="button-item">
-        <button class="btn" type="button">3</button>
-      </li>
-            <li class="button-item">
-        <button class="btn" type="button">4</button>
-      </li>
-      <li class="button-item">
-        <button class="btn" type="button">5</button>
-      </li>
-    </ul>`);
-    return markup;
-}
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["81ixZ","3qbEs"], "3qbEs", "parcelRequiree8da")
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cQObT","aw7uW"], "aw7uW", "parcelRequiree8da")
-
-//# sourceMappingURL=task-10.fe86e72b.js.map
+//# sourceMappingURL=task-11.f731e951.js.map
