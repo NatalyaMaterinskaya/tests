@@ -1,0 +1,16 @@
+@media screen and (width <= 479px) {
+  .test-item-text {
+    min-height: 200px;
+  }
+}
+
+.answer-btn-container {
+  row-gap: 20px;
+}
+
+.answer-btn-container button {
+  min-width: 200px;
+  max-width: 358px;
+}
+
+/*# sourceMappingURL=task-12.510b5bb4.css.map */
