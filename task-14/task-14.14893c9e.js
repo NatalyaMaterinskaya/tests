@@ -648,103 +648,7 @@ function clickItem(evt) {
     }
 }
 
-},{"../js/common":"2ASYY","../js/helpers/create-button-markup":"jp67J","../js/helpers/get-current-date":"gTe1R","../js/helpers/create-markup-for-third-test":"kMZTE","./questions-task-14":"da5NR"}],"2ASYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "formEl", ()=>formEl);
-parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
-parcelHelpers.export(exports, "testsEl", ()=>testsEl);
-parcelHelpers.export(exports, "btnEl", ()=>btnEl);
-const formEl = document.querySelector(".feedback-form");
-const mainContainer = document.querySelector(".container");
-const testsEl = document.querySelector(".tests");
-const btnEl = document.querySelector(".answer-container");
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"jp67J":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createButtonMarkup", ()=>createButtonMarkup);
-function createButtonMarkup() {
-    let markup = [];
-    for(let i = 0; i <= 10; i += 1)markup.push(`<li class="btn-item">
-        <button class="answer-btn" data-answer="${i}" type="button">${i}</button>
-        </li>`);
-    return markup;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getCurrentDate", ()=>getCurrentDate);
-function getCurrentDate() {
-    const monthArr = [
-        "січня",
-        "лютого",
-        "березня",
-        "квітня",
-        "травня",
-        "червня",
-        "липня",
-        "серпня",
-        "вересня",
-        "жовтня",
-        "листопада",
-        "грудня"
-    ];
-    const currentDate = new Date();
-    const currentMonth = monthArr.find((_, index)=>index === currentDate.getMonth());
-    const date = {
-        currentHours: currentDate.getHours().toString().padStart(2, "0"),
-        currentMinutes: currentDate.getMinutes().toString().padStart(2, "0"),
-        currentDays: currentDate.getDate().toString().padStart(2, "0"),
-        currentMonth: currentMonth,
-        currentYear: currentDate.getFullYear()
-    };
-    return date;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kMZTE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkupForThirdTest", ()=>createMarkupForThirdTest);
-function createMarkupForThirdTest(arr) {
-    const markup = arr.map(({ id, num, question })=>`<li class="test-item" data-id=${id} data-num=${num}>
-    <p class="test-item-text">${id}.${num}. ${question} </p>
-  </li>`);
-    return markup;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"da5NR":[function(require,module,exports) {
+},{"./questions-task-14":"da5NR","../js/common":"2ASYY","../js/helpers/create-markup-for-third-test":"kMZTE","../js/helpers/create-button-markup":"jp67J","../js/helpers/get-current-date":"gTe1R"}],"da5NR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "testItems", ()=>testItems);
@@ -870,6 +774,102 @@ const testItems = [
         question: "Оцінка рівня передачі бойового досвіду військовослужбовцями твого підрозділу."
     }
 ];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"2ASYY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "formEl", ()=>formEl);
+parcelHelpers.export(exports, "mainContainer", ()=>mainContainer);
+parcelHelpers.export(exports, "testsEl", ()=>testsEl);
+parcelHelpers.export(exports, "btnEl", ()=>btnEl);
+const formEl = document.querySelector(".feedback-form");
+const mainContainer = document.querySelector(".container");
+const testsEl = document.querySelector(".tests");
+const btnEl = document.querySelector(".answer-container");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kMZTE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createMarkupForThirdTest", ()=>createMarkupForThirdTest);
+function createMarkupForThirdTest(arr) {
+    const markup = arr.map(({ id, num, question })=>`<li class="test-item" data-id=${id} data-num=${num}>
+    <p class="test-item-text">${id}.${num}. ${question} </p>
+  </li>`);
+    return markup;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jp67J":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createButtonMarkup", ()=>createButtonMarkup);
+function createButtonMarkup() {
+    let markup = [];
+    for(let i = 0; i <= 10; i += 1)markup.push(`<li class="btn-item">
+        <button class="answer-btn" data-answer="${i}" type="button">${i}</button>
+        </li>`);
+    return markup;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gTe1R":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getCurrentDate", ()=>getCurrentDate);
+function getCurrentDate() {
+    const monthArr = [
+        "січня",
+        "лютого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня"
+    ];
+    const currentDate = new Date();
+    const currentMonth = monthArr.find((_, index)=>index === currentDate.getMonth());
+    const date = {
+        currentHours: currentDate.getHours().toString().padStart(2, "0"),
+        currentMinutes: currentDate.getMinutes().toString().padStart(2, "0"),
+        currentDays: currentDate.getDate().toString().padStart(2, "0"),
+        currentMonth: currentMonth,
+        currentYear: currentDate.getFullYear()
+    };
+    return date;
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["boN52","18RUp"], "18RUp", "parcelRequiree8da")
 
