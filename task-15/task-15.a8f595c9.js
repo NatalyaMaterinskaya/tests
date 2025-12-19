@@ -709,7 +709,6 @@ const thirdCaseYes = [
     118,
     119,
     120,
-    139,
     140,
     141,
     142,
@@ -907,7 +906,6 @@ const handleSubmit = (event)=>{
     const { elements: { name } } = event.currentTarget;
     if (name.value.trim() === "") alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
     else {
-        console.log(userName);
         event.currentTarget.reset();
         (0, _common.formEl).style.display = "none";
         (0, _common.testsEl).innerHTML = markup[numQuestion - 1];
@@ -961,7 +959,7 @@ const clickItem = (evt)=>{
 (0, _common.formEl).addEventListener("submit", handleSubmit);
 (0, _common.btnEl).addEventListener("click", clickItem);
 
-},{"../js/common":"2ASYY","../js/helpers/create-markup":"eLGg5","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","./questions-task-15":"278q8","../js/helpers/get-STEN":"jGTgm"}],"2ASYY":[function(require,module,exports) {
+},{"../js/common":"2ASYY","../js/helpers/create-markup":"eLGg5","../js/helpers/create-question-id":"ipKyU","../js/helpers/get-current-date":"gTe1R","../js/helpers/get-STEN":"jGTgm","./questions-task-15":"278q8"}],"2ASYY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "formEl", ()=>formEl);
@@ -1051,6 +1049,28 @@ function getCurrentDate() {
         currentYear: currentDate.getFullYear()
     };
     return date;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jGTgm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getSTEN_D", ()=>getSTEN_D);
+parcelHelpers.export(exports, "getSTEN_NPN", ()=>getSTEN_NPN);
+function getSTEN_D(num) {
+    if (num >= 8) return false;
+    else return true;
+}
+function getSTEN_NPN(num) {
+    if (num >= 13) return 10;
+    else if (num === 12) return 9;
+    else if (num === 11 || num === 10) return 8;
+    else if (num === 9 || num === 8) return 7;
+    else if (num === 7) return 6;
+    else if (num === 6 || num === 5) return 5;
+    else if (num === 4 || num === 3) return 4;
+    else if (num === 2) return 3;
+    else if (num === 1) return 2;
+    else return 1;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"278q8":[function(require,module,exports) {
@@ -1143,13 +1163,13 @@ const testItems = [
         question: "Я охоче беру участь у всіх зборах та інших громадських заходах."
     },
     {
-        question: "Вважаю, що одягненим треба бути завжди привабливо, тому “Зустрічають по одягу”."
+        question: "Вважаю, що одягненим треба бути завжди привабливо, тому що “Зустрічають по одягу”."
     },
     {
         question: "Я вважаю, що не слід виділятися серед оточуючих чому б то не було."
     },
     {
-        question: "У незвичайною і привертає увагу одязі я почуваюся чудово."
+        question: "У незвичайною і привертаючому увагу одязі я почуваюся чудово."
     },
     {
         question: "Намагаюся жити так, щоб оточуючі могли сказати про мене: “Ось це людина”"
@@ -1212,7 +1232,7 @@ const testItems = [
         question: "Найбільше з боку оточуючих я ціную увагу до мене."
     },
     {
-        question: "Я люблю одяг модну і незвичайну, яка мимоволі привертає погляди."
+        question: "Я люблю одяг модний і незвичайний, яка мимоволі привертає погляди."
     },
     {
         question: "Буває, що абсолютно незнайома людина мені моментально вселяє довіру і симпатію."
@@ -1257,13 +1277,13 @@ const testItems = [
         question: "Нерідко я відчуваю своєрідне відчуття, ніби “Я” ̶ це не “Я”"
     },
     {
-        question: "Я вважаю, що моє сімейне життя така ж гарна, як і у більшості моїх знайомих."
+        question: "Я вважаю, що моє сімейне життя таке ж гарне, як і у більшості моїх знайомих."
     },
     {
         question: "Іноді у мене буває таке відчуття, що я просто повинен нанести ушкодження самому собі або кому-небудь іншому."
     },
     {
-        question: "У дитинстві у мене була така компанія, де всі намагалися завжди і вусьому стояти один за одного."
+        question: "У дитинстві у мене була така компанія, де всі намагалися завжди і в усьому стояти один за одного."
     },
     {
         question: "У грі я волію вигравати."
@@ -1281,7 +1301,7 @@ const testItems = [
         question: "Я люблю опікати когось, хто мені подобається."
     },
     {
-        question: "Я люблю бути першим, щоб мені наслідували, за мною б слідували інші."
+        question: "Я люблю бути першим, щоб з мене брали приклад, за мною б слідували інші."
     },
     {
         question: "Іноді я відчуваю комок у горлі або інші незвичайні відчуття."
@@ -1293,16 +1313,16 @@ const testItems = [
         question: "Зміни погоди впливають на мою працездатність і настрій."
     },
     {
-        question: "У відносинах з людьми я часто відчуваю труднощі через почуття сором'язливості, реальних причин для якого немає."
+        question: "У відносинах з людьми я часто відчуваю труднощі через почуття сором'язливості, реальних причин для цього немає."
     },
     {
-        question: "Часто я не поступаюся людям не тому, що справа дійсно важливе, а просто через принципу."
+        question: "Часто я не поступаюся людям не тому, що справа є дійсно важливою, а просто через принцип."
     },
     {
-        question: "У мене часто погане, злісний настрій."
+        question: "У мене часто поганий, злісний настрій."
     },
     {
-        question: "Я, напевно, людина дратівлива і запальний."
+        question: "Я, напевно, людина дратівлива і запальна."
     },
     {
         question: "Часто я “завожусь з півоберта”."
@@ -1392,7 +1412,7 @@ const testItems = [
         question: "Були випадки, коли мені було важко втриматися від того, щоб не поцупити у кого небудь або де-небудь, наприклад, у магазині."
     },
     {
-        question: "Буває, що я з ким-небудь трохи по пліткувати."
+        question: "Буває, що я з ким-небудь трохи пліткую."
     },
     {
         question: "Часто я бачу сни, про які краще нікому не розповідати."
@@ -1422,7 +1442,7 @@ const testItems = [
         question: "Мені буває важко викласти свої думки словами, тому я рідко включаюся в бесіду."
     },
     {
-        question: "Буває, що мене турбує почуття провини або докори сумління через якоїсь дурниці."
+        question: "Буває, що мене турбує почуття провини або докори сумління через яку-небудь дрібницю."
     },
     {
         question: "У розмові з представницями протилежної статі я часто уникаю делікатних тем, які можуть викликати збентеження."
@@ -1431,7 +1451,7 @@ const testItems = [
         question: "Я сильно дратуюся, якщо мене кваплять або підганяють."
     },
     {
-        question: "Іноді дрібниця, сказаний на мою адресу, здатний викликати у мене бурхливу реакцію."
+        question: "Іноді дрібниця, сказаний на мою адресу, здатна викликати у мене бурхливу реакцію."
     },
     {
         question: "Якщо я вважаю, що чиню правильно, то думка інших людей мене мало цікавить"
@@ -1452,7 +1472,7 @@ const testItems = [
         question: "Я живу своїми внутрішніми думками і мене не цікавить дійсність."
     },
     {
-        question: "Я не відчуваю (не сприймайте) заперечень і критики, а завжди думаю і роблю по-своєму."
+        question: "Я не відчуваю (не сприймаю) заперечень і критики, а завжди думаю і роблю по-своєму."
     },
     {
         question: "Я цілком упевнений у собі."
@@ -1467,7 +1487,7 @@ const testItems = [
         question: "Я щодня випиваю незвично багато води."
     },
     {
-        question: " Буває, що непристойна або навіть непристойна жарт викликає у мене сміх."
+        question: " Буває, що непристойний жарт викликає у мене сміх."
     },
     {
         question: "Щасливіше всього я буваю, коли знаходжусь на самоті."
@@ -1512,7 +1532,7 @@ const testItems = [
         question: "Упевнений, що за моєю спиною про мене говорять"
     },
     {
-        question: "Мої ідеї і думки виглядають, як випереджають час."
+        question: "Мої ідеї і думки виглядають, як ті, що випереджають час."
     },
     {
         question: "Мене дратує, коли мене відволікають від важливої роботи, наприклад, просять поради."
@@ -1539,7 +1559,7 @@ const testItems = [
         question: "Мені часто хочеться померти."
     },
     {
-        question: "Я б погодився виступити в ролі конферансьє на концерті у якоїнебудь знаменитості."
+        question: "Я б погодився виступити в ролі конферансьє на концерті у якої-небудь знаменитості."
     },
     {
         question: "Мене завжди дратують люди, які прагнуть бути першими в компанії."
@@ -1587,7 +1607,7 @@ const testItems = [
         question: "Часом я шкодую, що живу на цьому світі."
     },
     {
-        question: "Бувало, що я кидав розпочату справу, тому що боявся, що не впораюся з ним."
+        question: "Бувало, що я кидав розпочату справу, тому що боявся, що не впораюся з нею."
     },
     {
         question: "Майже щодня трапляється що-небудь, що лякає мене."
@@ -1701,7 +1721,7 @@ const testItems = [
         question: "Я завжди в змозі гостро контролювати прояв своїх почуттів."
     },
     {
-        question: "Я вразливий більшості людей."
+        question: "Я вразливіший за більшість людей."
     },
     {
         question: "Більшість людей в глибині душі не люблять обтяжувати себе заради того, щоб допомогти іншим."
@@ -1716,7 +1736,7 @@ const testItems = [
         question: "Часто якісь дрібниці дозволяють мені прийти до приголомшливих висновків."
     },
     {
-        question: "Мені подобається шукати незвичайні або парадоксальні прийомивирішення різних завдань і запитань."
+        question: "Мені подобається шукати незвичайні або парадоксальні прийоми вирішення різних завдань і питань."
     },
     {
         question: " Іноді я відчуваю, що близький до нервового зриву."
@@ -1866,7 +1886,7 @@ const testItems = [
         question: "Чи є у Вас судимі родичі?"
     },
     {
-        question: "Чи мали Ви приводи в міліцію?"
+        question: "Чи мали Ви приводи в поліцію?"
     },
     {
         question: "Залишалися Ви в школі на другий рік?"
@@ -1887,28 +1907,6 @@ const testItems = [
         question: "Якщо у мене взяли в борг, я соромлюся про це нагадати."
     }
 ];
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jGTgm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getSTEN_D", ()=>getSTEN_D);
-parcelHelpers.export(exports, "getSTEN_NPN", ()=>getSTEN_NPN);
-function getSTEN_D(num) {
-    if (num >= 8) return false;
-    else return true;
-}
-function getSTEN_NPN(num) {
-    if (num >= 13) return 10;
-    else if (num === 12) return 9;
-    else if (num === 11 || num === 10) return 8;
-    else if (num === 9 || num === 8) return 7;
-    else if (num === 7) return 6;
-    else if (num === 6 || num === 5) return 5;
-    else if (num === 4 || num === 3) return 4;
-    else if (num === 2) return 3;
-    else if (num === 1) return 2;
-    else return 1;
-}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["a0bFW","4aEUC"], "4aEUC", "parcelRequiree8da")
 
