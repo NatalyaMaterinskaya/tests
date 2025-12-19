@@ -52,7 +52,7 @@ const secondCaseNo = [
 
 const thirdCaseYes = [
   7, 8, 9, 10, 29, 31, 32, 51, 52, 53, 54, 73, 74, 75, 76, 95, 96, 97, 98, 117,
-  118, 119, 120, 139, 140, 141, 142, 161, 162, 163, 164, 183, 184, 185, 205,
+  118, 119, 120, 140, 141, 142, 161, 162, 163, 164, 183, 184, 185, 205,
   206, 207, 227, 229, 250, 251, 272, 273,
 ];
 const thirdCaseNo = [30, 139, 228];
@@ -100,7 +100,6 @@ const handleSubmit = (event) => {
   if (name.value.trim() === "") {
     alert("Введіть прізвище, ім'я, по батькові, будь ласка.");
   } else {
-    console.log(userName);
     event.currentTarget.reset();
     formEl.style.display = "none";
     testsEl.innerHTML = markup[numQuestion - 1];
