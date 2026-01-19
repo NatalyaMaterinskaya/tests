@@ -901,7 +901,7 @@ const clickItem = (evt)=>{
         (0, _common.mainContainer).innerHTML = result;
         (0, _common.mainContainer).insertAdjacentHTML(`beforeend`, `<div class="answer"></div>`);
         const answerEl = document.querySelector(".answer");
-        for(i = 0; i < arr.length; i++)answerEl.insertAdjacentHTML(`beforeend`, `<p class="result">${i + 1}.${arr[i]}</p>`);
+        for(let i1 = 0; i1 < arr.length; i1++)answerEl.insertAdjacentHTML(`beforeend`, `<p class="result">${i1 + 1}.${arr[i1]}</p>`);
     }
 };
 (0, _common.formEl).addEventListener("input", handleInput);
