@@ -190,8 +190,6 @@ const clickItem = (evt) => {
     Se = Se + K;
     Ma = Ma + Math.round(0.2 * K);
 
-    for (i = 0; i < arr.length; i++) {}
-
     const T_L = convertLToTScores(L);
     const T_F = convertFToTScores(F);
     const T_K = convertKToTScores(K);
