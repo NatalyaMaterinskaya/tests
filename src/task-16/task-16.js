@@ -229,7 +229,7 @@ const clickItem = (evt) => {
 
     const answerEl = document.querySelector(".answer");
 
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       answerEl.insertAdjacentHTML(
         `beforeend`,
         `<p class="result">${i + 1}.${arr[i]}</p>`
