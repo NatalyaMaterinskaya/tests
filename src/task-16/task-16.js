@@ -18,7 +18,7 @@ import { getCurrentDate } from "../js/helpers/get-current-date";
 import { testItems } from "./questions-task-16";
 
 const resultMarkup = (value) => {
-  if (value>=40 && value<=70) {
+  if (value >= 40 && value <= 70) {
     return `<span class="result"> ${value}</span>`;
   } else {
     return `<b class="result"> ${value}</b>`;
@@ -28,6 +28,7 @@ const resultMarkup = (value) => {
 createQuestionId(testItems);
 
 const markup = createMarkup(testItems);
+let arr = [];
 
 let L = 0;
 let F = 0;
@@ -138,6 +139,7 @@ const clickItem = (evt) => {
     if (MaCaseYes.includes(numQuestion)) {
       Ma += 1;
     }
+    arr.push('так');
   }
   if (evt.target.dataset.answer === "no") {
     if (LCaseNo.includes(numQuestion)) {
@@ -165,7 +167,7 @@ const clickItem = (evt) => {
       Pa += 1;
     }
     if (PtCaseNo.includes(numQuestion)) {
-      Pa += 1;
+      Pt += 1;
     }
     if (SeCaseNo.includes(numQuestion)) {
       Se += 1;
@@ -173,6 +175,7 @@ const clickItem = (evt) => {
     if (MaCaseNo.includes(numQuestion)) {
       Ma += 1;
     }
+    arr.push('ні');
   }
 
   if (numQuestion < markup.length) {
@@ -180,10 +183,6 @@ const clickItem = (evt) => {
     numQuestion += 1;
   } else {
     const date = getCurrentDate();
-    
-     console.log("K", K);
-
-     console.log("PD", Pd);
 
     Hs = Hs + Math.round(0.5 * K);
     Pd = Pd + Math.round(0.4 * K);
@@ -191,7 +190,7 @@ const clickItem = (evt) => {
     Se = Se + K;
     Ma = Ma + Math.round(0.2 * K);
 
-     console.log("PD", Pd);
+    for (i = 0; i < arr.length; i++) {}
 
     const T_L = convertLToTScores(L);
     const T_F = convertFToTScores(F);
@@ -225,6 +224,17 @@ const clickItem = (evt) => {
   </div>`;
 
     mainContainer.innerHTML = result;
+
+    mainContainer.insertAdjacentHTML(`beforeend`, `<div class="answer"></div>`);
+
+    const answerEl = document.querySelector(".answer");
+
+    for (i = 0; i < arr.length; i++) {
+      answerEl.insertAdjacentHTML(
+        `beforeend`,
+        `<p class="result">${i + 1}.${arr[i]}</p>`
+      );
+    }
   }
 };
 
