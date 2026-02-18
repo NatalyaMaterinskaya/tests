@@ -870,7 +870,6 @@ const clickItem = (evt)=>{
         Pt = Pt + K;
         Se = Se + K;
         Ma = Ma + Math.round(0.2 * K);
-        for(i = 0; i < arr.length; i++);
         const T_L = (0, _convertToTScores.convertLToTScores)(L);
         const T_F = (0, _convertToTScores.convertFToTScores)(F);
         const T_K = (0, _convertToTScores.convertKToTScores)(K);
@@ -901,7 +900,7 @@ const clickItem = (evt)=>{
         (0, _common.mainContainer).innerHTML = result;
         (0, _common.mainContainer).insertAdjacentHTML(`beforeend`, `<div class="answer"></div>`);
         const answerEl = document.querySelector(".answer");
-        for(let i1 = 0; i1 < arr.length; i1++)answerEl.insertAdjacentHTML(`beforeend`, `<p class="result">${i1 + 1}.${arr[i1]}</p>`);
+        for(let i = 0; i < arr.length; i++)answerEl.insertAdjacentHTML(`beforeend`, `<p class="result">${i + 1}.${arr[i]}</p>`);
     }
 };
 (0, _common.formEl).addEventListener("input", handleInput);
