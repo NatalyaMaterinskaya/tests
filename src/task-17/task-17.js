@@ -56,24 +56,22 @@ const clickItem = (evt) => {
     mainContainer.innerHTML = result;
 
     const dateEl = `<div class="date">
-        <span class="time">${date.currentHours}:${date.currentMinutes}</span>
-         <spanclass="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</span>
+        <p class="time">${date.currentHours}:${date.currentMinutes}</p>
+         <p class="time">${date.currentDays} ${date.currentMonth} ${date.currentYear} року</p>
     </div>`;
 
     mainContainer.insertAdjacentHTML("beforeend", dateEl);
-    
+
     mainContainer.insertAdjacentHTML(`beforeend`, `<div class="answer"></div>`);
-    
+
     const answerEl = document.querySelector(".answer");
-    
-    
+
     for (let i = 0; i < arr.length; i++) {
       answerEl.insertAdjacentHTML(
         `beforeend`,
         `<p class="result">${i + 1}.${arr[i]}</p>`,
       );
     }
-  
   }
 };
 
